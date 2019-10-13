@@ -55,19 +55,19 @@ In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in
 ### Add VMWIN02 to LB-01
 In the steps above, you created a *Standard* load balancer and added VMWIN04 to it.  When we created WINVM02 in Lab 2A, LB-01 had not been created and therefore VMWIN02 needs to be added to the backend-pool of LB-01 so it has multiple VMs to route traffic to.
 1. In the search bar at the top of the Azure portal, enter **VMWIN02**. When the appears in the search results, *select it*
-   - Under **Settings** *click on **Networking***
-   - *Click on the **Load Balancing** tab
-   - *Select **Add load balancing***
+2. Under **Settings** *click on **Networking***
+3. *Click on the **Load Balancing** tab*
+4. *Select **Add load balancing***
    - Under **Add load balancing** use the following:
-     - Load balancing options: **Azure load balancer**
-     - Select a load balancer: **LB-01**
-     - Backend pool: **Use existing**
-     - Select a backend pool: **BEP-01**
-     - *Select **Save***
+   - Load balancing options: **Azure load balancer**
+   - Select a load balancer: **LB-01**
+   - Backend pool: **Use existing**
+   - Select a backend pool: **BEP-01**
+   - *Click **Save***
  
 ### Create NSG rules
 In this section, you create NSG rules to allow inbound connections that use HTTP and RDP.
-1.	Select **Resource Groups** on the left menu. From the resource list, select **LBRG** then **LBVM1-nsg**.
+1.	Select **Resource Groups** on the left menu. From the resource list, select **RG-LAB-NETWORKING** then **VMWIN02-nsg**.
 2.	Under **Settings**, select **Inbound security rules**, and then select **Add**.
 3.	Enter the following values for the inbound security rule named **HTTPRule** to allow for inbound HTTP connections that use port 80. Then select **OK**.
     * Source: Service Tag
@@ -81,7 +81,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     * Name: HTTP-In
     * Description: Allow HTTP
  
-4.	Repeat the steps except from the resource list, select **LBRG** then **LBVM2-nsg**.
+4.	Repeat the steps for **VMWIN04-nsg**.
 
 ### Install IIS
 1.	Select **Virtual Machines** on the left menu, then select **VMWIN02**. 
@@ -99,7 +99,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
    - In Server Manager, click Tools then IIS Manager
    - Expand the left tree **VMWIN02 > Sites**, right-click on Default web site, and then choose Explore
    - Edit the iisstart.html by right-clicking on teh file and selecting ** open with > Notepad**
-   - Change the `<title>` line to read: `<title>IIS Windows Server - VMWIN02</title>`
+   - Change the `<body></body>` line to read: `<body>VMWIN02</body>`  *(eg Delete any HTML mark-up between the <body> and </body> tags and insert your VM name.)*
    - Save the file
 8. Repeat steps 1 to 7 for the virtual machine **VMWIN04** and ensure you substitue **VMWIN02** for **VMWIN04** for any of the steps.
 
@@ -108,30 +108,35 @@ In this section, you configure load balancer settings for a back-end address poo
 
 #### Create a health probe
 To allow the *Standard* load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe named LBHP to monitor the health of the VMs.
-1.	Under **Settings**, select **Health probes**, and then select **Add**.
-2.	Use these values, and then select **OK**:
-    * **LBHP** for the name of the health probe
-    * **HTTP** for the protocol type
-    * **80** for the port number
-    * **5** for Interval, the number of seconds between probe attempts
-    * **2** for Unhealthy threshold, the number of consecutive probe failures that must occur before a VM is considered unhealthy
+1. Go to resource **LB-01**	
+2. Under **Settings**, select **Health probes**, and then select **Add**.
+3. Use these values, and then select **OK**:
+   - Name: **LB-01-HP01** 
+   - Protocol: **HTTP**
+   - Port: **80** 
+   - Interval: **5** *(number of seconds between probe attempts)*
+   - Unhealthy threshold: **2** *(number of consecutive probe failures that must occur before a VM is considered unhealthy and removed from the backend-pool)*
+4. *Click **OK***
  
 #### Create a load balancer rule
 You use a load balancer rule to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port.
 
-Create a load balancer rule named HTTPRule for listening to port 80 in the front end LoadBalancerFrontEnd. The rule is also for sending load-balanced network traffic to the back-end address pool myBackEndPool, also by using port 80.
-1.	Under **Settings**, select **Load balancing rules**, and then select **Add**.
-2.	Use these values, and then select **OK**:
-    * **HTTPRule** for the name of the load balancer rule
-    * **TCP** for the protocol type
-    * **80** for the port number
-    * **80** for the back-end port
-    * **BEPool** for the name of the back-end pool
-    * **LBHP**for the name of the health probe 
+Create a load balancer rule named HTTPRule for listening to port 80 in the front end LoadBalancerFrontEnd. The rule is also for sending load-balanced network traffic to the back-end address pool **BEP-01**, also by using port 80.
+1. Go to resource **LB-01**
+2. Under **Settings**, select **Load balancing rules**, and then select **Add**.
+3. Use these values, and then select **OK**:
+   - Name: **HTTPRule** 
+   - IP Version: **IPv4**
+   - Protocol: **TCP** 
+   - Port: **80** 
+   - Backend Port: **80**
+   - Backend Pool: **BEP-01** 
+   - Health Probe: **LB-01-HP01**
+   - *Click **OK***
 
 #### Test the load balancer
-1.	Find the public IP address for the load balancer on the Overview screen. Select **All resources**, and then select **LBPublicIP**.
-2.	Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting LBVM1 or LBVM2 as you refresh your browser.
+1.	Find the public IP address for the load balancer on the Overview screen. Select **All resources**, and then select **LB-01-PUBIP**.
+2.	Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting VMWIN02 or VMWIN04 as you refresh your browser.
 3.	Shutdown either LBVM1 or LBVM2, whichever VM is responding most frequently.  As the VM is shutting down, refresh your browser.  Once one of the VMs is down, you should only see the live VM rendering you the default website.  You may receive a service unavailable if you refresh during probe attempts. 
 
 
