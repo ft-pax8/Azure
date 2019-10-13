@@ -3,13 +3,15 @@
 Here are the lab files for the  boot camp.  They are broken down into the following distinct areas:
 
 1. Identity
-1. Networking
-- [Lab 2A - Networking - Virtual Networks](Lab 2A - Networking - Virtual Networks.md)
-- [Lab 2A - Networking - Load Balancer](Lab 2B - Networking - Load Balancing.md)
+2. Networking
+
+- [Lab 2A - Networking - Virtual Networks](Lab%202A%20-%20Networking%20-%20Virtual%20Networks.md)
+- [Lab 2A - Networking - Load Balancer](Lab%202B%20-%20Networking%20-%20Load%20Balancing.md)
 - [Lab 2A - Networking - Traffic Manager]()
 - [Lab 2A - Networking - Network Watcher]()
 - [Lab 2A - Networking - Hub and Spoke Challenge (Optional)]()
-1. Migration
+
+3. Migration
 
 
 - [1 - Hybrid Cloud - Identity - Lab 1 - AD Connect](01_HybridCloud_IdentityLab01_ADConnect.md)
