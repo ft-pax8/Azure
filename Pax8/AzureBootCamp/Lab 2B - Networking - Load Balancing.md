@@ -19,12 +19,12 @@ In this section you will create a public standard load balancer by using the por
 In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in order to create the back-end pool of your *Standard* load balancer. Then you install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
 
 
-Create VMWIN04
+**Create VMWIN04**
 1.	On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 2.	Enter, or select, the following information, accept the defaults for the remaining settings:
 
 
- Under **Basics**:
+    Under **Basics**:
     - Resource Group: select **RG-LAB-NETWORKING**
     - Name: **VMWIN04**
     - Region: *Choose a consistent and supported Region*
@@ -40,7 +40,7 @@ Create VMWIN04
     - *Select **Next:Disks***
     - Click **Next: Networking**
 
-3. 	Under **Networking:**
+3. Under **Networking:**
    - Set the virtual network to **VNET02**
    - *Select **Next: Management***
    - Place this virtual machine in the backend pool of an existing Azure load balancing solution: **Yes**
@@ -49,7 +49,7 @@ Create VMWIN04
    - Select a backend pool: *Create new* **BEPool**
    - Select **Create** and then **Next: Management >**
 
-4.	Under **Management** 
+4. Under **Management** 
    - Under **Diagnostic storage account** use the previously created Diagnostics storage account and then click  **Review + create**.
 5. Once validation passes *click **Create***
 
