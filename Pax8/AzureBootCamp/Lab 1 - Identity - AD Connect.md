@@ -85,16 +85,16 @@ We are creating a small VM to be used later to host the Azure AD Connector servi
 ## Task 5 - Join the Domain 
 1.	Within **Server Manager**, click on **Local Server**.
 2.	Click on **WORKGROUP**, then **Change** to rename this computer or join it to a domain.
-3.	Click the radio button for **Domain**, enter your fully-qualified domain name, such as mydomainname.com, and click **OK**.
-4.	In the Windows Security box enter the AD Domain Admin credentials you specified in the template.
+3.	Click the radio button for **Domain**, enter your fully-qualified domain name, such as `<initials><zip code>.com`, and click **OK**.
+4.	In the Windows Security box enter the AD Domain Admin credentials you specified in the template (Task 1).
 5.	Click **Ok** on the Welcome screen, **Ok** on the Computer Name/Domain Changes window, **Close**, then **Restart Now**.
 
 ## Task 6 - Install Azure Active Directory
 1.	In the Azure Portal, click  **+Create a resource** and then select **Identity**, then **Azure Active Directory**.
 2.	Enter the following on the **Create directory tab**:
-    * Organization name (e.g. *MyDirectory*) 
-    * Initial domain name (e.g. your initials plus last four of your cellphone)
-        * Ensure validation passes as your namespace needs to be unique within the *.onmicrosoft.com namespace.  We often see students choosing a domain name that already exists.  
+    * Organization name: **AD Connect Directory** 
+    * Initial domain name: `<intials><birthday MMDD format>`
+        * Ensure validation passes as your namespace needs to be unique within the *.onmicrosoft.com namespace.  We often see participants choosing a domain name that already exists. If it's not unique, append additional characters/numbers to create a unique name. 
         * _You should write this initial domain  and directory name down._
 3.	Click **Create**.  It will take several minutes for the directory to be created. 
 4.	Once complete, click **Click here to manage your new directory**.
