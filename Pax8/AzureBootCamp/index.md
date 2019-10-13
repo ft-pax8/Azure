@@ -27,4 +27,6 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 If you see any changes that need to be made (typos, new steps, etc.) please submit a pull request!
 
 
-[Back](./AzureBootCamp)
+
+[Back](../AzureBootCamp)
+
