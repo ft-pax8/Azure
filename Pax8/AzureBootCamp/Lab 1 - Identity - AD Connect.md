@@ -1,6 +1,6 @@
 # Hybrid Identity Hands-On Lab
 
-[Return to Task 2](Task 2 - Connect to the Domain Controller and create a user account)
+[Return to Task 2](#Task2)
 
 ## Before you Begin
 If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use either the **East US, South Central US, West Europe, Southeast Asia, West US 2, or West Central US locations**.
@@ -27,7 +27,7 @@ Install the domain controller
 6.	The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  
 
 **Please return to the instructor’s presentation.**
-
+#Task2
 ## Task 2 - Connect to the Domain Controller and create a user account
 1.	Connect to the adVM virtual machine and logon with your domain account by selecting **Microsoft Azure / Resource Groups / AZDCRG / adVM / Connect**.  
 2.	Click on **Download RDP File**.
