@@ -52,12 +52,18 @@ In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in
 
 
 
-### Create LBVM2
-1.	By following the previous steps create a second VM:
-    * Name: **LBVM2**
-    * **LBAVSet** as the existing availability set.
-    * **LBVnet** as the virtual network.
-    * **myBackendSubnet** as the subnet.
+### Add VMWIN02 to LB-01
+In the steps above, you created a *Standard* load balancer and added VMWIN04 to it.  When we created WINVM02 in Lab 2A, LB-01 had not been created and therefore VMWIN02 needs to be added to the backend-pool of LB-01 so it has multiple VMs to route traffic to.
+1. In the search bar at the top of the Azure portal, enter **VMWIN02**. When the appears in the search results, *select it*
+   - Under **Settings** *click on **Networking***
+   - *Click on the **Load Balancing** tab
+   - *Select **Add load balancing***
+   - Under **Add load balancing** use the following:
+     - Load balancing options: **Azure load balancer**
+     - Select a load balancer: **LB-01**
+     - Backend pool: **Use existing**
+     - Select a backend pool: **BEP-01**
+     - *Select **Save***
  
 ### Create NSG rules
 In this section, you create NSG rules to allow inbound connections that use HTTP and RDP.
@@ -95,7 +101,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
    - Edit the iisstart.html by right-clicking on teh file and selecting ** open with > Notepad**
    - Change the `<title>` line to read: `<title>IIS Windows Server - VMWIN02</title>`
    - Save the file
-8. Repeat steps 1 to 7 for the virtual machine **VMWIN04** and ensure you substitue VMWIN02 for VMNWIN04 for any of the steps.
+8. Repeat steps 1 to 7 for the virtual machine **VMWIN04** and ensure you substitue **VMWIN02** for **VMWIN04** for any of the steps.
 
 ### Create resources for the *Standard* load balancer
 In this section, you configure load balancer settings for a back-end address pool and a health probe. You also specify load balancer and NAT rules.
