@@ -43,14 +43,14 @@ Add the website in the East US as primary endpoint to route all the user traffic
    - Type: **Azure endpoint**
    - Name: **PrimaryEndpoint**
    - Target resource type: **App Service**
-   - Target Resource: `<yourinitals>**USWebAppEast**`
+   - Target Resource: **`<yourinitals>USWebAppEast`**
    - Geo-Mapping: **North America / Central America / Caribbean**
    - *Select **OK***
 4) Repeat Steps 1-3 Using the following information:
    - Type: **Azure endpoint**
    - Name: **SecondaryEndpoint**
    - Target resource type: **App Service**
-   - Target Resource: `<yourinitals>**USWebAppWest**`
+   - Target Resource: **`<yourinitals>USWebAppWest`**
    - Geo-Mapping: **Europe**
    - *Select **OK***
 
@@ -69,7 +69,7 @@ Since we have enabled traffic management on a global versus regional perspective
 3) In the Azure portal swith to your Traffic Manager profile and notice that all of your endpoints are **Enabled**.
 4) Click on **PrimaryEndpoint**, select **Disabled**, the **Save**.
 5) In the Azure portal swith to your Traffic Manager profile and notice that **PrimaryEndpoint** is now **Disabled**.
-6) Return to https://www.whatsmydns.net and click **Search**, noticing the changes on which endpoint(s) are now responding and which are not.  ***Note:** due to caching, it make take 3-5 minutes for the website to show the region has stop responding.
+6) Return to https://www.whatsmydns.net and click **Search**, noticing the changes on which endpoint(s) are now responding and which are not.  ***Note:** due to caching, it make take 3-5 minutes for the website to show the region has stop responding.*
 
 
 [Back](index.md)
