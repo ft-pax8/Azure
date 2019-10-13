@@ -9,6 +9,6 @@ Attempt to configure this on your own, otherwise follow these instructions.  You
 * Configure all VNet peering connections to allow forwarded traffic.  
  
 
-**[HINT]**(https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-peering-gateway-transit)
+**[HINT](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-peering-gateway-transit)**
 
 [Back](index.md)
