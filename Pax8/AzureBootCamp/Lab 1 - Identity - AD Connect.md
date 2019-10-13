@@ -29,60 +29,60 @@ Install the domain controller
 **Please return to the instructor’s presentation.**
 
 ## Task 2 - Connect to the Domain Controller and create a user account
-1.	Connect to the adVM virtual machine and logon with your domain account by selecting **Microsoft Azure / Resource Groups / AZDCRG / adVM / Connect**.  
+1.	Connect to the adVM virtual machine and logon with your domain account by selecting **Microsoft Azure / Resource Groups / RG-LAB-IDENTITY / adVM / Connect**.  
 2.	Click on **Download RDP File**.
-3.	Logon with the fully qualified credentials you wrote down earlier (e.g. yourname@yourdomain.com).  You may have to choose __More Choices__ then **Use a different account** to enter your new set of credentials.
+3.	Logon with the fully qualified credentials you wrote down earlier (e.g. `goose@<initials><zip code>.com`).  You may have to choose __More Choices__ then **Use a different account** to enter your new set of credentials.
 4.	If prompted, click **No** on the Network Discovery blade.
 5.	Within Server Manager, click **Tools** and then **Active Directory Users and Computers**.
-6.	Expand the tree and select the **Users Container**.
+6.	Expand the tree and select the **Users Container**
 7.	On the toolbar click the icon to create a new user in the current container.  
 8.	Create a New User with the following information:
     * First Name: **On**
     * Last Name: **Prem**
     * Full Name: **On Prem**
     * User Logon Name: **onprem**
-9.	Click **Next** and set the password to *Complex.Password*. Uncheck **User must change password at next logon**, and set the **Password never expires** checkbox.
+9.	Click **Next** and set the password to `Complex.Password`. Uncheck **User must change password at next logon**, and set the **Password never expires** checkbox.
 10.	Click **Next** then **Finish**.
 11.	Minimize the RDP window.
  
 ## Task 3 - Create a virtual machine
 We are creating a small VM to be used later to host the Azure AD Connector service.
-1.	Return to the Azure portal and click the **Create a Resource** button (the Plus) found on the upper left-hand corner of the Azure portal.
-2.	Select **Compute** then select **Windows Server 2016 Datacenter**.
-3.	Fill out the virtual machine Basics form and click Ok:
-    * Virtual machine name: **ADConnect**
-    * Size: Choose anything with at least 2 vCPUs and 7GB RAM such as a **DS2_v2**
-    * Username: **ADAdmin**
-    * Password: `Complex.Password`
-    * Confirm Password: `Complex.Password`
-    * Use existing Resource Group: **AZDCRG**
-    * Public inbound ports: **Allow selected ports**
-    * Select inbound ports: **RDP (3389)** 
-4.	Click **Next: Disks >**  Review the settings and click **Review + create**.
+1. Return to the Azure portal and click the **Create a Resource** button (the Plus) found on the upper left-hand corner of the Azure portal.
+2. Select **Compute** then select **Windows Server 2016 Datacenter**.
+3. Fill out the virtual machine Basics form and click Ok:
+   - Use existing Resource Group: **RG-LAB-IDENTITY**    
+   - Virtual machine name: **ADConnect**
+   - Size: Choose anything with at least 2 vCPUs and 7GB RAM such as a **DS2_v2**
+   - Username: **ADAdmin**
+   - Password: `Complex.Password`
+   - Confirm Password: `Complex.Password`
+   - Public inbound ports: **Allow selected ports**
+   - Select inbound ports: **RDP (3389)** 
+4. Click **Next: Disks >**  Review the settings and click **Review + create**.
 5.	Click **Create**.  After  validation passes, you monitor deployment status. It should take less than 10 minutes to spin up the VM.
 7.	When the VM has been created, the status changes from **Your deployment is complete**.
  
 ## Task 4 - Join the ADConnect VM to the domain
-1.	Connect to the **ADConnect VM** and logon as ADAdmin. **Microsoft Azure / Resource Groups / AZDCRG / ADConnect / Connect.**
-2.	If prompted, click **No** on the Network discovery blade.
-3.	Depending on which region you chose for setup, the ADConnect VM may or may not have the DNS server set to a value we need.
-4.	The DNS Server on ADCONNECT may not be set to see the domain controller (adVM), so we need to check that setting.  
-5.	Open a **Command prompt** and enter *ipconfig /all | more*.
-6.	If the DNS Server is set to 10.0.0.4, close the Command Prompt window and continue to Task 5 - Join the Domain.
-Configure DNS
-7.	Within **Server Manager**, click on **Local Server**.
-8.	Click on **IPv4 address assigned by DHCP, IPv6 enabled setting** for the Ethernet connection.
-9.	Right-click on the network adapter and choose **Properties**.
-10.	Select **Internet Protocol Version 4 (TCP/IPv4)** and then click **Properties**.
-11.	Select the radio button for **Use the following DNS Server addresses:** and Set the DNS server to **10.0.0.4** and click **OK** and then **Close**.
-12.	You will lose connection to the ADConnect VM, this is expected. Once you are back at the Microsoft Azure Portal, click **Restart** to restart the ADConnect VM.
-13.	Once the VM is successfully restarted, connect to the ADConnect VM and logon as ADAdmin.
+1. Connect to the **ADConnect VM** and logon as ADAdmin. **Microsoft Azure / Resource Groups / RG-LAB-IDENTITY / ADConnect / Connect**
+2. Since the ADConnect VM is not joined to the domain yet, use **.\ADAdmin** as the *user name* to indicate the local account.  The password is the password you used in Task 3
+3. If prompted, click **No** on the Network discovery blade.
+4. Depending on which region you chose for setup, the ADConnect VM may or may not have the DNS server set to a value we need.
+5. The DNS Server on ADCONNECT may not be set to see the domain controller (adVM), so we need to check that setting.  
+6. Open a **Command prompt** and enter *ipconfig /all | more*.
+7. If the DNS Server is set to 10.0.0.4, close the Command Prompt window and continue to Task 5 - Join the Domain.
 
-<<<<<<< HEAD
-### Join the Domain 
-=======
+####Configure DNS
+8. Within **Server Manager**, click on **Local Server**.
+9. Click on **IPv4 address assigned by DHCP, IPv6 enabled setting** for the Ethernet connection.
+10. Right-click on the network adapter and choose **Properties**.
+11. Select **Internet Protocol Version 4 (TCP/IPv4)** and then click **Properties**.
+12. Select the radio button for **Use the following DNS Server addresses:** and Set the DNS server to **10.0.0.4** and click **OK** and then **Close**.
+13. You will lose connection to the ADConnect VM, this is expected. Once you are back at the Microsoft Azure Portal, click **Restart** to restart the ADConnect VM.
+14. Once the VM is successfully restarted, connect to the ADConnect VM and logon as ADAdmin.
+
+
+
 ## Task 5 - Join the Domain 
->>>>>>> ef8a7563e13b3130865de08e25d9666d7565cf13
 1.	Within **Server Manager**, click on **Local Server**.
 2.	Click on **WORKGROUP**, then **Change** to rename this computer or join it to a domain.
 3.	Click the radio button for **Domain**, enter your fully-qualified domain name, such as mydomainname.com, and click **OK**.
