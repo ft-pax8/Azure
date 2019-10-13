@@ -40,8 +40,8 @@ In this lab you are going top create multiple virtual networks each with it's ow
       - Subnet Name: **SUBNET01**
       - Subnet address range: **10.1.1.0/24** 
       - Click ***Save***
-      - Click ***Review + create***
-      - Click ***Create***
+    - Click ***Review + create***
+    - Click ***Create***
 
 Repeat the steps above for VNET02:
 - Resource Group: **RG-LAB-NETWORKING**
@@ -51,13 +51,14 @@ Repeat the steps above for VNET02:
 - Subnet Name: **SUBNET02**
 - Subnet address range: **10.2.2.0/24**
 
-Repeat the steps above for vNet3:
-* Name: **vNet3**
-* Address Space: **10.3.0.0/16**
-* Resource Group: **myVNets**
-* Location: *Choose a consistent and supported location*
-* Subnet Name: **subnet3**
-* Subnet address range: **10.3.3.0/24**
+Repeat the steps above for VNET03
+- Resource Group: **RG-LAB-NETWORKING**
+- Name: **VNET03**
+- Region: *Choose a consistent and supported location*
+- Address Space: **10.3.0.0/16**
+- Subnet Name: **SUBNET02**
+- Subnet address range: **10.3.3.0/24**
+
 
  
 ## Task 2 - Create three virtual machines
