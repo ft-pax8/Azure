@@ -136,7 +136,7 @@ Before you begin this section, obtain the private and public IP addresses of VMW
 3.	If prompted, *select **Connect***. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM. ***Note:** if the machine you are using for this lab is joined to a domain, you may need to add `.\` before the username to indicate a local account. (eg .\goose)*
 4.	*Select **OK***
 5.	*Click **Yes*** on the Networks blade that pops-up after logon.
-6.	From PowerShell, enter `ping VMWIN02`. Ping fails, why is that? **Each virtual network is isolated from other virtual networks and there is no name resolution established.** 
+6.	From PowerShell, enter ping VMWIN02's private IP address *(eg `ping 10.2.2.4`)*. Ping fails, why is that? **Each virtual network is isolated from other virtual networks and there is no name resolution established.** 
 7. We now want to enable connectivity between our VMs.  To allow VMWIN01 to ping other VMs in a later step, enter the following command from PowerShell, which allows ICMP inbound through the Windows firewall:
 `New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4`
 8. Repeat these steps (connect to the VM and issue the PowerShell command) for VMWIN02 and VMWIN03.
@@ -144,36 +144,34 @@ Before you begin this section, obtain the private and public IP addresses of VMW
 ## Task 6 - Connect virtual networks with virtual network peering using the Azure portal
 You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as Global VNet peering). Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. 
 
-1. In the Search box at the top of the Azure portal, begin typing **VNET01**. When vNet1 appears in the search results, select it.
+1. In the Search box at the top of the Azure portal, begin typing **VNET01**. When VNET01 appears in the search results, select it.
 2. Under **SETTINGS** *select **Peerings***, and then *select **+ Add***
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**.
-    - Name: **vNet1-vNet2**
-    - Virtual network: **vNet2 (MyVNets)**
-    - Configure virtual network access settings: **Enabled**
-    - Configure forwarded traffic settings: **Disabled**
+3. Enter, or select, the following information, accept the defaults for the remaining settings, and then *select **OK***
+    - Peer 1 Name: **PEER-VNET01-VNET02**
+    - Virtual network: **VNET02 (RG-LAB-NETWORKING)**
+    - Peer 2 Name: **PEER-VNET02-VNET01**
+    - Configure virtual network access settings: **Enabled** for both
+    - Configure forwarded traffic settings: **Disabled** for both
 4. Peering status - If you don't see the status, refresh your browser.  Notice the status is *Initiated*.
 
-In the Search box at the top of the Azure portal, begin typing **vNet2**. When **vNet2** appears in the search results, select it.
+In the Search box at the top of the Azure portal, begin typing **VNET02**. When **VNET02** appears in the search results, select it.
 
 Complete steps 2-3 again, with the following changes, and then select **OK**:
-* Name: **vNet2-vNet1**
-* Virtual network: **vNet1 (MyVNets)**
-* Configure virtual network access settings: **Enabled**
-* Configure forwarded traffic settings: **Disabled**
+- Peer 1 Name: **PEER-VNET02-VNET03**
+- Virtual network: **VNET03 (RG-LAB-NETWORKING)**
+- Peer 2 Name: **PEER-VNET03-VNET02**
+- Configure virtual network access settings: **Enabled** for both
+- Configure forwarded traffic settings: **Disabled** for both
 
-Peering status - If you don't see the status, refresh your browser.  Notice the status is *Connected*.  Azure also changed the peering status for the vNet1-vNet2 peering from **Initiated** to **Connected**. Virtual network peering is not fully established until the peering status for both virtual networks is **Connected**.
+Peering status - If you don't see the status, refresh your browser.  Notice the status is *Connected*.  Azure also changed the peering status for the VNET01-VNET02 peering from **Initiated** to **Connected**. Virtual network peering is not fully established until the peering status for both virtual networks is **Connected**.
 
- ## Task 7 -  Test connectivity
- 1. At the top of the Azure portal, enter **VM1**. When VM1 appears in the search results, select it. Select the **Connect** button.
- 2. After selecting the Connect button, click on **Download RDP file**.
- 3. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select More choices, then Use a different account, to specify the credentials you entered when you created the VM. Select **OK**.
- 4. Click **Yes** on the Networks blade.
-5. From PowerShell, and then ping VM2 by ip address. Ping succeeds, why is that? 
+## Task 7 -  Test connectivity
+1. If not still connected to VMWIN01, RDP back into the machine using the steps from Task 5.
+2. From PowerShell, ping VMWIN02 by private ip address *(eg `ping 10.2.2.4`)*. Ping succeeds, why is that? 
 
 Let's examine our network topology now that we have peering enabled.
-1.  Click on **Monitor** from the left hand pane.
-2. Under **Insights** select **Network**, then under **Monitoring** choose **Topology**.
-3. User **Resource Group** select **MyVNets**.  In a moment a conceptual network diagram should be generated showing all your vNets and subnets including the new peerings between vNet1 and vNet2.
-
+1. Click on **Monitor** *(for Azure Monitor)* from the left menu pane.
+2. Under **Insights** *select **Network***, then under **Monitoring** *select **Topology***.
+3. Under **Resource Group** *select **RG-LAB-NETWORKING***.  In a moment a conceptual network diagram should be generated showing all your vNets and subnets including the new peerings between VNET01 and VNET02.
 
 [Back](index.md)
