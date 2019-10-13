@@ -64,14 +64,14 @@ We are creating a small VM to be used later to host the Azure AD Connector servi
  
 ## Task 4 - Join the ADConnect VM to the domain
 1. Connect to the **ADConnect VM** and logon as ADAdmin. **Microsoft Azure / Resource Groups / RG-LAB-IDENTITY / ADConnect / Connect**
-2. Since the ADConnect VM is not joined to the domain yet, use **.\ADAdmin** as the *user name* to indicate the local account.  The password is the password you used in Task 3
+2. Since the ADConnect VM is not joined to the domain yet, use **.\ADAdmin** as the *user name* to indicate the local account.  The password is the password you setup in Task 3
 3. If prompted, click **No** on the Network discovery blade.
 4. Depending on which region you chose for setup, the ADConnect VM may or may not have the DNS server set to a value we need.
 5. The DNS Server on ADCONNECT may not be set to see the domain controller (adVM), so we need to check that setting.  
 6. Open a **Command prompt** and enter *ipconfig /all | more*.
-7. If the DNS Server is set to 10.0.0.4, close the Command Prompt window and continue to Task 5 - Join the Domain.
+7. If the DNS Server is set to 10.0.0.4, close the Command Prompt window and continue to [Task 5 - Join the Domain.](#task-5---join-the-domain)
 
-####Configure DNS
+#### Configure DNS
 8. Within **Server Manager**, click on **Local Server**.
 9. Click on **IPv4 address assigned by DHCP, IPv6 enabled setting** for the Ethernet connection.
 10. Right-click on the network adapter and choose **Properties**.
