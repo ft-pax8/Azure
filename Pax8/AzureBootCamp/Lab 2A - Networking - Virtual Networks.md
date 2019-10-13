@@ -98,7 +98,7 @@ Complete the previous steps but use the following information:
 - Resource Group: **RG-LAB-NETWORKING**
 - Name: **VMWIN02**
 - Region: *Choose a consistent supported Region*
-- Size: Change to **B2ms**
+- Size: Change to **DS2_v2** *Note: VMWIN02 is a different size as the other VMs as we will use this VM again in lab 2B*
 - Username: `Goose`
 - Password: `then33d4sp33d!`
 - Confirm Password: `then33d4sp33d!`

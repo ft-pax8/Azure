@@ -1,59 +1,57 @@
 # Lab 2 - Load Balancer
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). You can use the Azure portal to create a load balancer that will load balance virtual machines. In this lab you will learn how to create network resources, back-end servers, and a load balancer at the Basic pricing tier.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). You can use the Azure portal to create a load balancer that will load balance virtual machines. In this lab you will learn how to create network resources, back-end servers, and a load balancer at the *Standard* pricing tier.
 
-### Create a Standard load balancer
-In this section, you create a public standard load balancer by using the portal. The public IP address is automatically configured as the load balancer's front end when you create the public IP and the load balancer resource by using the portal. The name of the front end is myLoadBalancer.
+## Task 1 -  Create a Standard load balancer
+In this section you will create a public standard load balancer by using the portal. The public IP address is automatically configured as the load balancer's front end when you create the public IP and the load balancer resource by using the portal. The name of the front end is LB-01.
 1.	On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
 2.	In the Create load balancer pane, enter these values:
-    * Resource Group: *Create New* **LoadBalancers**
-    * **LB01** for the name of the load balancer
-    * **Public** for the type of the load balancer
-    * SKU set as **Standard**
-    * **LBPublicIP** for the public IP address name 
-    * Availability Zone: **Zone-Redundant**
-    * Select **Review + Create**.
-    * After Validation passes click **Create**.
+    - Resource Group: **RG-LAB-NETWORKING**
+    - Name: **LB-01**
+    - Region: *Choose a consistent and supported location*
+    - Type: **Public** 
+    - SKU: **Standard**
+    - Public IP address name: **LB-01-PUBIP** 
+    - Availability zone: **Zone-redundant**
+    - *Select **Review + Create***
+    - After Validation passes *click **Create***
 
-#### Create back-end servers
-In this section, you create a virtual network, and you create two virtual machines for the back-end pool of your Basic load balancer. Then you install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
+## Task 2 - Create back-end servers
+In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in order to create the back-end pool of your *Standard* load balancer. Then you install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
 
-Create a virtual network
-1.	On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
-2.	In the Create virtual network pane, enter these values, and then select **Create**:
-    * **LBVnet** for the name of the virtual network
-    * **10.10.0.0/16** as the address space
-    * **LBRG** for the name of the resource group (*Create new*)
-    * **BackendSubnet** for the subnet name
-    * **10.10.0.0/24** as the address space
 
-Create LBVM1
+Create VMWIN04
 1.	On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 2.	Enter, or select, the following information, accept the defaults for the remaining settings:
 
-    * Resource Group: LBRG
-    * Name: **LBVM1**
-    * Region: *Choose a consistent supported Region*
-    * Availability option: choose **Availability set** > **Create New** > **LBAVSet** > **Ok**.
-    * Size: Change to **DS2_v2**
-    * Username: pick a username
-    * Password: pick a complex password
-    * Confirm Password: pick a complex password
-    * Public inbound ports: Open RDP, 3389
-    * Select **Next: Disks >**
-    * Click **Next: Networking >**
-    * Configure the following settings: 
-        * Virtual Network: **LBVnet**
-        * Subnet: **BackendSubnet**
-        * Public IP: *Create New*
-            * SKU: **Standard**
-            * Click **Ok**
-        * Place this virtual machine in the backend pool of an existing Azure load balancing solution: **Yes**
-        * Load balancing options: **Azure load balancer**
-        * Select a load balancer: **LB01**
-        * Select a backend pool: *Create new* **BEPool**
-        * Select **Create** and then **Next: Management >**
-    * Under **Diagnostic storage account** use the previously created Diagnostics storage account and then click  **Review + create**.
-    * Once validation passes click **Create**.
+
+ Under **Basics**:
+    - Resource Group: select **RG-LAB-NETWORKING**
+    - Name: **VMWIN04**
+    - Region: *Choose a consistent and supported Region*
+    - Availability set: *click **Create New***
+      - Name: **AS-IISVMS**
+      - *Click **OK***
+    - Size: *Change to **DS2_v2***
+    - Username: `Goose`
+    - Password: `then33d4sp33d!`
+    - Confirm Password: `then33d4sp33d!`
+    - Public inbound ports: *Select **Allow selected ports***  
+      - *Check **RDP, 3389***
+    - *Select **Next:Disks***
+    - Click **Next: Networking**
+
+3. 	Under **Networking:**
+   - Set the virtual network to **VNET02**
+   - *Select **Next: Management***
+   - Place this virtual machine in the backend pool of an existing Azure load balancing solution: **Yes**
+   - Load balancing options: **Azure load balancer**
+   - Select a load balancer: **LB-01**
+   - Select a backend pool: *Create new* **BEPool**
+   - Select **Create** and then **Next: Management >**
+
+4.	Under **Management** 
+   - Under **Diagnostic storage account** use the previously created Diagnostics storage account and then click  **Review + create**.
+5. Once validation passes *click **Create***
 
 
 
@@ -101,11 +99,11 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     * Change the `<title>` line to read: `<title>IIS Windows Server LBVM1</title>`
     * Save the file, repeat the same steps for LBVM2 and change the line to state `<title>IIS Windows Server LBVM2</title>`
 
-### Create resources for the Basic load balancer
+### Create resources for the *Standard* load balancer
 In this section, you configure load balancer settings for a back-end address pool and a health probe. You also specify load balancer and NAT rules.
 
 #### Create a health probe
-To allow the Basic load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe named LBHP to monitor the health of the VMs.
+To allow the *Standard* load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe named LBHP to monitor the health of the VMs.
 1.	Under **Settings**, select **Health probes**, and then select **Add**.
 2.	Use these values, and then select **OK**:
     * **LBHP** for the name of the health probe
@@ -133,4 +131,4 @@ Create a load balancer rule named HTTPRule for listening to port 80 in the front
 3.	Shutdown either LBVM1 or LBVM2, whichever VM is responding most frequently.  As the VM is shutting down, refresh your browser.  Once one of the VMs is down, you should only see the live VM rendering you the default website.  You may receive a service unavailable if you refresh during probe attempts. 
 
 
-[Back](Index.md)
+[Back](index.md)
