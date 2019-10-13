@@ -1,6 +1,6 @@
 # Hybrid Identity Hands-On Lab
 
-[Return to Task 2](#task-2---connect-to-the-domain-controller-and-create-a-user-account)
+##### [Return to Task 2](#task-2---connect-to-the-domain-controller-and-create-a-user-account)
 
 ## Before you Begin
 If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use either the **East US, South Central US, West Europe, Southeast Asia, West US 2, or West Central US locations**.
