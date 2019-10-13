@@ -24,24 +24,25 @@ Each lab is a unique file on GitHub
 ## Task 1 - Virtual Networks
 In this lab you are going top create multiple virtual networks each with it's own virtual machine and subnet and then test connectivity across subnets and vnets.
 ### Create three virtual networks
-1.	Log in to the Azure portal at https://portal.azure.com and 	click on **+Create a resource**  on the upper left corner of the Azure portal.
-2.	Select **Networking**, and then select **Virtual network**.
-3.	Enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
+1.	Log in to the Azure portal at https://portal.azure.com and 	*click on **+Create a resource***  on the upper left corner of the Azure portal.
+2.	*Select **Networking***, and then *select **Virtual network***.
+3.	Enter or select the following information, accept the defaults for the remaining settings, and then *select **Create***:
 
     Under **Basics**:
-    - Resource Group: Click ***Create New*** and name it **RG-LAB-NETWORKING**
+    - Resource Group: *Click **Create New*** and name it **RG-LAB-NETWORKING**
     - Name: **VNET01**
     - Region: *Choose a consistent and supported location*
-    - Click ***Next***
+    - *Click **Next***
 
     Under **IP Addresses**:
     - Address Space: **10.1.0.0/16**
-    - Click the ***default*** name for the subnet to open its properties:
+    - *Click the **default*** name for the subnet to open its properties:
       - Subnet Name: **SUBNET01**
       - Subnet address range: **10.1.1.0/24** 
-      - Click ***Save***
-    - Click ***Review + create***
-    - Click ***Create***
+      - *Click **Save***
+    - *Click **Review + create***
+    - *Click **Create***
+
 
 Repeat the steps above for VNET02:
 - Resource Group: **RG-LAB-NETWORKING**
@@ -51,73 +52,74 @@ Repeat the steps above for VNET02:
 - Subnet Name: **SUBNET02**
 - Subnet address range: **10.2.2.0/24**
 
-Repeat the steps above for VNET03
+Repeat the steps above for VNET03:
 - Resource Group: **RG-LAB-NETWORKING**
 - Name: **VNET03**
 - Region: *Choose a consistent and supported location*
 - Address Space: **10.3.0.0/16**
-- Subnet Name: **SUBNET02**
+- Subnet Name: **SUBNET03**
 - Subnet address range: **10.3.3.0/24**
 
 
  
 ## Task 2 - Create three virtual machines
 
-1.	Select **+ Create a resource** found on the upper left corner of the Azure portal.
-2.	Select **Compute** and then select **Windows Server 2016 Datacenter**.
+1.	*Select **+ Create a resource*** found on the upper left corner of the Azure portal.
+2.	*Select **Windows Server 2016 Datacenter*** under *Get Started.  NOTE: You may need to search for the gallery image if you do not see it listed under the popular section.*
 3.	Enter or select the following information, accept the defaults for the remaining settings:
-    * Resource Group: *Create new*: **MyVMs**
-    * Name: **VM1**
-    * Region: *Choose a consistent and supported Region*
-    * Size: *Change to **B2ms***
-    * Username: pick a username
-    * Password: pick a complex password (I recommend *Complex.Password*)
-    * Confirm Password: pick a complex password  (I recommend *Complex.Password*)
-    * Public inbound ports:  Open RDP, 3389
-    * Select **Next:Disks**
-4.	Click **Next: Networking**.
-5.	Set the virtual network to **vNet01** and then select **Next: Management >**.
-6.	Under Diagnostic storage account click **Create new** and enter  *yourinitials* *shortdate* and ensure the name resolves (e.g. abc1009), click **OK**, and then click **Next: Guest config >**.
-7.	Review the items and then click **Next: Tags >**.
-8.	Review the items and then click **Next: Review + create .**.
-9.	Once validation passes click **Create**.
+
+    Under **Basics**:
+    - Resource Group: select **RG-LAB-NETWORKING**
+    - Name: **VMWIN01**
+    - Region: *Choose a consistent and supported Region*
+    - Size: *Change to **B2ms***
+    - Username: 'Goose'
+    - Password: 'then33d4sp33d!'
+    - Confirm Password: 'then33d4sp33d!'
+    - Public inbound ports: *Select **Allow selected ports***  
+      - *Check **RDP, 3389***
+    - *Select **Next:Disks***
+    - Click **Next: Networking**
+
+4. 	Under **Networking:**
+   - Set the virtual network to **VNET01**
+   - *Select **Next: Management***
+
+5.	Under **Management** 
+   - Under **Diagnostics storage account** *click **Create new*** 
+   - Enter **savmdiag01*<initials>***, *(eg savmdiag01jrl): You may need to append an additional number if you receive an error stating the name is already taken*  
+   - *Click **OK***
+   - *Click **Next: Guest config**
+6.	*Click **Review + create**
+7.	Once validation passes *click **Create***
 
 ## Task 3 - Create the second VM
 Complete the previous steps but use the following information:
-1.* Resource Group: MyVMs
-* Name: **VM2**
-* Region: *Choose a consistent supported Region*
-* Size: Change to **B2ms**
-* Username: pick a username
-* Password: `Complex.Password`
-* Confirm Password: `Complex.Password`
-* Public inbound ports: Open RDP, 3389
-* Select **Next:Disks >**
-* Click **Next: Networking >**
-* Set the virtual network to vNet2 and then select **Next: Management >**
-* Under Diagnostic storage account use the previously created Diagnostics storage account and then click **Next: Guest config >**.
-* Review the items and then click **Next: Tags >**.
-* Review the items and then click **Next: Review + create >**.
-* Once validation passes click **Create**.
+- Resource Group: **RG-LAB-NETWORKING**
+- Name: **VMWIN02**
+- Region: *Choose a consistent supported Region*
+- Size: Change to **B2ms**
+- Username: 'Goose'
+- Password: 'then33d4sp33d!'
+- Confirm Password: 'then33d4sp33d!'
+- Public inbound ports: Open RDP, 3389
+- Set the virtual network to **VNET02** 
+- Under **Diagnostic storage account** use the previously created Diagnostics storage account
+
 
 ## Task 4 - Create the third VM
-*Only build a third VM if you are going to do the optional lab on hub and spoke architecture.*
 Complete the previous steps but use the following information:
-* Resource Group: MyVMs
-* Name: **VM3**
-* Region: *Choose a consistent supported Region*
-* Size: Change to **B2ms**
-* Username: pick a username
-* Password: pick a complex password
-* Confirm Password: pick a complex password
-* Public inbound ports: Open RDP
-* Select **Next:Disks >**
-* Click **Next: Networking >**
-* Set the virtual network to vNet3 and then select **Next: Management >**
-* Under Diagnostic storage account use the previously created Diagnostics storage account and then click **Next: Guest config >**.
-* Review the items and then click **Next: Tags >**.
-* Review the items and then click **Next: Review + create >**.
-* Once validation passes click **Create**.
+- Resource Group: **RG-LAB-NETWORKING**
+- Name: **VMWIN03**
+- Region: *Choose a consistent supported Region*
+- Size: Change to **B2ms**
+- Username: 'Goose'
+- Password: 'then33d4sp33d!'
+- Confirm Password: 'then33d4sp33d!'
+- Public inbound ports: Open RDP, 3389
+- Set the virtual network to **VNET03** 
+- Under **Diagnostic storage account** use the previously created Diagnostics storage account
+
 
 You now have three virtuals machines each in their own subnet and virtual network. Let's validate that.
 
