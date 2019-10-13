@@ -2,28 +2,29 @@
 This lab requires that you have deploy two instances of a web application running in different Azure regions supported by your subscription (e.g. East US and West US2). The two web application instances serve as primary and backup endpoints for Traffic Manager.
 
 ## Task 1 - Create East US Web App
-1)	On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
-2)	In Web App, enter or select the following information and enter default settings where none are specified:
-    * App name: **`<yourinitals>`USWebApp** (e.g. abcUSWebApp)
-    * Resource Group: (new)  **`<yourinitals>`USWebApps**
-    * Select **App Service Plan/Location**:
-        * Create New: **USWebApps**
-        * Location: **East US**
-        * Pricing Tier: **D1 Shared**
-        * Click **OK**
-3)	Select Create.  A default website is created when the Web App is successfully deployed.
+1) On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
+2) In Web App, enter or select the following information and enter default settings where none are specified:
+   - Resource Group: *Click **Create new*** Name: **RG-LAB-NETWORKING-EAST** 
+   - App name: **`<yourinitals>`USWebAppEast** (e.g. abcUSWebAppEast)
+   - Runtime stack: **.NET Core 2.2**
+   - Region: **East US**
+   - Under **App Service Plan** select:
+     - Windows Plan: *Click **Create New:*** and Name: **AppPlanUSEast**
+     - Sku and Size: *Click **Change size** select **Dev/Test** and then use the **F1** shared tier
+     - *Click **Apply***
+3) *Select **Review + create** then **Create***.  A default website is created when the Web App is successfully deployed.
 
-Create West Europe Web App
-1)	On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
-2)	In Web App, enter or select the following information and enter default settings where none are specified:
-    * App name: **`<yourinitals>`EUWebApp** (e.g. abcEUWebApp)
-    * Resource Group: (new)  **`<yourinitals>`EUWebApps**
-    * Select **App Service Plan/Location**:
-        * Create New: **EUWebApps**
-        * Location: **West Europe**
-        * Pricing Tier: **D1 Shared**
-        * Click **OK**
-3)	Select **Create**.  A default website is created when the Web App is successfully deployed. 
+
+## Task 2 - Create West US2 Web App
+Repeat the steps in Task 1 using the following values:
+- Resource Group: *Click **Create new*** Name: **RG-LAB-NETWORKING-WEST** 
+- App name: **`<yourinitals>`USWebAppWest** (e.g. abcUSWebAppWest)
+- Runtime stack: **.NET Core 2.2**
+- Region: **West US 2**
+- Under **App Service Plan** select:
+- Windows Plan: *Click **Create New:*** and Name: **AppPlanUSWest**
+- Sku and Size: *Click **Change size** select **Dev/Test** and then use the **F1** shared tier
+- *Click **Apply***
 
 ### Create a Traffic Manager profile
 Create a Traffic manager profile that directs user traffic based on endpoint priority.  Azure Traffic Manager helps reduce downtime and improve responsiveness of important applications by routing incoming traffic across multiple deployments in different regions. Built-in health checks and automatic re-routing help ensure high availability if a service fails. Use Traffic Manager with Azure services including Web Apps, Cloud Services and Virtual Machines - or combine it with on-premises services for hybrid deployments and smooth cloud migration.
