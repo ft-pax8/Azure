@@ -3,7 +3,7 @@
 Here are the lab files for the  boot camp.  They are broken down into the following distinct areas:
 
 ## 1. Identity
-- [1 - Hybrid Cloud - Identity - Lab 1 - AD Connect](01_HybridCloud_IdentityLab01_ADConnect.md)
+- [Lab 1 - Identity - AD Connect](01_HybridCloud_IdentityLab01_ADConnect.md)
 
 
 ## 2. Networking
@@ -14,7 +14,10 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 - [Lab 2E (Challenge) - Networking - Hub and Spoke](Lab%202E%20(Challenge)%20-%20Networking%20-%20Hub%20and%20Spoke.md)
 
 
-## 3. Migration
+## 3. Storage
+
+
+## 4. Migration
 - [2 - Hybrid Cloud - Migration - Lab 1 - DMS](02_HybridCloud_Migration_Lab01_DMS.md)
 - [2 - Hybrid Cloud - Migration - Lab 2 - ASR](02_HybridCloud_Migration_Lab02_ASR.md)
 - [2 - Hybrid Cloud - Migration - Lab 3 - Azure Policy](02_HybridCloud_Migration_Lab03_AzurePolicy.md)
