@@ -3,7 +3,7 @@
 Here are the lab files for the  boot camp.  They are broken down into the following distinct areas:
 
 ## 1. Identity
-- [Lab 1 - Identity - AD Connect](01_HybridCloud_IdentityLab01_ADConnect.md)
+- [Lab 1 - Identity - AD Connect](Lab%201%20-%20Identity%20-%20AD%20Connect.md)
 
 
 ## 2. Networking
