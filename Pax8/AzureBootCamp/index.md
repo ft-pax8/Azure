@@ -7,7 +7,7 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 
 - [Lab 2A - Networking - Virtual Networks](Lab%202A%20-%20Networking%20-%20Virtual%20Networks.md)
 - [Lab 2B - Networking - Load Balancer](Lab%202B%20-%20Networking%20-%20Load%20Balancing.md)
-- [Lab 2C - Networking - Traffic Manager]()
+- [Lab 2C - Networking - Traffic Manager](Lab%202C%20-%20Networking%20-%20Traffice%20Manager.md)
 - [Lab 2D - Networking - Network Watcher]()
 - [Lab 2E (Challenge) - Networking - Hub and Spoke](Lab%202E%20(Challenge)%20-%20Networking%20-%20Hub%20and%20Spoke.md)
 
