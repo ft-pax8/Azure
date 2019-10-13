@@ -27,12 +27,17 @@ In this lab you are going top create multiple virtual networks each with it's ow
 1.	Log in to the Azure portal at https://portal.azure.com and 	click on **+Create a resource**  on the upper left corner of the Azure portal.
 2.	Select **Networking**, and then select **Virtual network**.
 3.	Enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
-    * Name: **vNet1**
-    * Address Space: **10.1.0.0/16**
-    * Resource Group: *Create New* **myVNets**
-    * Location: *Choose a consistent and supported location*
-    * Subnet Name: **subnet1**
-    * Subnet address range: **10.1.1.0/24** 
+    
+    Under **Basics**:
+    	* Resource Group: Click *Create New* and name it **RG-LAB-NETWORKING**
+	* Name: **VNET01**
+	* ***Click Next***
+    Under **IP Addresses**:
+    	* Address Space: **10.1.0.0/16**
+    	
+    	* Location: *Choose a consistent and supported location*
+    	* Subnet Name: **subnet1**
+    	* Subnet address range: **10.1.1.0/24** 
 
 Repeat the steps above for vNet2:
 * Name: **vNet2**
