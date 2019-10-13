@@ -136,8 +136,8 @@ Create a load balancer rule named HTTPRule for listening to port 80 in the front
 
 #### Test the load balancer
 1.	Find the public IP address for the load balancer on the Overview screen. Select **All resources**, and then select **LB-01-PUBIP**.
-2.	Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting VMWIN02 or VMWIN04 as you refresh your browser.
-3.	Shutdown either VMWIN02 or VMWIN04, whichever VM is responding most frequently.  As the VM is shutting down, refresh your browser.  Once one of the VMs is down, you should only see the live VM rendering you the default website.  You may receive a service unavailable if you refresh during probe attempts. 
+2.	Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting **VMWIN02** or **VMWIN04** as you refresh your browser.
+3.	Shutdown either **VMWIN02** or **VMWIN04**, whichever VM is responding most frequently.  As the VM is shutting down, refresh your browser.  Once one of the VMs is down, you should only see the live VM rendering you the default website.  You may receive a service unavailable if you refresh during probe attempts. 
 
 
 [Back](index.md)
