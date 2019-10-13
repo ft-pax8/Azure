@@ -11,18 +11,20 @@ Install the domain controller
 2.	Surf to https://azure.microsoft.com/en-us/resources/templates/active-directory-new-domain/ 
 3.	Select **Deploy to Azure**. 
 4.	Enter the following information:
-    * Resource Group: Create New: **AZDCRG**
-    * Location: Pick a supported location
-    * Admin Username: **yourname** *you should write this down*
-    * Admin Password: **pickyourown** *you should write this down*
-    * Domain name:  Enter a FQDN such as mydomainname.com and keep the name shorter than 15 characters (that’s a NetBIOS restriction)
-    * DNS Prefix: *pickyourown* (e.g. use the letter “a” and then the last four digits of your cell phone, a1234)
+    - Resource Group: *Select **Create New:** and enter Name:**RG-LAB-IDENTITY***
+    - Location: Pick a supported location
+    - Admin Username: `goose`
+    - Admin Password: `th3n33d4sp33d!`
+    - Domain name: `<initials><zip code>.com` ***Note:** the name must be shorted than 15 characters if you choose a custom name*
+    - DNS Prefix: `<initials><last 4 digits of cell>`
 5.	Scroll down, click **I agree to the terms and conditions stated above** and then **Purchase**.  Monitor the deployment by clicking on the “Deploying Template deployment” tile within the Azure Portal.
-    * Confirm that you don’t have any validation errors.  If you do, correct them before moving forward. 
-    * If the deployment fails, examine the logs to see what the root cause is.
-    * You’ll need to delete the Resource Group before you try running the template again. 
-    * If the template takes you back to the Microsoft Azure portal and the deployment begins, monitor the status for any errors.
-6.	The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  Please return to the instructor’s presentation.
+    - Confirm that you don’t have any validation errors.  If you do, correct them before moving forward. 
+    - If the deployment fails, examine the logs to see what the root cause is.
+    - You’ll need to delete the Resource Group before you try running the template again. 
+    - If the template takes you back to the Microsoft Azure portal and the deployment begins, monitor the status for any errors.
+6.	The deployment and build of the VM will take upwards of 30 minutes depending on several factors.  Don’t forget that we’re not only spinning up a VM but we are also installing and configuring DNS and running DCPromo.  
+
+**Please return to the instructor’s presentation.**
 
 ## Task 2 - Connect to the Domain Controller and create a user account
 1.	Connect to the adVM virtual machine and logon with your domain account by selecting **Microsoft Azure / Resource Groups / AZDCRG / adVM / Connect**.  
