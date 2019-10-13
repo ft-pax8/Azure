@@ -83,7 +83,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
  
 4.	Repeat the steps for **VMWIN04-nsg**.
 
-### Install IIS
+## Task 3 - Install IIS
 1.	Select **Virtual Machines** on the left menu, then select **VMWIN02**. 
 2.	On the Overview page, select **Connect** to RDP into the VM.
 3.	Sign in to the VM with your username and password.
@@ -103,6 +103,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
    - Save the file
 8. Repeat steps 1 to 7 for the virtual machine **VMWIN04** and ensure you substitue **VMWIN02** for **VMWIN04** for any of the steps.
 
+## Task 4 - Configure the Load Balancer
 ### Create resources for the *Standard* load balancer
 In this section, you configure load balancer settings for a back-end address pool and a health probe. You also specify load balancer and NAT rules.
 
@@ -134,6 +135,7 @@ Create a load balancer rule named HTTPRule for listening to port 80 in the front
    - Health Probe: **LB-01-HP01**
    - *Click **OK***
 
+## Task 5 - Test
 #### Test the load balancer
 1.	Find the public IP address for the load balancer on the Overview screen. Select **All resources**, and then select **LB-01-PUBIP**.
 2.	Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS web server is displayed in the browser, noting **VMWIN02** or **VMWIN04** as you refresh your browser.
