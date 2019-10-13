@@ -101,17 +101,17 @@ We are creating a small VM to be used later to host the Azure AD Connector servi
  
 ## Task 7 - Create a Sync Account
 We are going to create an account that AD Connect will use to perform the synchronization process.
-1.	In Azure Active Directory, under **Manage** choose **Users** and then under **All users** click on **+New User** and enter the following:
-    * Name: **AD Sync Account**
-    * User name: **adsync** (e.g. adsync@abc1234.onmicrosoft.com)
-    * Directory Role: **Global administrator** (Click **Ok**)
-    * Click on **Show Password** and then copy the password.
+1. In Azure Active Directory, under **Manage** choose **Users** and then under **All users** click on **+New User** and enter the following:
+   - User name: **adsync** 
+   - Name: **AD Sync Account**
+   - Role: *Click on **User** and then select **Global Administrator** and then click **Select***
+   - Click on **Show Password** and then copy the password.
 2.	Click **Create**.
 3.	Open an InPrivate or Incognito browser and surf to https://portal.azure.com.
-4.	Login as you’re the AD Sync Account you just created using the temporary password.
+4.	Login as you’re the AD Sync Account you just created `adsync@<initials><birthday MMDD format>.onmicrosoft.com` and use the temporary password.
  
-5.	Change your password to a complex password and then click **Sign in**.
-6.	Close your inprivate or incognito browser.
+5.	Change your password to `Complex.Password` and then click **Sign in**
+6.	Close your inprivate or incognito browser
  
 ## Task 8 - Sync Azure AD with Windows Server AD (AD DS)
 ### Install Azure Active Directory Connect
