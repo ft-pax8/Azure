@@ -6,7 +6,7 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 2. Networking
 
 - [Lab 2A - Networking - Virtual Networks](Lab%202A%20-%20Networking%20-%20Virtual%20Networks.md)
-- [Lab 2A - Networking - Load Balancer](Lab%202B%20-%20Networking%20-%20Load%20Balancing.md)
+- [Lab 2B - Networking - Load Balancer](Lab%202B%20-%20Networking%20-%20Load%20Balancing.md)
 - [Lab 2A - Networking - Traffic Manager]()
 - [Lab 2A - Networking - Network Watcher]()
 - [Lab 2A - Networking - Hub and Spoke Challenge (Optional)]()
@@ -27,4 +27,4 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 If you see any changes that need to be made (typos, new steps, etc.) please submit a pull request!
 
 
-[Back](../)
+[Back](./AzureBootCamp)
