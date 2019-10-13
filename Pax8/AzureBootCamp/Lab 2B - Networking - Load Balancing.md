@@ -99,7 +99,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
    - In Server Manager, click Tools then IIS Manager
    - Expand the left tree **VMWIN02 > Sites**, right-click on Default web site, and then choose Explore
    - Edit the iisstart.html by right-clicking on teh file and selecting ** open with > Notepad**
-   - Change the `<body></body>` line to read: `<body>VMWIN02</body>`  *(eg Delete any HTML mark-up between the <body> and </body> tags and insert your VM name.)*
+   - Change the `<body></body>` line to read: `<body>VMWIN02</body>`  *(eg Delete any HTML mark-up between the `<body>` and `</body>` tags and insert your VM name.)*
    - Save the file
 8. Repeat steps 1 to 7 for the virtual machine **VMWIN04** and ensure you substitue **VMWIN02** for **VMWIN04** for any of the steps.
 

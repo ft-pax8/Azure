@@ -98,7 +98,7 @@ Complete the previous steps but use the following information:
 - Resource Group: **RG-LAB-NETWORKING**
 - Name: **VMWIN02**
 - Region: *Choose a consistent supported Region*
-- *Note: VMWIN02 is used in lab 2B and will therefore have a different size and belong to an Availability set when we create it*
+- *Note: VMWIN02 is used in lab 2B and will therefore have a different size, a *Standard* public IP and belong to an Availability set when we create it*
 - Availability set: *click **Create New***
       - Name: **AS-IISVMS**
       - *Click **OK***
@@ -108,6 +108,7 @@ Complete the previous steps but use the following information:
 - Confirm Password: `then33d4sp33d!`
 - Public inbound ports: Open RDP, 3389
 - Set the virtual network to **VNET02** 
+- Public IP: *Select **Create New*** and *select **Standard*** for the SKU
 - Under **Diagnostic storage account** use the previously created Diagnostics storage account
 
 
