@@ -17,7 +17,7 @@ Install the domain controller
     - Admin Password: `th3n33d4sp33d!`
     - Domain name: `<initials><zip code>.com` ***Note:** the name must be shorted than 15 characters if you choose a custom name*
     - DNS Prefix: `<initials><last 4 digits of cell>`
-5.	Scroll down, click **I agree to the terms and conditions stated above** and then **Purchase**.  Monitor the deployment by clicking on the “Deploying Template deployment” tile within the Azure Portal.
+5.	Scroll down, click **I agree to the terms and conditions stated above** and then **Purchase**.  Monitor the deployment by clicking on the “Deploying Template deployment” tile within the Azure Portal or from within the **Deployments** section under the **Settings** of **RG-LAB-IDENTITY**.
     - Confirm that you don’t have any validation errors.  If you do, correct them before moving forward. 
     - If the deployment fails, examine the logs to see what the root cause is.
     - You’ll need to delete the Resource Group before you try running the template again. 
