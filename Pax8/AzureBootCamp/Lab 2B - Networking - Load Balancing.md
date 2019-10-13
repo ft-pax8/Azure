@@ -19,7 +19,7 @@ In this section you will create a public standard load balancer by using the por
 In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in order to create the back-end pool of your *Standard* load balancer. Then you install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
 
 
-**Create VMWIN04**
+### Create VMWIN04
 1.	On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
 2.	Enter, or select, the following information, accept the defaults for the remaining settings:
 
@@ -28,9 +28,7 @@ In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in
     - Resource Group: select **RG-LAB-NETWORKING**
     - Name: **VMWIN04**
     - Region: *Choose a consistent and supported Region*
-    - Availability set: *click **Create New***
-      - Name: **AS-IISVMS**
-      - *Click **OK***
+    - Availability set: **AS-IISVMS** *Note: this was created in Lab 2A*
     - Size: *Change to **DS2_v2***
     - Username: `Goose`
     - Password: `then33d4sp33d!`
@@ -42,11 +40,10 @@ In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in
 
 3. Under **Networking:**
    - Set the virtual network to **VNET02**
-   - *Select **Next: Management***
    - Place this virtual machine in the backend pool of an existing Azure load balancing solution: **Yes**
    - Load balancing options: **Azure load balancer**
    - Select a load balancer: **LB-01**
-   - Select a backend pool: *Create new* **BEPool**
+   - Select a backend pool: *Create new* **BEP-01**
    - Select **Create** and then **Next: Management >**
 
 4. Under **Management** 
@@ -55,7 +52,7 @@ In this section, we will use VNET02 and add a 2nd virtual machine to the VNET in
 
 
 
-Create LBVM2
+### Create LBVM2
 1.	By following the previous steps create a second VM:
     * Name: **LBVM2**
     * **LBAVSet** as the existing availability set.
@@ -81,23 +78,24 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
 4.	Repeat the steps except from the resource list, select **LBRG** then **LBVM2-nsg**.
 
 ### Install IIS
-1.	Select **Virtual Machines** on the left menu, then select **LBVM1**. 
+1.	Select **Virtual Machines** on the left menu, then select **VMWIN02**. 
 2.	On the Overview page, select **Connect** to RDP into the VM.
 3.	Sign in to the VM with your username and password.
 4.	Click **Yes** on the Networks blade.
-5.	In Server Manager, select **Manage**, and then select **Add Roles and features**. 
-6.	In the Add Roles and Features Wizard, use the following values:
-    * On the Select installation type page, select Role-based or feature-based installation.
-    * On the Select destination server page, select LBVM1.
-    * On the Select server role page, select Web Server (IIS) then Add Features.
-    * Follow the instructions to complete the rest of the wizard using default settings.
-    * Repeat steps 1 to 6 for the virtual machine LBVM2.
-7.	Once IIS is installed, on each VM edit the default web page by:
-    * In Server Manager, click Tools then IIS Manager
-    * Expand the left tree, right-click on Default web site, and then choose Explore
-    * Edit the iisstart.html by opening it with notepad.
-    * Change the `<title>` line to read: `<title>IIS Windows Server LBVM1</title>`
-    * Save the file, repeat the same steps for LBVM2 and change the line to state `<title>IIS Windows Server LBVM2</title>`
+5.	In Server Manager, select **Manage**, and then select **Add Roles and features** 
+6.  In the Add Roles and Features Wizard, use the following values:
+    - On the Select installation type page, select Role-based or feature-based installation
+    - On the Select destination server page, select the current server
+    - On the Select server role page, select Web Server (IIS) then Add Features
+    - Follow the instructions to complete the rest of the wizard using default settings
+ 
+7. Once IIS is installed, on each VM edit the default web page by:
+   - In Server Manager, click Tools then IIS Manager
+   - Expand the left tree **VMWIN02 > Sites**, right-click on Default web site, and then choose Explore
+   - Edit the iisstart.html by right-clicking on teh file and selecting ** open with > Notepad**
+   - Change the `<title>` line to read: `<title>IIS Windows Server - VMWIN02</title>`
+   - Save the file
+8. Repeat steps 1 to 7 for the virtual machine **VMWIN04** and ensure you substitue VMWIN02 for VMNWIN04 for any of the steps.
 
 ### Create resources for the *Standard* load balancer
 In this section, you configure load balancer settings for a back-end address pool and a health probe. You also specify load balancer and NAT rules.

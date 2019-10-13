@@ -98,7 +98,11 @@ Complete the previous steps but use the following information:
 - Resource Group: **RG-LAB-NETWORKING**
 - Name: **VMWIN02**
 - Region: *Choose a consistent supported Region*
-- Size: Change to **DS2_v2** *Note: VMWIN02 is a different size as the other VMs as we will use this VM again in lab 2B*
+- *Note: VMWIN02 is used in lab 2B and will therefore have a different size and belong to an Availability set when we create it*
+- Availability set: *click **Create New***
+      - Name: **AS-IISVMS**
+      - *Click **OK***
+- Size: Change to **DS2_v2** 
 - Username: `Goose`
 - Password: `then33d4sp33d!`
 - Confirm Password: `then33d4sp33d!`
