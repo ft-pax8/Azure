@@ -8,11 +8,11 @@ Otherwise you will receive an  error in the portal if you select an unsupported 
 
 **Note:** There are several accounts and domains used in this exercise.  Please pay special attention to the accounts you're creating and for what reason or it can become confusing quickly.  To help faciliate the process, the table below is a high-level reference of the accounts you're creating - although they may not match identically to your own accounts.
 
-| Account Name          |  Account Password                | Domain                     |  Used For                    |
-|-----------------------|----------------------------------|----------------------------|------------------------------|
-| goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | AD Admin Credentials; Connecting to **adVM**       |
-| onprem		| Complex.Password                 | `<initials><zip code>.com` |                              |
-| ADAdmin		| Complex.Password                 | local account              | Connecting to **ADConnect**  |
+| Account Name          |  Account Password                | Domain                     |  FQDN  |  Used For                    |
+|-----------------------|----------------------------------|----------------------------|--------|------------------------------|
+| goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | goose@`<initials><zip code>.com` | aAD Admin Credentials; Connecting to **adVM**|
+| onprem		| Complex.Password                 | `<initials><zip code>.com` | onprem@`<initials><zip code>.com`|
+| ADAdmin		| Complex.Password                 | local account              | .\ADAdmin                        | Connecting to **ADConnect**  |
 
 
 
