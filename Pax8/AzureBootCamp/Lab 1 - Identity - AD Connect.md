@@ -11,7 +11,7 @@ Otherwise you will receive an  error in the portal if you select an unsupported 
 | Account Name          |  Account Password                | Domain                     |  FQDN  |  Used For                    |
 |-----------------------|----------------------------------|----------------------------|--------|------------------------------|
 | goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | goose@`<initials><zip code>.com` | AD Domain Admin Credentials; Connecting to **adVM**|
-| onprem		| Complex.Password                 | `<initials><zip code>.com` | onprem@`<initials><zip code>.com`| Used to validate ADConnect Sync was successful |
+| onprem		| Complex.Password                 | `<initials><zip code>.com` | onprem@`<initials><zip code>.com`| Used only to validate AAD Connect Sync was successful |
 | ADAdmin		| Complex.Password                 | local account              | .\ADAdmin                        | Connecting to **ADConnect**  |
 | adsync                | Complex.Password                 | `<intials><birthday MMDD format>` | adsync@`<intials><birthday MMDD format>` | AAD Sync Account  |
 
@@ -128,11 +128,11 @@ We are going to create an account that AD Connect will use to perform the synchr
  
 ## Task 8 - Sync Azure AD with Windows Server AD (AD DS)
 ### Install Azure Active Directory Connect
-1.	Connect to the ADConnect VM and logon as your previously created AD Domain Admin account (e.g. `goose@<initials><zip code>.com`).  If you don’t see the VM, you must switch from the directory you just created to the **Default Directory** associated with your subscription.  Click in the upper right-hand corner of the screen to change directories.
-2.	When Server Manager opens select Local Server and turn off IE Enhanced Security Configuration for Administrators and Users.
-3.	Open Internet Explorer, accept the defaults, and surf to http://go.microsoft.com/fwlink/?LinkId=615771 
-4.	Click **Download**, then **Run** when prompted.
-5.      Close Internet Explorer once the install completes
+1. Connect to the ADConnect VM and logon as your previously created AD Domain Admin account (e.g. `goose@<initials><zip code>.com`).  If you don’t see the VM, you must switch from the directory you just created to the **Default Directory** associated with your subscription.  Click in the upper right-hand corner of the screen to change directories.
+2. When Server Manager opens select Local Server and turn off IE Enhanced Security Configuration for Administrators and Users.
+3. Open Internet Explorer, accept the defaults, and surf to http://go.microsoft.com/fwlink/?LinkId=615771 
+4. Click **Download**, then **Run** when prompted
+5. Close Internet Explorer once the install completes
 
 ## Task 9 -  Configure Azure Active Directory Connect
 1.	On the Welcome to Azure AD Connect screen select **I agree** then **Continue**.
