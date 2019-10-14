@@ -5,6 +5,16 @@
 ## Before you Begin
 If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use either the **East US, South Central US, West Europe, Southeast Asia, West US 2, or West Central US locations**.
 Otherwise you will receive an  error in the portal if you select an unsupported region and attempt to build anything in Microsoft Azure.
+
+**Note:** There are several accounts and domains used in this exercise.  Please pay special attention to the accounts you're creating and for what reason or it can become confusing quickly.  To help faciliate the process, the table below is a high-level reference of the accounts you're creating - although they may not match identically to your own accounts.
+
+| Account Name          |  Account Password                | Domain                     |  Used For                    |
+|-----------------------|----------------------------------|----------------------------|------------------------------|
+| goose                 | th3n33d4sp33d!                   | <initials><zip code>.com   | Connecting to **adVM**       |
+|
+
+
+
  
 ## Task 1 - Setup an IaaS Domain Controller via JSON Template
 We will setup an IaaS VM with Active Directory via a JSON template from GitHub.  Although this domain controller is the in the cloud, we’ll use it to simulate an on-prem domain controller.
@@ -115,11 +125,11 @@ We are going to create an account that AD Connect will use to perform the synchr
  
 ## Task 8 - Sync Azure AD with Windows Server AD (AD DS)
 ### Install Azure Active Directory Connect
-1.	Connect to the ADConnect VM and logon as your previously created domain account (i.e. **domainname\username**).  If you don’t see the VM, you must switch from the directory you just created to the **Default Directory** associated with your subscription.  Click in the upper right-hand corner of the screen to change directories.
+1.	Connect to the ADConnect VM and logon as your previously created domain account (e.g. `goose@<initials><zip code>.com`).  If you don’t see the VM, you must switch from the directory you just created to the **Default Directory** associated with your subscription.  Click in the upper right-hand corner of the screen to change directories.
 2.	When Server Manager opens select Local Server and turn off IE Enhanced Security Configuration for Administrators and Users.
 3.	Open Internet Explorer, accept the defaults, and surf to http://go.microsoft.com/fwlink/?LinkId=615771 
 4.	Click **Download**, then **Run** when prompted.
-Close Internet Explorer.
+5.      Close Internet Explorer once the install completes
 
 ## Task 9 -  Configure Azure Active Directory Connect
 1.	On the Welcome to Azure AD Connect screen select **I agree** then **Continue**.
