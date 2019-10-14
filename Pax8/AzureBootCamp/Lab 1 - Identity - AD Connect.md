@@ -10,9 +10,10 @@ Otherwise you will receive an  error in the portal if you select an unsupported 
 
 | Account Name          |  Account Password                | Domain                     |  FQDN  |  Used For                    |
 |-----------------------|----------------------------------|----------------------------|--------|------------------------------|
-| goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | goose@`<initials><zip code>.com` | aAD Admin Credentials; Connecting to **adVM**|
-| onprem		| Complex.Password                 | `<initials><zip code>.com` | onprem@`<initials><zip code>.com`|
+| goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | goose@`<initials><zip code>.com` | AD Domain Admin Credentials; Connecting to **adVM**|
+| onprem		| Complex.Password                 | `<initials><zip code>.com` | onprem@`<initials><zip code>.com`| Used to validate ADConnect Sync was successful |
 | ADAdmin		| Complex.Password                 | local account              | .\ADAdmin                        | Connecting to **ADConnect**  |
+| adsync                | Complex.Password                 | `<intials><birthday MMDD format>` | adsync@`<intials><birthday MMDD format>` | AAD Sync Account  |
 
 
 
@@ -127,7 +128,7 @@ We are going to create an account that AD Connect will use to perform the synchr
  
 ## Task 8 - Sync Azure AD with Windows Server AD (AD DS)
 ### Install Azure Active Directory Connect
-1.	Connect to the ADConnect VM and logon as your previously created domain account (e.g. `goose@<initials><zip code>.com`).  If you don’t see the VM, you must switch from the directory you just created to the **Default Directory** associated with your subscription.  Click in the upper right-hand corner of the screen to change directories.
+1.	Connect to the ADConnect VM and logon as your previously created AD Domain Admin account (e.g. `goose@<initials><zip code>.com`).  If you don’t see the VM, you must switch from the directory you just created to the **Default Directory** associated with your subscription.  Click in the upper right-hand corner of the screen to change directories.
 2.	When Server Manager opens select Local Server and turn off IE Enhanced Security Configuration for Administrators and Users.
 3.	Open Internet Explorer, accept the defaults, and surf to http://go.microsoft.com/fwlink/?LinkId=615771 
 4.	Click **Download**, then **Run** when prompted.
@@ -136,7 +137,7 @@ We are going to create an account that AD Connect will use to perform the synchr
 ## Task 9 -  Configure Azure Active Directory Connect
 1.	On the Welcome to Azure AD Connect screen select **I agree** then **Continue**.
 2.	Review the screen and select **Use express settings**.
-3.	On the **Connect to Azure AD** screen enter your **Azure AD Credentials**.  This would be the *adsync@yourdirectoryname.onmicrosoft.com*  account you created.  Click **Next** and then confirm the credential are validated.
+3.	On the **Connect to Azure AD** screen enter your **Azure AD Credentials**.  This would be the  **`adsync@`<intials><birthday MMDD format>** account you created.  Click **Next** and then confirm the credential are validated.
 4.	On the **Connect to AD DS screen**, enter the Active Directory Domain Services domain administrator credentials. This would be the account you created in the template. Click **Next** and confirm the credential are validated.  
     * If you get an error about the current security context is not associated with an Active Directory domain or forest, you more than likely didn’t logon with a domain account but rather a local account.  You can verify this by opening a command prompt and entering **whoami**.  Logout and login with a domain account and then restart at step 1 in this section.
 5.	On the **Azure AD sign-in configuration** screen, select the checkbox for **Continue without any verified domains** and click **Next**.
