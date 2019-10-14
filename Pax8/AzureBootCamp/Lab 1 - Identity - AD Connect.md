@@ -10,8 +10,10 @@ Otherwise you will receive an  error in the portal if you select an unsupported 
 
 | Account Name          |  Account Password                | Domain                     |  Used For                    |
 |-----------------------|----------------------------------|----------------------------|------------------------------|
-| goose                 | th3n33d4sp33d!                   | <initials><zip code>.com   | Connecting to **adVM**       |
-|
+| goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | AD Admin Credentials; Connecting to **adVM**       |
+| onprem		| Complex.Password                 | `<initials><zip code>.com` |                              |
+| ADAdmin		| Complex.Password                 | local account              | Connecting to **ADConnect**  |
+
 
 
 
