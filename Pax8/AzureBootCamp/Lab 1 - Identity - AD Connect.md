@@ -13,7 +13,7 @@ Otherwise you will receive an  error in the portal if you select an unsupported 
 | goose                 | th3n33d4sp33d!                   | `<initials><zip code>.com` | goose@`<initials><zip code>.com` | AD Domain Admin Credentials; Connecting to **adVM**|
 | onprem		| Complex.Password                 | `<initials><zip code>.com` | onprem@`<initials><zip code>.com`| Used only to validate AAD Connect Sync was successful |
 | ADAdmin		| Complex.Password                 | local account              | .\ADAdmin                        | Connecting to **ADConnect**  |
-| adsync                | Complex.Password                 | `<intials><birthday MMDD format>` | adsync@`<intials><birthday MMDD format>` | AAD Sync Account  |
+| adsync                | Complex.Password                 | `<intials><birthday MMDD format>` | adsync@`<intials><birthday MMDD format>` | AAD Sync Account used to sync in Task 9 - Step 3 |
 
 
 
