@@ -8,18 +8,19 @@ In this lab you are going to complete several activities that highlight the capa
 
 ### Build a Virtual Machine
 
+
 We need a source environments to backup.
 
 1.	Select **+ Create a resource** found on the upper, left corner of the Azure portal.
 2.	Select **Windows Server 2016 VM**.
 3.	Enter, or select, the following information and accept the defaults for the remaining settings:
-    * Resource Group: *CreateNew* **BackupVMs**
-    * Virtual Machine Name: **SourceVM**
+    * Resource Group: *CreateNew* **RG-LAB-BCDR**
+    * Virtual Machine Name: **VMSource**
     * Region: **East US**
     * Size: **Standard Ds2 v2 (DS2_v2)**
-    * Username: pick a username and write it down
-    * Password: `Complex.Password`
-    * Confirm Password: `Complex.Password`
+    * Username: `goose`
+    * Password: `th3n22d4sp33d!`
+    * Confirm Password: `th3n33d4sp33d!`
     * Public inbound ports:  Open RDP
     * select **Next: Disks >**
 4.	Click **Next: Networking >**.
