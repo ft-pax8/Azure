@@ -12,12 +12,12 @@ In this lab you are going to complete several activities that highlight the capa
 We need a source environments to backup.
 
 1.	Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2.	Select **Windows Server 2016 VM**.
+2.	Select **Windows Server 2016 Datacenter** *You may need to search for **Windows Server** if you don't see it in the recommendations*
 3.	Enter, or select, the following information and accept the defaults for the remaining settings:
     * Resource Group: *CreateNew* **RG-LAB-BCDR**
     * Virtual Machine Name: **VMSource**
     * Region: **East US**
-    * Size: **Standard Ds2 v2 (DS2_v2)**
+    * Size: **Standard Ds2 v3 (DS2_v3)**
     * Username: `goose`
     * Password: `th3n22d4sp33d!`
     * Confirm Password: `th3n33d4sp33d!`
@@ -25,10 +25,9 @@ We need a source environments to backup.
     * select **Next: Disks >**
 4.	Click **Next: Networking >**.
 5.	Click **Next: Management >**.
-6.	Click **Create new** for the **Diagnostic storage account** and  enter `yourinitials shortdate`. Ensure the name resolves (e.g. abc1009), click **OK**, and then click **Next: Advanced >**. *Note the choice to enable backup.*
-7.	Review the items and then click **Next: Tags >**.
-8.	Review the items and then click **Next: Review + create >**.
-9.	Once validation passes click **Create**.
+6.	Click **Create new** for the **Diagnostic storage account** and  enter `sadiagbcdr`. *Click **OK***, *(Scroll to the bottom and notice the choice to enable backup)* and then *click **Next: Advanced >***. 
+7.	Review the items and then click **Next: Review + create >**.
+8.	Once validation passes click **Create**.
 
 ### Connect to your VM
 
