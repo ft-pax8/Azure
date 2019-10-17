@@ -88,9 +88,10 @@ To back up your files and folders, you need to create a Recovery Services vault 
 6.	At the Azure portal, select **Virtual Machines** then **VMSource**.
 7.	Under **Operations** *click **Backup** and then **Backup Now***  *Note: If you see a banner message 'Creating', you must wait for the vault to complete the setup of the VM backup before you can initiate the backup operation*
 8.	Choose a date to retain the backup and the click **OK**. Congratulations!  You are now performing a Cloud First Backup!
-9.	On the alert click on **Triggering backup for SourceVM**.
-10.	Click on the backup for **SourceVM** and monitor status. The first backup takes about 20/25 minutes to complete.
-11.	You can also observe the status by looking at the vault itself.  From the Azure Portal click on Resources Groups then **BackupVMs** then **MyDRVault**. Select the **Backup tab** to monitor status of you job.
+9.	At the top right of the Azure portal, click on **Notifications** and then **Triggering backup for VMSource**
+10.	Click on the backup for **VMSource** and monitor status. The first backup takes about 20/25 minutes to complete.
+11.	You can also observe the status by looking at the vault itself.  From the Azure Portal click on Resources Groups then **RG-LAB-BCDR** then **VLT-VMBAK**
+12.	Under **Monitoring**, *select **Backup jobs*** to monitor status of you job.
 
 ### Delete Data
 
