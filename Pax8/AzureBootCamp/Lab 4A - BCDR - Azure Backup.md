@@ -48,7 +48,7 @@ We need a source environments to backup.
 
 ### Copy sample data
 
-1.	Open a **Command Prompt or PowerShell window** under **Windows System** and paste the following command in:
+1. Open a **Command Prompt or PowerShell window** under **Windows System** and paste the following command in:
 
     ```
     net use Z: \\wagsazurefiles.file.core.windows.net\ignite2018 /u:AZURE\wagsazurefiles tCfYh37xGNjIc0czqfTW9+kUHIIhlxRUPh9h4YtD/hh7FiFPn1v32RH7uV0a83E6nAa6kkVU6d+nAAeoBItpJg==
@@ -56,15 +56,19 @@ We need a source environments to backup.
 
     > You are mapping a drive to an Azure Files Share.
 
-2.	Switch to the root of c: and enter the following:
-    ```
-    md c:\bootcamp
-    cd bootcamp
-    ```
+2. Switch to the root of c: and enter the following:
+
+   ```
+   md c:\bootcamp
+   ```
+
 3. Enter the following command:
+   
    ```
    Robocopy z:\ c:\bootcamp brk2* /z
    ```
+
+
 4.	Monitor the file copy process while the files are copied over.  After a few files you can move on to the next section of the lab.
 
 
