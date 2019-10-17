@@ -36,12 +36,12 @@ We need a source environments to backup.
 3. Select **Download RDP File**.
 4. 	Click on **Connect**.
 5.	Choose **More Choices** on the Windows Security screen and then **Use a Different Account**.
-6.	Enter `SourceVM\`user name and then `Complex.Password` as the password. Click **Yes** when prompted.
+6.	Enter `.\goose` for user name and then `th3n33d4sp33d!` as the password. Click **Yes** when prompted.
 7.	Once your desktop renders click **No** on the **Networks blade**.
 8.	Disable IE Enhanced Security Configuration by:
     * Wait for **Server Manager** to open
     * Click **Local Server**
-    * Click **On** by **IE ESC**
+    * Click **On** by **IE Enhanced Security Configuration**
     * Set both modes to **Off**
     * Click **OK**
     * Minimize **Server Manager**
@@ -57,10 +57,10 @@ We need a source environments to backup.
     > You are mapping a drive to an Azure Files Share.
 
 2.	Switch to the root of c: and enter the following:
-    * md c:\ignite
-    * cd\ignite
+    * md c:\bootcamp
+    * cd bootcamp
 3.	Enter the following command:
-    * `Robocopy z:\ c:\ignite brk22* /z`
+    * `Robocopy z:\ c:\bootcamp brk23* /z`
 4.	Monitor the file copy process while the files are copied over.  After a few files you can move on to the next section of the lab.
 
 ### Create a recovery services vault
