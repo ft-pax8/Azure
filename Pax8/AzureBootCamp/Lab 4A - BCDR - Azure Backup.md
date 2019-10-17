@@ -23,7 +23,7 @@ We need a source environments to backup.
     * Confirm Password: `th3n33d4sp33d!`
     * Public inbound ports:  Open RDP
     * select **Next: Disks >**
-4.	Click **Next: Networking >**.
+4.	Click **Next: Networking >**. 	
 5.	Click **Next: Management >**.
 6.	Click **Create new** for the **Diagnostic storage account** and  enter `sadiagbcdr`. *Click **OK***, *(Scroll to the bottom and notice the choice to enable backup)* and then *click **Next: Advanced >***. 
 7.	Review the items and then click **Next: Review + create >**.
@@ -57,11 +57,16 @@ We need a source environments to backup.
     > You are mapping a drive to an Azure Files Share.
 
 2.	Switch to the root of c: and enter the following:
-    * md c:\bootcamp
-    * cd bootcamp
-3.	Enter the following command:
-    * `Robocopy z:\ c:\bootcamp brk23* /z`
+    ```
+    md c:\bootcamp
+    cd bootcamp
+    ```
+3. Enter the following command:
+   ```
+   Robocopy z:\ c:\bootcamp brk2* /z
+   ```
 4.	Monitor the file copy process while the files are copied over.  After a few files you can move on to the next section of the lab.
+
 
 ### Create a recovery services vault
 
