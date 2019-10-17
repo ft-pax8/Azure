@@ -48,7 +48,7 @@ We need a source environments to backup.
 
 ### Copy sample data
 
-1.	Open a **Command Prompt** under **Windows System** and paste the following command in:
+1.	Open a **Command Prompt or PowerShell window** under **Windows System** and paste the following command in:
 
     ```
     net use Z: \\wagsazurefiles.file.core.windows.net\ignite2018 /u:AZURE\wagsazurefiles tCfYh37xGNjIc0czqfTW9+kUHIIhlxRUPh9h4YtD/hh7FiFPn1v32RH7uV0a83E6nAa6kkVU6d+nAAeoBItpJg==
@@ -67,13 +67,12 @@ We need a source environments to backup.
 
 To back up your files and folders, you need to create a Recovery Services vault in the region where you want to store the data. 
 
-1.	Back in the Azure Portal, click **+ Create a resource** found on the upper, left corner of the Azure portal.  
-2.	Select **Storage**, then **Backup and Site Recovery (OMS)**.
-3.	The Recovery Services vault blade opens, enter the following:
-    * Name: **MyVault**
-    * Subscription: **Azure Pass**
-    * Resource group: **BackupVMs**
-    * Location: **East US**
+1. Back in the Azure Portal, click **+ Create a resource** found on the upper, left corner of the Azure portal.  
+2. Select **Storage**, then **Backup and Site Recovery**
+3. The Recovery Services vault blade opens, enter the following:
+   - Resource group: **RG-LAB-BCDR** 
+   - Name: **VLT-VMBAK**
+   - Location: **East US**
 4.	At the bottom of the Recovery Services vault blade click **Create**.
 5.	When the alert appears, pin the vault to the dashboard.
 
