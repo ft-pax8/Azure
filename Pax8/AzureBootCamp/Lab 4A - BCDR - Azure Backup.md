@@ -104,7 +104,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
 
 ### Delete Data
 
-> Complete this lab once you backup has finished.
+> Complete this lab once your backup has finished.
 
 1.	Within your RDP session to **VMSource** open **File Explorer**.
 2.	Expand This PC, then Windows C:, then bootcamp.
@@ -112,14 +112,15 @@ To back up your files and folders, you need to create a Recovery Services vault 
 
 ### Restore Data
 
-1.	Within the backup vm surf to https://portal.azure.com and logon. 
-2.	Select Virtual Machines -> **SourceVM** -> **Backup** under **Operations**.
-3.	Click on **File Recovery**.   Select the `Latest` under **Select recovery point** and then **Download Executable**.
-4.	Click **Run** when prompted.  Paste the password to run the script from the portal into PowerShell.
+1. Within the backup vm surf to https://portal.azure.com and logon. 
+2. Select Virtual Machines -> **SourceVM** -> Under **Operations** *click* on **Backup***
+3. Click on **File Recovery**.   Select the `Latest` under **Select recovery point** and then **Download Executable**.
+4. Once the file downloads and the password is generated, *click **Run*** when prompted.  
+5. Paste the password to run the script from the portal into the command prompt
 
     > If you see that 0 recovery volumes have mounted, there was a problem with the process.  Open up Computer Management from Start/Windows Administrative tools.  Click on Disk Management.  Select the 126 GB partition on Disk 2 and assign a drive letter. Copy the files from the mount volume (typically the F: Drive) to c:\ignite.*
 
-5.	Notice the actions taken to mount the volume. Copy the files back to **VMSource** and then type Q to exit.
-6.	After identifying the files and copying them to a local storage location, remove (or unmount) the additional drives. To unmount the drives, on the File Recovery menu in the Azure portal, click Unmount Disks.
+6. Notice the actions taken to mount the volume. Open File Explorer and copy the files from the newly mounted backup volume, back to **C:\Bootcamp** and then type Q to exit in the PowerShell window.
+7. After identifying the files and copying them to a local storage location, remove (or unmount) the additional drives. To unmount the drives, on the File Recovery menu in the Azure portal, click Unmount Disks.
 
 [Back](index.md)
