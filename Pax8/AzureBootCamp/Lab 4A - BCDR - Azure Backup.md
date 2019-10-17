@@ -6,7 +6,7 @@
 
 In this lab you are going to complete several activities that highlight the capabilities of Azure backup. 
 
-### Build a Virtual Machine
+### Task 1 - Build a Virtual Machine
 
 
 We need a source environments to backup.
@@ -46,7 +46,7 @@ We need a source environments to backup.
     * Click **OK**
     * Minimize **Server Manager**
 
-### Copy sample data
+### Task 2 - Copy sample data
 
 1. Open a **Command Prompt or PowerShell window** under **Windows System** and paste the following command in:
 
@@ -72,7 +72,7 @@ We need a source environments to backup.
 4.	Monitor the file copy process while the files are copied over.  After a few files you can move on to the next section of the lab.
 
 
-### Create a recovery services vault
+### Task 3 - Create a recovery services vault
 
 To back up your files and folders, you need to create a Recovery Services vault in the region where you want to store the data. 
 
@@ -87,7 +87,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
 
     > It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click Refresh.
 
-### Kickoff a Backup
+### Task 4 - Kickoff a Backup
 
 1.	Open the **Recovery Services** vault then click **Backup** under **Getting Started**.
 2.	From the Where is your workload running? drop-down menu, select **Azure**.
@@ -102,7 +102,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
 11.	You can also observe the status by looking at the vault itself.  From the Azure Portal click on Resources Groups then **RG-LAB-BCDR** then **VLT-VMBAK**
 12.	Under **Monitoring**, *select **Backup jobs*** to monitor status of you job.
 
-### Delete Data
+### Task 5 - Delete Data
 
 > Complete this lab once your backup has finished.
 
@@ -110,7 +110,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
 2.	Expand This PC, then Windows C:, then bootcamp.
 3.	Delete all the files within the bootcamp directory.
 
-### Restore Data
+### Task 6 - Restore Data
 
 1. Within the backup vm surf to https://portal.azure.com and logon. 
 2. Select Virtual Machines -> **SourceVM** -> Under **Operations** *click* on **Backup***
