@@ -6,7 +6,7 @@ In this lab you are going to simulate a backup of an on-premises VM or physical 
 
 ## Task 1 - Prepare the "on-premises machince"
 
-For this first part you may use your personal machine or the same machine you used in [Lab 4A - Task 1]()
+For this first part you may use your personal machine or the same machine you used in [Lab 4A - Task 1](Lab%204A%20-%20BCDR%20-%20Azure%20Backup.md#task-1---build-a-virtual-machine)
 
 
 ## Task 2 - Copy sample data
