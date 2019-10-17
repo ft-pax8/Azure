@@ -49,32 +49,34 @@ Regardless of which machine  you use *(personal or Azure VM)*, please ensure the
 8. On the **Proxy Configuration** menu, accept the defaults and *click **Next***
 9. On the **Microsoft Update Opt-In** menu, *select **Use Microsoft Update when I check for updated (recommended)*** and then *click **Next***
 10. *Click **Install*** to start the installation
-7.	Click **Proceed to Registration**.
-8.	Switch back to the Azure Portal and check the box for **Already downloaded the agent**, and then click the **Download button**.
-9.	Save the credentials locally, and then switch back to the agent installation.
-10.	Click **Browse** and then surf to the Downloads Directory.  Select the credentials and then click **Open**.
-11.	Click **Next** and then **Generate Passphrase**.  Save the passphrase to the Downloads directory and click **Finish**.
-12.	Once registration is complete click **Close**.
+11. *Click **Proceed to Registration***
+12. Switch back to the Azure Portal and check the box for **Already downloaded the agent**, and then *click the **Download button***
+13. Save the credentials locally, and then switch back to the agent installation
+14. *Click **Browse*** and then surf to the Downloads Directory.  Select the credentials and then *click **Open***
+15. *Click **Next*** and then **Generate Passphrase**.  Save the passphrase to the Downloads directory and *click **Finish***
+16. Once registration is complete *click **Close***
 
-## Kickoff a Backup
+## Task 4 - Kickoff a Backup
 
 1. Open Microsoft Azure Backup. It should have automatically launched.
-2. Click on **Schedule Backup**, then **Next**.
-3. Click *Add items* and add the **c:\ignite** directory.
-4. Click **Next** four times, **Finish**, and then **Close**.
-5. Click **Backup Now** under Actions, **Next**, then **Back Up**.
-6. Observe the status of the backup and click **Close**.
+2. *Click on **Schedule Backup***, then **Next**.
+3. *Click **Add items*** and add the **c:\bootcamp** directory.
+4. Accept all defaults for the remaining screens and keep clicking **Next** and then finally **Finish**
+5. *Click **Close*** after the scheduled backup job wizard completes the configuration
+6. *Click **Backup Now** under *Actions*
+7. *Click **Next*** twice and then **Back Up**
+6. Observe the status of the backup and click **Close** after it completes
  
-## Delete Data
+## Task 5 - Delete Data
 
-1.	Open **File Explorer**, expand **This PC**, then **Windows C:**, then **ignite**.
-2.	Delete all the files within the **ignite** directory.
+1.	Open **File Explorer**, expand **This PC**, then **Windows C:**, then **bootcamp**
+2.	Delete all the files within the **bootcamp** directory.
 
-## Restore Data
+## Task 6 - Restore Data
 
 1.	Switch back to Microsoft Azure Backup and click **Recover Data**.
 2.	Click **Next**, **Next**, Select **c:\** as the volume, then **Mount**.
-3.	The recovery volume mounts. Click **Browse** and open the **ignite** directory.  Copy the files from the mounted volume to **c:\ignite**.  Click **More details** to see network transfer speeds.
+3.	The recovery volume mounts. Click **Browse** and open the **bootcamp** directory.  Copy the files from the mounted volume to **c:\bootcamp**.  Click **More details** to see network transfer speeds.
 4.	Switch back to Microsoft Azure Backup and click **Unmount** to unmount the recovery volume.  Choose **Yes**.
 
 [Back](index.md)
