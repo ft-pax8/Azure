@@ -3,7 +3,7 @@
 Here are the lab files for the  boot camp.  They are broken down into the following distinct areas:
 
 ## 1. Identity
-- [Lab 1 - Identity - AD Connect](Lab%201%20-%20Identity%20-%20AD%20Connect.md)
+- [Lab 1A - Identity - AD Connect](Lab%201A%20-%20Identity%20-%20AD%20Connect.md)
 
 
 ## 2. Networking
@@ -17,9 +17,9 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 ## 3. Storage
 
 
-## 4. Migration
-- [2 - Hybrid Cloud - Migration - Lab 1 - DMS](02_HybridCloud_Migration_Lab01_DMS.md)
-- [2 - Hybrid Cloud - Migration - Lab 2 - ASR](02_HybridCloud_Migration_Lab02_ASR.md)
+## 4. BCDR
+- [Lab 4A - BCDR - Azure Backup](Lab%204A%20-%20BCDR%20-%20Azure%20Backup.md)
+- [Lab 4B - BCDR - Azure Backup with MAPS](Lab%204B%20-%20BCDR%20-%20Azure%20Backup%20with%20MARS%20Agent.md)
 - [2 - Hybrid Cloud - Migration - Lab 3 - Azure Policy](02_HybridCloud_Migration_Lab03_AzurePolicy.md)
 - [2 - Hybrid Cloud - Migration - Lab 4 - Azure Migrate (optional)](02_HybridCloud_Migration_Lab04_AzureMigrate.md)
 
