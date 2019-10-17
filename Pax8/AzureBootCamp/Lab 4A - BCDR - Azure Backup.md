@@ -74,7 +74,7 @@ To back up your files and folders, you need to create a Recovery Services vault 
    - Name: **VLT-VMBAK**
    - Location: **East US**
 4.	At the bottom of the Recovery Services vault blade click **Create**.
-5.	When the alert appears, pin the vault to the dashboard.
+5.	When the alert appears, *click **Go to Resource***
 
     > It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click Refresh.
 
@@ -84,9 +84,9 @@ To back up your files and folders, you need to create a Recovery Services vault 
 2.	From the Where is your workload running? drop-down menu, select **Azure**.
 3.	From the What do you want to backup? menu, select **Virtual Machine**.
 4.	Click **Backup**.
-5.	Click **Ok** on the backup policy tab, and then on the Select virtual machines tab select the **Backup** VM and click **Ok**.  Click **Enable backup**.
-6.	At the Azure portal, select **Virtual Machines** then **Backup**.
-7.	Under Operations click on **Backup** and then **Backup Now**.  
+5.	Click **Ok** on the backup policy tab, and then on the Select virtual machines tab select the VM **VMSource** and click **Ok**.  Click **Enable backup**.
+6.	At the Azure portal, select **Virtual Machines** then **VMSource**.
+7.	Under **Operations** *click **Backup** and then **Backup Now***  *Note: If you see a banner message 'Creating', you must wait for the vault to complete the setup of the VM backup before you can initiate the backup operation*
 8.	Choose a date to retain the backup and the click **OK**. Congratulations!  You are now performing a Cloud First Backup!
 9.	On the alert click on **Triggering backup for SourceVM**.
 10.	Click on the backup for **SourceVM** and monitor status. The first backup takes about 20/25 minutes to complete.
