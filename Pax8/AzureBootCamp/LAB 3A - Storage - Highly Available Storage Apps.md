@@ -1,7 +1,6 @@
 # Highly Available Storage Applications
 
 In this lab, you learn how to make your application data highly available in Azure using RA-GRS storage
-
 <br><br />
 ## Task 1 - Install Visual Studio and Azure Storage Explorer
 
