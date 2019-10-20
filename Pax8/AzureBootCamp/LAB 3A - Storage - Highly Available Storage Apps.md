@@ -1,9 +1,8 @@
-# Highly Available Storage Applications(https://docs.microsoft.com/en-us/azure/storage/blobs/storage-create-geo-redundant-storage?tabs=dotnet)
+# Highly Available Storage Applications
 
 In this lab, you learn how to make your application data highly available in Azure using RA-GRS storage
 
 <br><br />
-
 ## Task 1 - Install Visual Studio and Azure Storage Explorer
 
 We will use Visual Studio to run a mock console application that will copy files to Azure storage and check to see if the file was successfully copied to the primary storage account and the geo-replicated secondary storage account.  You will use Azure Storage Explorer to browse your storage accounts and verify the files were uploaded successfully.  
