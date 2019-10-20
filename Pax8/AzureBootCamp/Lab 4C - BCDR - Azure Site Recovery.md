@@ -49,7 +49,13 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
    ```
 
 
-9. Open a web browser and surf to the public IP address just make sure things are working
+10. Get public IP of **VM-IIS-East** by running the following command:
+
+   ```CLI
+   az network public-ip show --resource-group RG-LAB-BCDR --name VM-IIS-EastPublicIP
+   ```
+
+11. Open a web browser and surf to the public IP address to make sure the webisite is up and running on **VM-IIS-East**
 
 <br></br>
 
