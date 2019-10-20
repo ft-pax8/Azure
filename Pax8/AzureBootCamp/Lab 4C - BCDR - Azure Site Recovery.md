@@ -49,26 +49,34 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
    ```
 
 
-10. Get public IP of **VM-IIS-East** by running the following command:
+9. Get the public IP of **VM-IIS-East** by running the following command:
 
    ```CLI
    az network public-ip show --resource-group RG-LAB-BCDR --name VM-IIS-EastPublicIP
    ```
 
-11. Open a web browser and surf to the public IP address to make sure the webisite is up and running on **VM-IIS-East**
+10. Open a web browser and surf to the public IP address to make sure the webisite is up and running on **VM-IIS-East**
 
 <br></br>
 
-## Task 2 - Create target network resource
+## Task 2 - Create target virtual nework for the recovery VM
 We could have ASR automatically create the target network resources (i.e. Virtual networks and subnets) but in a more realistic scenario you'd want to pre-create these resources and place your migrated VMs in those specific networks. 
-1. Click on Virtual networks then **+Add**
-2. 	Enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
-    * Name: **MigrationvNet**
-    * Address Space: **10.10.0.0/16**
-    * Resource Group: *Create New* **MigrationvNets**
-    * Location: **West US**
-    * Subnet Name: **migsub**
-    * Subnet address range: **10.10.10.0/24** 
+1. Let's create a new resource group to hold our new VNET within Azure CLI
+
+   ```CLI
+   az group create --name RG-LAB-BCDR-WEST --location westus
+   ```
+
+2. Now let's create the new VNET within this new resource group
+
+   ```CLI
+   az network vnet create --name VNT-BCDR-WEST \
+	--resource-group RG-LAB-BCDR-WEST \
+	--address-prefix 10.10.0.0/16 \
+	--subnet-name VNT-BCDR-SUBNET \
+	--subnet-prefix 10.10.10.0/24 \
+ 	--location westUS
+   ```
 
 <br></br>
 
