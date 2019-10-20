@@ -1,4 +1,4 @@
-# Highly Available Storage Applications
+# Highly Available Storage Applications(https://docs.microsoft.com/en-us/azure/storage/blobs/storage-create-geo-redundant-storage?tabs=dotnet)
 
 In this lab, you learn how to make your application data highly available in Azure using RA-GRS storage
 
@@ -9,7 +9,9 @@ We will use Visual Studio Code to build and compile a mock application and then 
 
 1. Download and install the appropriate version of [Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
 2. If Visual Studio Code is open, close it.
-3. Download and install the [.NET Code 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/sdk-for-vs-code?utm_source=vs-code&utm_medium=referral&utm_campaign=sdk-install).  Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation again.
+3. Download and install the [.NET Code 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/sdk-for-vs-code?utm_source=vs-code&utm_medium=referral&utm_campaign=sdk-install).  
+
+   *Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation again.*
 
 
 <br><br />
@@ -31,13 +33,14 @@ We will use Visual Studio Code to build and compile a mock application and then 
 5. *Select **Review + create***
 6. *Click **Create**
 
-
+<br><br />
 
 ## Task 3 - Download the Application Code
 
 1. Download the sample project from Git Hub [storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)
 2. Extract the **storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip** to your local downloands folder
 
+<br><br />
 
 ## Task 4 - Open the App Solution and Modify the Connection Strings
 
@@ -51,7 +54,7 @@ In this task you will load the application's solution, install the missing depen
    - *Copy the **Connection String*** from either the primary or secondary key.
 4. Now let's load the connection string and save it as an environment variable so the console application can use it.
    - Open a command prompt or use the **Terminal** built into Visual Studio Code and type in the following command:
-     `setx storageconnectionstring <your storage connection string from the portal>`
+     `setx storageconnectionstring <your connection string from the portal>`
 
 
 
