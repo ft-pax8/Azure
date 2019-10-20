@@ -19,13 +19,15 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 
 5. At the CLI prompt, type in the following command
 
-   `az vm create \
+   ```CLI
+   az vm create \
         --resource-group RG-LAB-BCDR \
 	--name VM-IIS-East \
 	--location eastus \
 	--image win2016datacenter \
 	--admin-username goose \
-	--admin-password th3n33d4sp33d!`
+	--admin-password th3n33d4sp33d!
+   ```
 
 6. *Press **Enter*** to execute the command
 
