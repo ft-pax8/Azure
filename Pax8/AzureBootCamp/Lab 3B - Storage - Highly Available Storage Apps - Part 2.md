@@ -2,13 +2,11 @@
 
 This is part two of Lab 3 for Highly Available Storage Applications. In it, you learn about the benefits of a read-access geo-redundant (RA-GRS) by simulating a failure.
 In order to simulate a failure, you will implement Static Routing to simulate failure for requests to the primary endpoint of your read-access geo-redundant (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
-
-
 <br><br />
 
 ## Task 1 - Simulate a Failure with an Invalid Static Route
 
-You can create an invalid static route for all requests to the primary endpoint of your read-access geo-redundant (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure with an invalid static route.
+To introduce the failure, you will create an invalid static route for all requests to the primary endpoint of your read-access geo-redundant (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure by introducing an invalid static route.
 
 1. Open the console application in Visual Studio and run it again by *pressing **F5*** or *clicking **start*** to start the debugging.
 2. Once the console application begins the dowloand *(when you see the P1, P2, P3, P4....)*, pause the console application by pressing any key while the console window is active
@@ -31,6 +29,7 @@ You can create an invalid static route for all requests to the primary endpoint 
 
    If done correctly, you should see the reply: **OK!**
 
+<br><br />
 
 ## Task 2 - Verify Storage Failover
 
