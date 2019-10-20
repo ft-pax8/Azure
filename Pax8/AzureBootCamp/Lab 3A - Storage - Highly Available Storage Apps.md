@@ -25,7 +25,7 @@ We will use Visual Studio to run a mock console application that will copy files
 3. *Select **Storage Account***
 4. Fill out the storage account form with the following information:
    - Resource Group: **Create New**, Name: **RG-LAB-STORAGE**
-   - Storage Account Name: **samyapp1**
+   - Storage Account Name: **samyapp<last 4 of cell>**
    - Location: **EastUS**
    - Performance: **Standard**
    - Account Kind: **StorageV2 (general purpose v2)**
@@ -51,7 +51,7 @@ In this task you will load the application's solution, install the missing depen
 1. Browse to the unzipped folder and open **CircuitBreaker.sln** in Visual Studio
 2. Install any missing dependcies and packages if prompted
 3. Next we need to configure the connection string by grabbing it from the Azure Portal.  To do that, perform the following steps:
-   - In the Azure portal, navigate to your storage account **samyapp1**
+   - In the Azure portal, navigate to your storage account **samyapp<last 4 of cell>**
    - Select **Access keys** under **Settings**
    - *Copy the **Connection String*** from either the primary or secondary key.
 4. Now let's load the connection string and save it as an environment variable so the console application can use it.
@@ -62,14 +62,14 @@ In this task you will load the application's solution, install the missing depen
 <br><br />
 
 ## Task 5 - Run the Console Application
-Before we run the console application within Visual Studio, let's connect to your newly created storage account **samyapp1** using *Azure Storage Explorer* to verify we can connect and see that no data exists yet within the storage account, except for the default tables.
+Before we run the console application within Visual Studio, let's connect to your newly created storage account **samyapp<last 4 of cell>** using *Azure Storage Explorer* to verify we can connect and see that no data exists yet within the storage account, except for the default tables.
 
 1. Open **Azure Storage Explorer** and connect to Azure using your Microsoft Account
 2. Expand your Azure subscription and then **Storage Accounts**
-3. Find storage account **samyapp1** and expand it and then expand **blob containers**; you should not have any *blob containers* created yet.
+3. Find storage account **samyapp<last 4 of cell>** and expand it and then expand **blob containers**; you should not have any *blob containers* created yet.
 4. Now let's go back to Visual Studio and run the console application by **pressing F5** or selecting Start to begin debugging the application. 
 
-   A console window launches and the application begins running. The application uploads the HelloWorld.png image from the solution to the **samyapp1** storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a P or an S. Where P represents the primary endpoint and S represents the secondary endpoint.
+   A console window launches and the application begins running. The application uploads the HelloWorld.png image from the solution to the **samyapp<last 4 of cell>** storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a P or an S. Where P represents the primary endpoint and S represents the secondary endpoint.
 
    ![Console Output](./assets/images/consoleoutput.png)
 
