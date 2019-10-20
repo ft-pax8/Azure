@@ -7,54 +7,31 @@ Please note that using this approach represents the fastest way to migrate a VM 
 
 ## Task 1 - Create an IIS VM with PowerShell
 
-In this task you will run PowerShell scripts to create an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine DSC (Desired State Configuration) Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
+In this task you use the Azure CLI to create an Azure Virtual Machine running Windows Server 2016, and install IIS. 
 
-1. This lab requires Azure PowerShell.  If you need to install Azure PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).  After you install the module, make sure your execution policy allows you to execute commands under your current user context.  While only trusting signed scripts is the best practice, we will use an unrestricted policy for this lab.  To allow the execution of scripts, issue the following command:
+1. Open an Azure CLI window by browsing to [https://shell.azure.com](https://shell.azure.com)
 
-   `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force`
+2. Login using your Microsoft Account
 
-2. Open PowerShell and Run `Connect-AzAccount` to logon to your Azure subscription.  If your current identity is connected to multiple Azue subscriptions, obtain the GUID of the subscription you want to use and issue the following syntax: 
-   
-   `Connect-AzAccount  -SubscriptionId *GUID*`
+3. If prompted, select the default AAD directory
 
-3. There are some locations that restrict access to port 445 (SMB).  Before continuing execute the following command within PowerShell: 
+4. If a **Welcome to Azure Cloud Shell** prompt appears after logon, select **PowerShell** as the working CLI.  If it does not appear, you can select **PowerShell** from the drowndown in the upper-left corner once a CLI prompt is presented to you.  Note that you may need to provision a new CLI storage account to save your settings.
 
-    `Test-NetConnection -ComputerName salabstaging.file.core.windows.net -Port 445`
+5. At the CLI prompt, type in the following command
 
-   If the command is successful (TcpTestSucceeded=True) then continue with the following steps.  Otherwise [skip to step 4](#task1-4)
+   `az vm create \
+        --resource-group RG-LAB-BCDR \
+	--name VM-IIS-East \
+	--location eastus \
+	--image win2016datacenter \
+	--admin-username goose \
+	--admin-password th3n33d4sp33d!
 
-   - Enter the following command in PowerShell:
+6. *Press **Enter*** to execute the command
 
-     `Invoke-Expression -Command "cmdkey /add:salabstaging.file.core.windows.net /user:Azure\salabstaging /pass:Pm8hTtfqeN8EYfajOZHbnOb5EY51uAx8xvOlycJbvtGVANdxp8WSl07KfURefczt1OltCFmpy6OPNoWv2ias/g=="`
 
-   - Next, enter this command into PowerShell.  *Note that if the drive letter Z: is already used on your local computer feel free to use any available drive letter.* 
 
-     `New-PSDrive -Name Z -PSProvider FileSystem -Root "\\salabstaging.file.core.windows.net\labstagingfiles"`
 
-   - Map the z: to an Azure files share:
-
-     `net use z: \\salabstaging.file.core.windows.net\labstagingfiles /persistent:Yes`
-
-   - Copy the file to your local computer 
-
-     `copy z:\build-iis-vm.ps1 $env:USERPROFILE\downloads`
-
-   - Proceed to [step 5](#task1-5)
-
-   <a name="task1-4"></a>
-4. Open the [GitHub repository](./) for the lab and copy the build-iis-vm.ps1 to your local computer
-
-<a name="task1-5"></a>
-
-5. From PowerShell execute the build-iis-vm.ps1 script from your Downloads directory:
-
-    `.\Build-IIS-VM.ps1`
-
-6. When prompted enter the username and password for the IIS VM:
-    * Username:  `goose`
-    * Password: `th3n33d4sp33d!`
-7. Observe the build process via PowerShell.
-8. Once PowerShell builds the VM and installs IIS, open the Azure Portal and then obtain the public IP address of **VM-IIS**  *The VM build and install of IIS may take up to 15 mins to complete*
 9. Open a web browser and surf to the public IP address just make sure things are working
 
 <br></br>
