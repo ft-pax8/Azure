@@ -24,34 +24,37 @@ In this task you will run PowerShell scripts to create an Azure Virtual Machine 
    If the command is successful (TcpTestSucceeded=True) then continue with the following steps.  Otherwise [skip to step 4](#task1-4)
 
    - Enter the following command in PowerShell:
+
      `Invoke-Expression -Command "cmdkey /add:salabstaging.file.core.windows.net /user:Azure\salabstaging /pass:Pm8hTtfqeN8EYfajOZHbnOb5EY51uAx8xvOlycJbvtGVANdxp8WSl07KfURefczt1OltCFmpy6OPNoWv2ias/g=="`
 
    - Next, enter this command into PowerShell.  *Note that if the drive letter Z: is already used on your local computer feel free to use any available drive letter.* 
+
      `New-PSDrive -Name Z -PSProvider FileSystem -Root "\\salabstaging.file.core.windows.net\labstagingfiles"`
 
    - Map the z: to an Azure files share:
+
      `net use z: \\salabstaging.file.core.windows.net\labstagingfiles /persistent:Yes`
 
    - Copy the file to your local computer 
+
      `copy z:\build-iis-vm.ps1 $env:USERPROFILE\downloads`
 
    - Proceed to [step 6](#task1-6)
    <a name="task1-4"></a>
-4. Open the GitHub repository for the lab
-
-5. Copy the build-iis-vm.ps1 to your local computer.  
+4. Open the [GitHub repository](./) for the lab and copy the build-iis-vm.ps1 to your local computer
 
 <a name="task1-6"></a>
-6. From PowerShell execute the build-iis-vm.ps1 script from your Downloads directory:
+
+5. From PowerShell execute the build-iis-vm.ps1 script from your Downloads directory:
 
     `.\Build-IIS-VM.ps1`
 
-7. When prompted enter the username and password for the IIS VM:
+6. When prompted enter the username and password for the IIS VM:
     * Username:  pick a username and notate the credentials
     * Password: Enter `Complex.Password` and notate the credentials 
-8. Observe the build process via PowerShell.
-7. Once PowerShell builds the VM and installs IIS, open the Azure Portal and then obtain the public IP address of the IIS virtual machine.
-8. Open a web browser and surf to the public IP address just make sure things are working.
+7. Observe the build process via PowerShell.
+8. Once PowerShell builds the VM and installs IIS, open the Azure Portal and then obtain the public IP address of the IIS virtual machine.
+9. Open a web browser and surf to the public IP address just make sure things are working.
 
 ## Task 2 - Create target network resource
 We could have ASR automatically create the target network resources (i.e. Virtual networks and subnets) but in a more realistic scenario you'd want to pre-create these resources and place your migrated VMs in soecific networks. 
