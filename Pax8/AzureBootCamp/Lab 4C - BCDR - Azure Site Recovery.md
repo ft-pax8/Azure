@@ -21,25 +21,25 @@ In this task you will run PowerShell scripts to create an Azure Virtual Machine 
 
     `Test-NetConnection -ComputerName wagsazurefiles.file.core.windows.net -Port 445`
 
-If the command is successful (TcpTestSucceeded=True) then continue with the following steps.  Otherwise, **[jump to step 4](#task1-4)**
-* Enter the following command in PowerShell:
+   If the command is successful (TcpTestSucceeded=True) then continue with the following steps.  Otherwise **[jump to step 4](#task1-4)**
+   * Enter the following command in PowerShell:
 
-    `Invoke-Expression -Command "cmdkey /add:wagsazurefiles.file.core.windows.net /user:Azure\wagsazurefiles /pass:tCfYh37xGNjIc0czqfTW9+kUHIIhlxRUPh9h4YtD/hh7FiFPn1v32RH7uV0a83E6nAa6kkVU6d+nAAeoBItpJg=="`
-* Next, enter this command into PowerShell.  *Note that if the drive letter Z: is already used on your local computer feel free to use any available drive letter.*
+   `Invoke-Expression -Command "cmdkey /add:wagsazurefiles.file.core.windows.net /user:Azure\wagsazurefiles /pass:tCfYh37xGNjIc0czqfTW9+kUHIIhlxRUPh9h4YtD/hh7FiFPn1v32RH7uV0a83E6nAa6kkVU6d+nAAeoBItpJg=="`
+   * Next, enter this command into PowerShell.  *Note that if the drive letter Z: is already used on your local computer feel free to use any available drive letter.*
 
-    `New-PSDrive -Name Z -PSProvider FileSystem -Root "\\wagsazurefiles.file.core.windows.net\buildiis"`
+   `New-PSDrive -Name Z -PSProvider FileSystem -Root "\\wagsazurefiles.file.core.windows.net\buildiis"`
 
-* Map the z: to an Azure files share:
+   * Map the z: to an Azure files share:
 
-    `net use Z: \\wagsazurefiles.file.core.windows.net\buildiis /persistent:Yes`
-* Copy the file to your local computer and the proceed to step 6.
+   `net use Z: \\wagsazurefiles.file.core.windows.net\buildiis /persistent:Yes`
+   * Copy the file to your local computer and the proceed to step 6.
 
-    `copy z:\build-iis-vm.ps1 %userprofile%\downloads`
+   `copy z:\build-iis-vm.ps1 %userprofile%\downloads`
 
 
-<a name="task1-4">
+   <a name="task1-4"></a>
 4. Open the GitHub repository for the lab
-</a>
+
 5. Copy the build-iis-vm.ps1 to your local computer.  
 6. From PowerShell execute the build-iis-vm.ps1 script from your Downloads directory:
 
