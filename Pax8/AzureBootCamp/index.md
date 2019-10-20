@@ -16,6 +16,7 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 
 ## 3. Storage
 - [Lab 3A - Storage - Highly Available Storage Apps](Lab%203A%20-%20Storage%20-%20Highly%20Available%20Storage%20Apps.md)
+- [Lab 3B - Storage - Highly Availalbe Storage Apps - Part 2]()
 
 ## 4. BCDR
 - [Lab 4A - BCDR - Azure Backup](Lab%204A%20-%20BCDR%20-%20Azure%20Backup.md)
@@ -23,7 +24,7 @@ Here are the lab files for the  boot camp.  They are broken down into the follow
 - [Lab 4C - BCDR - Azure Site Recovery](Lab%204C%20-%20BCDR%20-%20Azure%20Site%20Recovery.md)
 
 ## 5. Migrate
-- [Lab 5 - Migrate - Lab 5A - Migrate - Database Migration Service](02_HybridCloud_Migration_Lab04_AzureMigrate.md)
+- [Lab 5 - Migrate - Lab 5A - Migrate - Database Migration Service](Lab%205A%20-%20Migrate%20-%20Database%20Migration%20Service.md)
 
 
 If you see any changes that need to be made (typos, new steps, etc.) please submit a pull request!
