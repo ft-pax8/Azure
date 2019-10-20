@@ -19,7 +19,7 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 
 5. At the CLI prompt, let's create a new resource group to hold your IIS VM.  Create the resource group by typing in the following command:
 
-  ```CLI
+   ```CLI
    az group create --name RG-LAB-BCDR-EAST2 --location eastus2
    ```
 
@@ -87,7 +87,7 @@ We could have ASR automatically create the target network resources (i.e. Virtua
 
 
 ## Task 3 - Select a replication goal
-1. Open the Recovery Service Vault, **VLT-VMBAK** that you created in Lab 4A
+1. Open the Recovery Service Vault, **VLT-VMBAK** that you created in [Lab 4A - Task 3](Lab%204A%20-%20BCDR%20-%20Azure%20Backup.md#task-3---create-a-recovery-services-vault)
 2. In the **Getting Started** Menu, click **Site Recovery** > **Prepare Infrastructure**. 
 3. In **Protection goal**, set the following: 
     * Where are your machines located?: **Azure** 
@@ -101,9 +101,11 @@ We could have ASR automatically create the target network resources (i.e. Virtua
 2.	Under **Operations**, click **Disaster recovery**.
 3.	In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate and where you create the network resources in Task 2, which should be the West US. Click **Next: Advanced settings**.
 4. Under Advanced settings, set the following and click **Next: Review + Start Replication**.
-    * VM resource group: **RG-LAB-BCDR-WEST**
-    * Virtual network" **VNT-BCDR-WEST**
-    * Availability: **Single instance**
+   - VM resource group: **RG-LAB-BCDR-WEST**
+   - Virtual network" **VNT-BCDR-WEST**
+   - Availability: **Single instance**
+   - Under **Replication Settings**, *click **Show details***
+     - Ensure the **Recovery services vault** is set to use **VLT-VMBAK**
 5. Click on **Review + Start replication**.
 6. Review the settings and click **Start replication**. This starts a job to enable replication (aka migration) for the VM.
 7. You may notice that vaildating takes a few moments to process.  The fabric is ensuring that resources in your target region can be created and there’s no conflicts.
