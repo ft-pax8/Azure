@@ -1,84 +1,55 @@
 # Highly Available Storage Applications - Part 2
 
-In this lab, you learn how to make your application data highly available in Azure using RA-GRS storage
-<br><br />
-## Task 1 - Install Visual Studio and Azure Storage Explorer
+This is part two of Lab 3 for Highly Available Storage Applications. In it, you learn about the benefits of a read-access geo-redundant (RA-GRS) by simulating a failure.
+In order to simulate a failure, you will implement Static Routing to simulate failure for requests to the primary endpoint of your read-access geo-redundant (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
 
-We will use Visual Studio to run a mock console application that will copy files to Azure storage and check to see if the file was successfully copied to the primary storage account and the geo-replicated secondary storage account.  You will use Azure Storage Explorer to browse your storage accounts and verify the files were uploaded successfully.  
-
-1. Download and install the appropriate version of [Visual Studio 2019 - Community](https://visualstudio.microsoft.com/downloads/)
-2. Once the installation starts, you will be asked which workloads you would like to install.  Please select **Azure development** and complete the rest of the install using the default options for all remaining screens.
-
-   *Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation.*
-
-    ![Azure Development](./assets/images/workloads.png)
-
-3. Download and install [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)
-4. Accept all defaults for the **Azure Storage Explorer** install
 
 <br><br />
 
-## Task 2 - Create a Storage Account
+## Task 1 - Simulate a Failure with an Invalid Static Route
 
-1. Within the Azure Portal, *select **Create a resource*** button found on the upper left-hand corner of the Azure portal
-2. *Select **Storage*** from the **New** page
-3. *Select **Storage Account***
-4. Fill out the storage account form with the following information:
-   - Resource Group: **Create New**, Name: **RG-LAB-STORAGE**
-   - Storage Account Name: **samyapp1**
-   - Location: **EastUS**
-   - Performance: **Standard**
-   - Account Kind: **StorageV2 (general purpose v2)**
-   - Replication: **Read-access geo-redundant storage (RA-GRS)**
-   - Access tier (default): **Hot**
+You can create an invalid static route for all requests to the primary endpoint of your read-access geo-redundant (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure with an invalid static route.
 
-5. *Select **Review + create***
-6. *Click **Create**
+1. Open the console application in Visual Studio and run it again by *pressing **F5*** or *clicking **start*** to start the debugging.
+2. Once the console application begins the dowloand *(when you see the P1, P2, P3, P4....)*, pause the console application by pressing any key while the console window is active
+3. Open a Command Prompt as Administrator
+4. Retrieve the IP of the storage stamp hosting your storage account **samyapp1** by typing the following at the command prompt:
+   
+   `nslookup samyapp1.blob.core.windows.net`
 
-<br><br />
+5. Write down the IP address of the storage stamp
+6. Now retrieve your machine's IP
 
-## Task 3 - Download the Console Application 
+   `ipconfig`
 
-1. Download the sample project from Git Hub [storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)
-2. Extract the **storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip** to your local downloands folder
+7. Write down the IP address of your local machine
+8. Next, we need to add a static route for your storage account, to route it back to your host to mimic the failure.
 
-<br><br />
+   To add a static route for a destination host, type the following command on a Windows command prompt, replacing <destination_ip> with your storage account IP address and <gateway_ip> with your local host IP address.
+ 
+   `route add <destination_ip> <gateway_ip>` 
 
-## Task 4 - Open the App Solution and Modify the Connection Strings
+   If done correctly, you should see the reply - **OK!**
 
-In this task you will load the application's solution, install the missing dependencies and add the connection string so the application can connect to the new storage account you created in Task 2.
 
-1. Browse to the unzipped folder and open **CircuitBreaker.sln** in Visual Studio
-2. Install any missing dependcies and packages if prompted
-3. Next we need to configure the connection string by grabbing it from the Azure Portal.  To do that, perform the following steps:
-   - In the Azure portal, navigate to your storage account **samyapp1**
-   - Select **Access keys** under **Settings**
-   - *Copy the **Connection String*** from either the primary or secondary key.
-4. Now let's load the connection string and save it as an environment variable so the console application can use it.
-   - Within Visual Studio browse to **Tools > Command Line > Developer Command Prompt** and type in the following command:
+## Task 2 - Verify Storage Failover
 
-     `setx storageconnectionstring <your connection string from the portal>`
+The console application has an event handler that is called when the download of the image fails and is set to retry. If the maximum number of retries defined (default is 5)  in the application are reached, the LocationMode of the request is changed to SecondaryOnly. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely. 
+There is a second event handler that is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the LocationMode back to PrimaryThenSecondary and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
-<br><br />
+Let's validate this behavior
 
-## Task 5 - Run the Console Application
-Before we run the console application within Visual Studio, let's connect to your newly created storage account **samyapp1** using *Azure Storage Explorer* to verify we can connect and see that no data exists yet within the storage account, except for the default tables.
+1. In the console window running the application, resume the application by pressing any key
+2. The application will continue to try to download from primary storage (noted by the **P**) until it fails 5 times, it should then failover to secondary storage (noted by the **S**) and if successful, perform 20 downloads before it retries the primary.  This pattern will continue until the primary is restored, all 999 downloads are complete or both the primary and secondary storage are unreachable.
+3. Once you've verified the console application can successfully download from the secondary storage, let's remove the static route so it can reach the primary storage account again.
+   - Return to the Command Prompt launched as Administrator
+   - Run the following command, replacing <destination_ip> with the IP of the storage stamp
+     
+     `route delete <destination_ip>`
 
-1. Open **Azure Storage Explorer** and connect to Azure using your Microsoft Account
-2. Expand your Azure subscription and then **Storage Accounts**
-3. Find storage account **samyapp1** and expand it and then expand **blob containers**; you should not have any *blob containers* created yet.
-4. Now let's go back to Visual Studio and run the console application by **pressing F5** or selecting Start to begin debugging the application. 
-
-   A console window launches and the application begins running. The application uploads the HelloWorld.png image from the solution to the **samyapp1** storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a P or an S. Where P represents the primary endpoint and S represents the secondary endpoint.
-
-   ![Console Output](./assets/images/consoleoutput.png)
-
-5. Once all 999 download attempts complete, **do not** press *enter* and leave the console application running.
-6. Go back to **Azure Storage Explorer** and *right-click **blob containers*** and *click **refresh***
-7. You should now have a new blob container created.  Select it and verify the **HelloWorld.png** file was uploaded to your blob storage
-8. Switch back to the console applicaiton and *press **enter*** to have it clean-up and remove HelloWorld.png and the blob container.
-9. Go back to **Azure Storage Explorer** and *right-click **blob containers*** and *click **refresh***
-10. You should no longer see the blob container 
+4. Return to the console application and verify it can now download from primary stoage again.
 
 
 [Back](index.md)
+
+
