@@ -1,8 +1,8 @@
 # Azure Site Recovery  
  
-In this lab you will create a VM in Azure to simulate a source VM running in either VMware or Hyper-V on the ground.  We will then replicate (aka migrate) the VM to Azure.
+In this lab you will create a VM in Azure to simulate a source VM running in either VMware or Hyper-V on-premises.  We will then replicate (aka migrate) the VM to Azure.
 
-Please note that using this approach represents `the fastest way` to migrate a VM to Azure and should not be seen as the usual, customary amount of time it takes to perform a migration to Azure. 
+Please note that using this approach represents `the fastest way` to migrate a VM to Azure.  Typical VM migrations also include the assessment phase, which we are skipping in this lab. 
 
 
 ## Task 1 - Create an IIS VM with PowerShell
