@@ -17,13 +17,19 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 
 4. If a **Welcome to Azure Cloud Shell** prompt appears after logon, select **PowerShell** as the working CLI.  If it does not appear, you can select **PowerShell** from the drowndown in the upper-left corner once a CLI prompt is presented to you.  Note that you may need to provision a new CLI storage account to save your settings.
 
-5. At the CLI prompt, create the VM by typing in the following command:
+5. At the CLI prompt, let's create a new resource group to hold your IIS VM.  Create the resource group by typing in the following command:
+
+  ```CLI
+   az group create --name RG-LAB-BCDR-EAST2 --location eastus2
+   ```
+
+6. Create the VM by typing in the following command:
 
    ```CLI
    az vm create \
-	--resource-group RG-LAB-BCDR \
+	--resource-group RG-LAB-BCDR-EAST2 \
 	--name VM-IIS-East \
-	--location eastus \
+	--location eastus2 \
 	--image win2016datacenter \
 	--admin-username goose \
 	--admin-password th3n33d4sp33d!
@@ -80,14 +86,9 @@ We could have ASR automatically create the target network resources (i.e. Virtua
 
 <br></br>
 
-## Task 3 - Create a Recovery Services vault
-This task is the normal starting point for a typical lift and shift migration as you would normally have a robust source environment to migrate. 
-1. Click **Create a resource > Management Tools > Backup and Site Recovery(OMS)** and enter **MyVault** as the Name and **Migration** as the Resource Group.  Click **Create**.
 
-<br></br>
-
-## Task 4 - Select a replication goal
-1. Once the vault deployment has succeeded, click on **Go to Resource** or in the search bar type in **MyVault** and select it.
+## Task 3 - Select a replication goal
+1. Open the Recovery Service Vault, **VLT-VMBAK** that you created in Lab 4A
 2. In the **Getting Started** Menu, click **Site Recovery** > **Prepare Infrastructure**. 
 3. In **Protection goal**, set the following: 
     * Where are your machines located?: **Azure** 
@@ -96,25 +97,25 @@ This task is the normal starting point for a typical lift and shift migration as
 
 <br></br>
 
-## Task 5 - Enable replication
-1.	In the Azure portal, click **Virtual machines**, and select the **IIS**. 
+## Task 4 - Enable replication
+1.	In the Azure portal, click **Virtual machines**, and select the **VM-IIS-East**. 
 2.	Under **Operations**, click **Disaster recovery**.
-3.	In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate and where you create the network resources in Task 2, which should be the Central US. Click **Next: Advanced settings**.
+3.	In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate and where you create the network resources in Task 2, which should be the West US. Click **Next: Advanced settings**.
 4. Under Advanced settings, set the following and click **Next: Review + Start Replication**.
-    * VM resource group: **MigrationvNets**
-    * Virtual network" **MigrationvNet**
-    * Availability: **Availability set**
+    * VM resource group: **RG-LAB-BCDR-WEST**
+    * Virtual network" **VNT-BCDR-WEST**
+    * Availability: **Single instance**
 5. Click on **Review + Start replication**.
 6. Review the settings and click **Start replication**. This starts a job to enable replication (aka migration) for the VM.
-7.	You may notice that Vaildating takes a few moments to process.  The fabric is ensuring that resources in your target region can be created and there’s no conflicts.
+7. You may notice that vaildating takes a few moments to process.  The fabric is ensuring that resources in your target region can be created and there’s no conflicts.
 
 <br></br>
 
-## Task 6 - Track Replication
+## Task 5 - Track Replication
 1. Once Azure has built the core components replication will begin.  On the alert button (the bell) click on **Enabling replication for 1 vm(s)**.
-2.	Notice the steps as they occur in real time.  The longest step in the process is going to be **Enable replication**.  Select that item and observe the series of steps taking place. IR, or Initial Replication, the time it takes the VM to be copied from source to target.  Notice the Status of IR.  
-2.	Since it may take 30 minutes to replicate the VM, now may be an appropriate time to take a break or come back to the lab at a later time.
-3.	You can check percentage complete of replication by **Virtual Machines > IIS > Operations > Disaster Recovery**.  You may notice status sits at 0% synchronized for some time and then report upwards of 87% complete on next refresh.
+2. Notice the steps as they occur in real time.  The longest step in the process is going to be **Enable replication**.  Select that item and observe the series of steps taking place. IR, or Initial Replication, the time it takes the VM to be copied from source to target.  Notice the Status of IR.  
+2. Since it may take 30 minutes to replicate the VM, now may be an appropriate time to take a break or come back to the lab at a later time.
+3. You can check percentage complete of replication by **Virtual Machines > IIS > Operations > Disaster Recovery**.  You may notice status sits at 0% synchronized for some time and then report upwards of 87% complete on next refresh.
 
 <br></br>
 
