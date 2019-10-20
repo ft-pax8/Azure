@@ -1,6 +1,6 @@
 # Azure Boot Camp
 
-Hello, you've reached the **Pax8 Azure Bootcamp** site.  You may find the presentations at the root of this site (hit back at the bottom).  The labs for the  boot camp are linked below.  They are broken down into the following distinct areas:
+Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the labs and presentations covered during the bootcamp.  PDFs of the presentations are located at the root of this site (hit back at the bottom).  The labs for the  bootcamp are linked below.  They are broken down into the following distinct areas:
 
 ## 1. Identity
 - [Lab 1A - Identity - AD Connect](Lab%201A%20-%20Identity%20-%20AD%20Connect.md)
