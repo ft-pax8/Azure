@@ -4,7 +4,7 @@ $location = "eastus"
 $vmName = "VM-IIS"
 
 # Create a resource group
-New-AzResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location -Force
 
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
