@@ -131,12 +131,13 @@ In this task, you will perform a test failover of the VM you just added Disaster
 3.	Select the target Azure virtual network to which Azure VMs in the secondary region will be connected after the failover occurs, which in this lab is **VNT-BCDR-WEST**  
 4.	To start the failover, click **OK**. Track progress by selecting the alert in the Notifications window. You can also track the progress by browsing to your recovery services value **VLT-VMBAK** then **Site Recovery Jobs** under *Monitoring*
 5.	After the failover finishes (Start the virtual machine task is successful), the replica Azure VM appears in the Azure portal under Virtual Machines. Make sure that the VM is running, sized appropriately, and connected to the appropriate network. ***Note that the VM does not have a Public IP address.***
-6.	To delete the VMs that were created during the test failover, select **IIS** from **Virtual Machines**, select **Disaster recovery** under  **Operations**, and then choose **Cleanup test failover**. In Notes, record and save any observations associated with the test failover. Click the box for **Testing is complete** and click **Ok**.
-If you don’t delete the failover VM, the VM will continue to run and increase your Azure consumption.
+6.	To delete the VMs that were created during the test failover, select **VM-IIS-East** from **Virtual Machines**, then select **Disaster recovery** under  **Operations**, and then choose **Cleanup test failover**. In Notes, record and save any observations associated with the test failover. Click the box for **Testing is complete** and click **Ok**.
+
+> If you don’t delete the failover VM, the VM will continue to run and increase your Azure consumption.
 
 <br></br>
 
- ## Task 8 - Switch over to the migrated VM
+ ## Task 7 - Switch over to the migrated VM
  Once you have validated the migrated VM by performing a test failover, your next step would be to switch over to the migrated VM.  In this lab you will complete the migration.
 
  1.  Once **Test Failover** is complete, click on **Failover**.
@@ -146,7 +147,7 @@ If you don’t delete the failover VM, the VM will continue to run and increase 
 
 <br></br>
 
- ## Task 9 - Make your migrated VM accessible
+ ## Task 8 - Make your migrated VM accessible
  When you migrate a VM a public IP address is not added by default and the Virtual Network does not have any Network Security Group rules.  We need to add all of these.
 
  For real production migrations Microsoft recommends that you add these steps to what is called a recovery plan so that they are automatically built and added as the VM is migrated.
