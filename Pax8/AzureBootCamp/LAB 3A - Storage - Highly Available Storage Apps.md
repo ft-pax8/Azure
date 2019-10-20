@@ -58,6 +58,15 @@ In this task you will load the application's solution, install the missing depen
    - Within Visual Studio browse to **Tools > Command Prompt > Developer Command Prompt** and type in the following command:
      `setx storageconnectionstring <your connection string from the portal>`
 
+<br><br />
+
+## Task 5 - Run the Console Application
+
+1. In Visual Studio, press F5 or select Start to begin debugging the application. 
+
+   A console window launches and the application begins running. The application uploads the HelloWorld.png image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a P or an S. Where P represents the primary endpoint and S represents the secondary endpoint.
+
+   ![Console Output](./assets/images/consoleoutput.png)
 
 
 
