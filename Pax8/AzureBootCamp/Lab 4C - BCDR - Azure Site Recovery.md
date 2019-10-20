@@ -35,12 +35,11 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 	--admin-password th3n33d4sp33d!
    ```
 
-6. *Press **Enter*** to execute the command
 7. Once the VM is created, let's open port 80 so we can access the VM's website from the internet.  Run the follwing command:
 
 
    ```CLI
-   az vm open-port --port 80 --resource-group RG-LAB-BCDR --name VM-IIS-East
+   az vm open-port --port 80 --resource-group RG-LAB-BCDR-EAST2 --name VM-IIS-East
    ```
 8. Now let's install IIS using a Custom Script Extension.  Run the following command:
 
@@ -50,7 +49,7 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 	--version 1.8 \
 	--name CustomScriptExtension \
 	--vm-name VM-IIS-East \
-	--resource-group RG-LAB-BCDR \
+	--resource-group RG-LAB-BCDR-EAST2 \
 	--settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'
    ```
 
@@ -58,7 +57,7 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 9. Get the public IP of **VM-IIS-East** by running the following command:
 
    ```CLI
-   az network public-ip show --resource-group RG-LAB-BCDR --name VM-IIS-EastPublicIP
+   az network public-ip show --resource-group RG-LAB-BCDR-EAST2 --name VM-IIS-EastPublicIP
    ```
 
 10. Open a web browser and surf to the public IP address to make sure the webisite is up and running on **VM-IIS-East**
