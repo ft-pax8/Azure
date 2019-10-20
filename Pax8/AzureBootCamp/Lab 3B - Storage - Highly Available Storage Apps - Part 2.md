@@ -33,7 +33,9 @@ To introduce the failure, you will create an invalid static route for all reques
 
 ## Task 2 - Verify Storage Failover
 
-The console application has an event handler that is called when the download of the image fails and is set to retry. If the maximum number of retries defined (default is 5)  in the application are reached, the LocationMode of the request is changed to SecondaryOnly. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely. 
+The console application has an event handler that is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached (default is 5), the LocationMode of the request is changed to SecondaryOnly. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint is not retried indefinitely. 
+
+
 There is a second event handler that is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the LocationMode back to PrimaryThenSecondary and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
 Let's validate this behavior
