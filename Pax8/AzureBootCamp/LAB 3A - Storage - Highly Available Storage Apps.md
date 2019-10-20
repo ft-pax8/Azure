@@ -55,18 +55,27 @@ In this task you will load the application's solution, install the missing depen
    - Select **Access keys** under **Settings**
    - *Copy the **Connection String*** from either the primary or secondary key.
 4. Now let's load the connection string and save it as an environment variable so the console application can use it.
-   - Within Visual Studio browse to **Tools > Command Prompt > Developer Command Prompt** and type in the following command:
+   - Within Visual Studio browse to **Tools > Command Line > Developer Command Prompt** and type in the following command:
      `setx storageconnectionstring <your connection string from the portal>`
 
 <br><br />
 
 ## Task 5 - Run the Console Application
+Before we run the console application within Visual Studio, let's connect to your newly created storage account **samyapp1** using Storage Explorer to verify we can connect and see that no data exists yet within the storage account except for the default tables.
 
-1. In Visual Studio, press F5 or select Start to begin debugging the application. 
+1. Open **Azure Storage Explorer** and connect to Azure using your Microsoft Account
+2. Expand your Azure subscription and then **Storage Accounts**
+3. Find storage account **samyapp1** and expand it and then expand **blob containers** you should not have any *blob containers* created yet.
+4. Now let's go back to Visual Studio and run the console application by **pressing F5** or selecting Start to begin debugging the application. 
 
    A console window launches and the application begins running. The application uploads the HelloWorld.png image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a P or an S. Where P represents the primary endpoint and S represents the secondary endpoint.
 
    ![Console Output](./assets/images/consoleoutput.png)
+
+5. Once all 999 download attempts complete, do not press enter and leave the console application running.
+6. Go back to **Azure Storage Explorer** and *right-click **blob containers*** and *click **refresh***
+7. You should now have a new blob container created.  Select it and verify the **HelloWorld.png** file was uploaded to your blob storage
+8. Switch back to the console applicaiton and 
 
 
 
