@@ -29,7 +29,7 @@ You can create an invalid static route for all requests to the primary endpoint 
  
    `route add <destination_ip> <gateway_ip>` 
 
-   If done correctly, you should see the reply - **OK!**
+   If done correctly, you should see the reply > **OK!**
 
 
 ## Task 2 - Verify Storage Failover
