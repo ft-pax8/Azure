@@ -17,11 +17,11 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 
 4. If a **Welcome to Azure Cloud Shell** prompt appears after logon, select **PowerShell** as the working CLI.  If it does not appear, you can select **PowerShell** from the drowndown in the upper-left corner once a CLI prompt is presented to you.  Note that you may need to provision a new CLI storage account to save your settings.
 
-5. At the CLI prompt, type in the following command
+5. At the CLI prompt, create the VM by typing in the following command:
 
    ```CLI
    az vm create \
-        --resource-group RG-LAB-BCDR \
+	--resource-group RG-LAB-BCDR \
 	--name VM-IIS-East \
 	--location eastus \
 	--image win2016datacenter \
@@ -30,8 +30,23 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
    ```
 
 6. *Press **Enter*** to execute the command
+7. Once the VM is created, let's open port 80 so we can access the VM's website from the internet.  Run the follwing command:
 
 
+   ```CLI
+   az vm open-port --port 80 --resource-group RG-LAB-BCDR --name VM-IIS-East
+   ```
+8. Now let's install IIS using a Custom Script Extension.  Run the following command:
+
+   ```CLI 
+   az vm extension set \
+	--publisher Microsoft.Compute \
+	--version 1.8 \
+	--name CustomScriptExtension \
+	--vm-name VM-IIS-East \
+	--resource-group RG-LAB-BCDR \
+	--settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'
+   ```
 
 
 9. Open a web browser and surf to the public IP address just make sure things are working
