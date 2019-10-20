@@ -158,5 +158,9 @@ In this task, you will perform a test failover of the VM you just added Disaster
  
  [Add Public IP and NSG to ARM VMs during Test Failover of an ASR Recovery Plan](https://gallery.technet.microsoft.com/scriptcenter/Add-Public-IP-and-NSG-to-a6bb8fee)
 
+<br></br>
+
+<br></br>
+
 
 [Back](index.md)
