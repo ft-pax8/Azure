@@ -2,14 +2,16 @@
  
 In this lab you will create a VM in Azure to simulate a source VM running in either VMware or Hyper-V on-premises.  We will then replicate (aka migrate) the VM to Azure.
 
-Please note that using this approach represents `the fastest way` to migrate a VM to Azure.  Typical VM migrations also include the assessment phase, which we are skipping in this lab. 
+Please note that using this approach represents the fastest way to migrate a VM to Azure.  Typical VM migrations also include the assessment phase, which we are skipping in this lab. 
 
 
 ## Task 1 - Create an IIS VM with PowerShell
 
-This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine DSC Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
+In this task you will run PowerShell scripts to create an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine DSC (Desired State Configuration) Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
-1. This lab requires Azure PowerShell.  If you need to install Azure PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).
+1. This lab requires Azure PowerShell.  If you need to install Azure PowerShell, see [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).  After you install the module, make sure your execution policy allows you to execute commands under your current user context.  While only trusting signed scripts is the best practice, we will use an unrestricted policy for this lab.  To allow the execution of scripts, issue the following command:
+
+   `Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force`
 
 2. Open PowerShell and Run `Connect-AzAccount` to logon to your Azure subscription.  If your current identity is connected to multiple Azue subscriptions, obtain the GUID of the subscription you want to use and issue the following syntax: 
 `Connect-AzAccount  -SubscriptionId *GUID*`
