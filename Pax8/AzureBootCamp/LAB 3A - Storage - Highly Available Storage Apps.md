@@ -81,4 +81,4 @@ Before we run the console application within Visual Studio, let's connect to you
 10. You should no longer see the blob container 
 
 
-
+[Back](index.md)
