@@ -8,6 +8,7 @@ In this lab, you learn how to make your application data highly available in Azu
 We will use Visual Studio to run a mock console application that will copy files to Azure storage and check to see if the file was successfully copied to the primary storage account and the geo-replicated secondary storage account.  
 
 1. Download and install the appropriate version of [Visual Studio 2019 - Community](https://visualstudio.microsoft.com/downloads/)
+2. Once the installation starts, you will be asked which workloads you would like to install.  Please select **Azure development** and complete the rest of the install using the default options for all remaining screens.
 
    *Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation.*
 
