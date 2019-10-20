@@ -3,16 +3,16 @@
 In this lab, you learn how to make your application data highly available in Azure using RA-GRS storage
 
 
-## Task 1 - Install Visual Studio Code
+## Task 1 - Install Visual Studio and Azure Storage Explorer
 
-We will use Visual Studio Code to build and compile a mock application and then publish it to Azure to validate our highly available storage.  
+We will use Visual Studio to run a mock console application that will copy files to Azure storage and check to see if the file was successfully copied to the primary storage account and the geo-replicated secondary storage account.  
 
-1. Download and install the appropriate version of [Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
-2. If Visual Studio Code is open, close it.
-3. Download and install the [.NET Code 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/sdk-for-vs-code?utm_source=vs-code&utm_medium=referral&utm_campaign=sdk-install).  
+1. Download and install the appropriate version of [Visual Studio 2019 - Community](https://visualstudio.microsoft.com/downloads/)
 
-   *Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation again.*
+   *Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation.*
 
+
+2. Download and install Azure Storage Explorer
 
 <br><br />
 
@@ -53,7 +53,7 @@ In this task you will load the application's solution, install the missing depen
    - Select **Access keys** under **Settings**
    - *Copy the **Connection String*** from either the primary or secondary key.
 4. Now let's load the connection string and save it as an environment variable so the console application can use it.
-   - Open a command prompt or use the **Terminal** built into Visual Studio Code and type in the following command:
+   - Open the **Terminal** window built into Visual Studio Code and type in the following command:
      `setx storageconnectionstring <your connection string from the portal>`
 
 
