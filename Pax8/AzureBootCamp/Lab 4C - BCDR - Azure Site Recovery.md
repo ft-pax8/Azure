@@ -40,6 +40,7 @@ In this task you will run PowerShell scripts to create an Azure Virtual Machine 
      `copy z:\build-iis-vm.ps1 $env:USERPROFILE\downloads`
 
    - Proceed to [step 5](#task1-5)
+
    <a name="task1-4"></a>
 4. Open the [GitHub repository](./) for the lab and copy the build-iis-vm.ps1 to your local computer
 
@@ -56,6 +57,7 @@ In this task you will run PowerShell scripts to create an Azure Virtual Machine 
 8. Once PowerShell builds the VM and installs IIS, open the Azure Portal and then obtain the public IP address of **VM-IIS**
 9. Open a web browser and surf to the public IP address just make sure things are working
 
+<br />
 ## Task 2 - Create target network resource
 We could have ASR automatically create the target network resources (i.e. Virtual networks and subnets) but in a more realistic scenario you'd want to pre-create these resources and place your migrated VMs in soecific networks. 
 1. Click on Virtual networks then **+Add**
