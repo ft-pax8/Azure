@@ -113,10 +113,10 @@ We could have ASR automatically create the target network resources (i.e. Virtua
 <br></br>
 
 ## Task 5 - Track Replication
-1. Once Azure has built the core components replication will begin.  On the alert button (the bell) click on **Enabling replication for 1 vm(s)**.
+1. Once Azure has built the core components replication will begin.  On the alert button (the bell) click on **Enabling replication for 1 vm(s)**.  If you don't see this task yet, Azure may still be provisioning the automation account and service principal.  Wait a couple minutes and check again.
 2. Notice the steps as they occur in real time.  The longest step in the process is going to be **Enable replication**.  Select that item and observe the series of steps taking place. IR, or Initial Replication, the time it takes the VM to be copied from source to target.  Notice the Status of IR.  
 2. Since it may take 30 minutes to replicate the VM, now may be an appropriate time to take a break or come back to the lab at a later time.
-3. You can check percentage complete of replication by **Virtual Machines > IIS > Operations > Disaster Recovery**.  You may notice status sits at 0% synchronized for some time and then report upwards of 87% complete on next refresh.
+3. You can check percentage complete of replication by **Virtual Machines > VM-IIS-East > Operations > Disaster Recovery**.  You may notice status sits at 0% synchronized for some time and then report upwards of 87% complete on next refresh.
 
 <br></br>
 

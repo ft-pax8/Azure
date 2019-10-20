@@ -8,3 +8,51 @@ In this lab, you learn how to make your application data highly available in Azu
 We will use Visual Studio Code to build and compile a mock application and then publish it to Azure to validate our highly available storage.  
 
 1. Download and install the appropriate version of [Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
+2. If Visual Studio Code is open, close it.
+3. Download and install the [.NET Code 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/sdk-for-vs-code?utm_source=vs-code&utm_medium=referral&utm_campaign=sdk-install).  Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation again.
+
+
+<br><br />
+
+## Task 2 - Create a Storage Account
+
+1. Within the Azure Portal, *select **Create a resource*** button found on the upper left-hand corner of the Azure portal
+2. *Select **Storage*** from the **New** page
+3. *Select **Storage Account***
+4. Fill out the storage account form with the following information:
+   - Resource Group: **Create New**, Name: **RG-LAB-STORAGE**
+   - Storage Account Name: **samyapp1**
+   - Location: **EastUS**
+   - Performance: **Standard**
+   - Account Kind: **StorageV2 (general purpose v2)**
+   - Replication: **Read-access geo-redundant storage (RA-GRS)**
+   - Access tier (default): **Hot**
+
+5. *Select **Review + create***
+6. *Click **Create**
+
+
+
+## Task 3 - Download the Application Code
+
+1. Download the sample project from Git Hub [storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)
+2. Extract the **storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip** to your local downloands folder
+
+
+## Task 4 - Open the App Solution and Modify the Connection Strings
+
+In this task you will load the application's solution, install the missing dependencies and add the connection string so the application can connect to the new storage account you created in Task 2.
+
+1. Browse to the unzipped folder and open **CircuitBreaker.sln** in Visual Studio Code
+2. Install any missing dependcies and packages if prompted
+3. Next we need to configure the connection string by grabbing it from the Azure Portal.  To do that, perform the following steps:
+   - In the Azure portal, navigate to your storage account **samyapp1**
+   - Select **Access keys** under **Settings**
+   - *Copy the **Connection String*** from either the primary or secondary key.
+4. Now let's load the connection string and save it as an environment variable so the console application can use it.
+   - Open a command prompt or use the **Terminal** built into Visual Studio Code and type in the following command:
+     `setx storageconnectionstring <your storage connection string from the portal>`
+
+
+
+
