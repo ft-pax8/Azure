@@ -41,7 +41,7 @@ There is a second event handler that is called when the download of the image is
 Let's validate this behavior
 
 1. In the console window running the application, resume the application by pressing any key
-2. The application will continue to try to download from primary storage (noted by the **P**) until it fails 5 times, it should then failover to secondary storage (noted by the **S**) and if successful, perform 20 downloads before it retries the primary.  This pattern will continue until the primary is restored, all 999 downloads are complete or both the primary and secondary storage are unreachable.
+2. The application will continue to try to download from primary storage (noted by the **P**), but will fail due to the static route you just introduced.  It will continue to try to read from the primary storage until it fails 5 times, it should then failover to secondary storage (noted by the **S**) and if successful, perform 20 downloads before it retries the primary.  This pattern will continue until the primary is restored, all 999 downloads are complete from the secondary or both the primary and secondary storage are unreachable.
 3. Once you've verified the console application can successfully download from the secondary storage, let's remove the static route so it can reach the primary storage account again.
    - Return to the Command Prompt launched as Administrator
    - Run the following command, replacing <destination_ip> with the IP of the storage stamp
