@@ -120,17 +120,17 @@ We could have ASR automatically create the target network resources (i.e. Virtua
 
 <br></br>
 
-## Task 7 - Run a Test Failover 
-A test failover executes a failover but does not make the secondary or migrated VM active.  A drill validates your replication strategy without data loss or downtime and doesn't affect your production environment.
-1.	Click the **Test Failover** icon.
+## Task 6 - Run a Test Failover 
+In this task, you will perform a test failover of the VM you just added Disaster Recovery to.  A test failover executes a failover but does not make the secondary or migrated VM active.  This drill validates your replication strategy without data loss or downtime and doesn't affect your production environment.
+1. Browse to **Virtual Machines > VM-IIS-East > Operations > Disaster Recovery** and then *click **Test Failover***
 2.	In Test Failover, select **Latest (lowest RPO)** as the recovery point to use for the failover.  Note the following:
     * **Latest (lowest RPO):** Fails the VM over with the current state of the VM but requires some processing time.
     * **Latest processed (low RTO):** Fails the VM over to the latest recovery point that was processed by the Site Recovery service. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO (Recovery Time Objective)
-    * **Latest app-consistent:** This option fails over all VMs to the latest app-consistent recovery point. The time stamp is shown.
+    * **Latest app-consistent:** This option fails over all VMs to the latest app-consistent recovery point (leveraging Windows VSS or Volume Shadow Copy Service). The time stamp is shown.
     * **Custom:** Use this option to fail over to a specific recovery point. This option is useful for performing a test failover.
-3.	Select the target Azure virtual network to which Azure VMs in the secondary region will be connected after the failover occurs, which in this lab is **MigrationvNet**.  
-4.	To start the failover, click **OK**. Track progress by selecting the alert in the Notifications window. 
-5.	After the failover finishes (Start the virtual machine task is successful), the replica Azure VM appears in the Azure portal under Virtual Machines. Make sure that the VM is running, sized appropriately, and connected to the appropriate network. Note that the VM does not have a Public IP address.
+3.	Select the target Azure virtual network to which Azure VMs in the secondary region will be connected after the failover occurs, which in this lab is **VNT-BCDR-WEST**  
+4.	To start the failover, click **OK**. Track progress by selecting the alert in the Notifications window. You can also track the progress by browsing to your recovery services value **VLT-VMBAK** then **Site Recovery Jobs** under *Monitoring*
+5.	After the failover finishes (Start the virtual machine task is successful), the replica Azure VM appears in the Azure portal under Virtual Machines. Make sure that the VM is running, sized appropriately, and connected to the appropriate network. ***Note that the VM does not have a Public IP address.***
 6.	To delete the VMs that were created during the test failover, select **IIS** from **Virtual Machines**, select **Disaster recovery** under  **Operations**, and then choose **Cleanup test failover**. In Notes, record and save any observations associated with the test failover. Click the box for **Testing is complete** and click **Ok**.
 If you don’t delete the failover VM, the VM will continue to run and increase your Azure consumption.
 
