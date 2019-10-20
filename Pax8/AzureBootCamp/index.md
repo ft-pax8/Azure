@@ -16,7 +16,7 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 
 ## 3. Storage
 - [Lab 3A - Storage - Highly Available Storage Apps](Lab%203A%20-%20Storage%20-%20Highly%20Available%20Storage%20Apps.md)
-- [Lab 3B - Storage - Highly Availalbe Storage Apps - Part 2]()
+- [Lab 3B - Storage - Highly Availalbe Storage Apps - Part 2](Lab%203B%20-%20Storage%20-%20Highly%20Available%20Storage%20Apps%20-%20Part%202.md)
 
 ## 4. BCDR
 - [Lab 4A - BCDR - Azure Backup](Lab%204A%20-%20BCDR%20-%20Azure%20Backup.md)
