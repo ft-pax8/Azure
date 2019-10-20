@@ -37,8 +37,9 @@ If the command is successful (TcpTestSucceeded=True) then continue with the foll
     `copy z:\build-iis-vm.ps1 %userprofile%\downloads`
 
 
-<a name="task1-4"></a>
-4. Open the GitHub repository for the lab.
+<a name="task1-4">
+4. Open the GitHub repository for the lab
+</a>
 5. Copy the build-iis-vm.ps1 to your local computer.  
 6. From PowerShell execute the build-iis-vm.ps1 script from your Downloads directory:
 
