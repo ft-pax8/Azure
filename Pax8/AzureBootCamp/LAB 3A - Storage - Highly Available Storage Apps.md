@@ -12,6 +12,7 @@ We will use Visual Studio to run a mock console application that will copy files
 
    *Note: If you receive an error stating another package is currently being installed, you will need to reboot your machine and then retry the installation.*
 
+    ![Azure Development](./assets/images/workloads.png)
 
 2. Download and install Azure Storage Explorer
 
