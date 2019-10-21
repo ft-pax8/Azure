@@ -11,9 +11,9 @@ To introduce the failure, you will create an invalid static route for all reques
 1. Open the console application in Visual Studio and run it again by *pressing **F5*** or *clicking **start*** to start the debugging.
 2. Once the console application begins the dowloand *(when you see the P1, P2, P3, P4....)*, pause the console application by pressing any key while the console window is active
 3. Open a Command Prompt as Administrator
-4. Retrieve the IP of the storage stamp hosting your storage account **samyapp1** by typing the following at the command prompt:
+4. Retrieve the IP of the storage stamp hosting your storage account **samyapp<last 4 of cell>** by typing the following at the command prompt:
    
-   `nslookup samyapp1.blob.core.windows.net`
+   `nslookup samyapp<last 4 of cell>.blob.core.windows.net`
 
 5. Write down the IP address of the storage stamp
 6. Now retrieve your machine's IP
