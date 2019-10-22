@@ -67,16 +67,14 @@ You can use AAD B2C to link AAD IDs to consumer identities.  You can then levera
 4. Click **Assign**
 
 
-Capture the User Access URL
-1)	Under Manage click Properties and click the button to copy the URL under User access URL:
- 
-Test Access
-1)	Open an InPrivate browser session and browse to the User access URL.
-2)	Logon as On Prem (onprem@yourAzureAD.onmicrosoft.com the password of Complex.Password)
-3)	Install the extension, if required.  If using Microsoft Edge you may have to Launch the extension and then turn it on when prompted.
-4)	Close and then launch all Edge browsers and once again logon as On Prem to the User access URL.
-5)	Enter your personal credentials to Facebook, not On Prem’s since they do not have a Facebook account.
-6)	Facebook should open.
-7)	Close Microsoft Edge and complete step 1.
-8)	Facebook should automatically appear without the need to logon.
+### Task 6 - Capture the User Access URL and Test Access
+1. Under Manage click **Properties** and click the button to copy the URL under **User access URL**
+2. Open an InPrivate/Incognito browser session and browse to the **User access URL**
+3. Logon as On Prem `Onprem@<intials><birthday MMDD format>.onmicrosoft.com` with the password of `Complex.Password`
+4. Install the extension, if required.  If using Microsoft Edge you may have to Launch the extension and then turn it on when prompted.
+5. Close and then launch all Edge browsers and once again logon as On Prem to the User access URL.
+6. Enter your personal credentials to Facebook/Twitter, not On Prem’s since they do not have a Facebook/Twitter account.
+7. Facebook/Twitter should open.
+8. Close Microsoft Edge and complete Task 6, step 1 again.
+9. Facebook/Twitter should automatically appear without the need to logon.
 
