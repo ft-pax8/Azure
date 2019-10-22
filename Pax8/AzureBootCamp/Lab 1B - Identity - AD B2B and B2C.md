@@ -1,8 +1,6 @@
 # Azure AD - B2B and B2C
 
 Azure B2B (Business to Business) and Azure B2C (Busines to Customer) are how you connect resources with other organizations and customers external to your own organization and tenant.  These features allow you to connect external user identities with your resources, in a secure manner, without taking on the responsibility of managing their identities.  
-
-
 <br><br />
 
 ## Azure AD Business to Business
@@ -41,13 +39,11 @@ Adding a guest account to your tenant is a mutual agreement.  Therefore, not onl
    - Search for **Azure Active Directory** and then browse to **Users** under **Manage**, you should see the users in the tenant, including the on-premises identities that have been synced (OnPrem and ADSync)
    - Notice that you can read the users, but are unable to add a new user due to the lack of RBAC rights
 
-##################################
-
    > Note that AAD B2B is the basis for many of the ways partners manage customers' accounts in CSP.  Whether it's DAP (Delegated Admin Privledge), Azure Lighthouse, or PAL (Partner Admin Link), all of these are simply using AAD B2B at the foundation.
 
 <br><br />
 
-## Azure AD Business to Customer
+## Azure AD Business to Consumer
 
 You can use AAD B2C to link AAD IDs to consumer identities.  You can then leverage B2C to offer SSO to your business applications that you publish.  In this task, you will tie a consumer identity (Facebook/Twitter/etc.) to an existing AAD user identity and then test SSO functionality.
 
@@ -60,15 +56,17 @@ You can use AAD B2C to link AAD IDs to consumer identities.  You can then levera
 
 
 ### Task 4 - Configure single sign-on for Facebook/Twitter from the Azure AD gallery
-1. Click the Single sign-on from the application’s left-hand navigation menu.
-2. Change the Single Sign-on Mode to Password-based Sign-on and click Save.
+1. *Click the **Single sign-on*** from the application’s left-hand navigation menu.
+2. Change the Single Sign-on Mode to Password-based sign-on and *click **Save***
 
 
-Assign users to Facebook
-1)	Click on Users and Groups.
-2)	Click on Add user.
-3)	Click on Users, select On Prem, and then Select.
-4)	Click Assign.
+### Task 5 - Assign users to Facebook/Twitter
+1. Click on **Users and Groups**
+2. Click on **Add user**
+3. Click on **Users**, select **On Prem**, and then Select.
+4. Click **Assign**
+
+
 Capture the User Access URL
 1)	Under Manage click Properties and click the button to copy the URL under User access URL:
  
