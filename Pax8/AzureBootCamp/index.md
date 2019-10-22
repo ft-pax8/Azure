@@ -4,7 +4,7 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 
 ## 1. Identity
 - [Lab 1A - Identity - AD Connect](Lab%201A%20-%20Identity%20-%20AD%20Connect.md)
-
+- [Lab 1B - Identity - AD B2B and B2C](Lab%201B%20-%20Identity%20-%20AD%20B2B%20and%20B2C.md)
 
 ## 2. Networking
 - [Lab 2A - Networking - Virtual Networks](Lab%202A%20-%20Networking%20-%20Virtual%20Networks.md)
