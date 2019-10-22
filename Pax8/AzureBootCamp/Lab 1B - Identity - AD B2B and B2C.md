@@ -78,3 +78,5 @@ You can use AAD B2C to link AAD IDs to consumer identities.  You can then levera
 8. Close Microsoft Edge and complete Task 6, step 1 again.
 9. Facebook/Twitter should automatically appear without the need to logon.
 
+
+[Back](index.md)
