@@ -15,7 +15,7 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 
 3. If prompted, select the default AAD directory
 
-4. If a **Welcome to Azure Cloud Shell** prompt appears after logon, select **PowerShell** as the working CLI.  If it does not appear, you can select **PowerShell** from the drowndown in the upper-left corner once a CLI prompt is presented to you.  Note that you may need to provision a new CLI storage account to save your settings.
+4. If a **Welcome to Azure Cloud Shell** prompt appears after logon, select **Bash** as the working CLI.  If it does not appear, you can select **PowerShell** from the drowndown in the upper-left corner once a CLI prompt is presented to you.  Note that you may need to provision a new CLI storage account to save your settings.
 
 5. At the CLI prompt, let's create a new resource group to hold your IIS VM.  Create the resource group by typing in the following command:
 
