@@ -25,7 +25,7 @@ We need a source environments to backup.
     * select **Next: Disks >**
 4.	Click **Next: Networking >**. 	
 5.	Click **Next: Management >**.
-6.	Click **Create new** for the **Diagnostic storage account** and  enter `sadiagbcdr`. *Click **OK***, *(Scroll to the bottom and notice the choice to enable backup)* and then *click **Next: Advanced >***. 
+6.	Click **Create new** for the **Diagnostic storage account** and  enter `sadiagbcdr<last 4 of cell>`. *Click **OK***, *(Scroll to the bottom and notice the choice to enable backup)* and then *click **Next: Advanced >***. 
 7.	Review the items and then click **Next: Review + create >**.
 8.	Once validation passes click **Create**.
 
