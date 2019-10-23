@@ -5,7 +5,7 @@ In this lab you will create a VM in Azure to simulate a source VM running in eit
 Please note that using this approach represents the fastest way to migrate a VM to Azure.  Typical VM migrations also include the assessment phase, which we are skipping in this lab. 
 
 
-## Task 1 - Create an IIS VM with PowerShell
+## Task 1 - Create an IIS VM with Azure CLI
 
 In this task you use the Azure CLI to create an Azure Virtual Machine running Windows Server 2016, and install IIS. 
 
