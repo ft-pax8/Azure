@@ -98,3 +98,6 @@ We are creating a small VM to host the Azure AD Connect Authentication Agent.
     * When prompted enter your adsync credentials.
     * Click **Close** when complete.
 7. Click **Refresh** on the Azure portal.  You'll notice that ADConnect2 now appears in the default group.  If you receive a status of **Inactive** wait a few moments and refresh the portal.
+
+<br></br>
+[Back to Table of Contents](./index.md#2-identity)

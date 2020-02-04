@@ -88,3 +88,6 @@ You are now going to logon as TwitterYes to configure your SSO credentials to va
 1. Logon to <https://myapps.microsoft.com>, the My Apps portal, as TwitterNo (notweet@XXXX.onmicrosoft.com).
 2. You will be prompted to change your temporary password.  Use *Complex.Password*.
 3. Notice that Twitter is not presented to the user.
+
+<br></br>
+[Back to Table of Contents](./index.md#2-identity)
