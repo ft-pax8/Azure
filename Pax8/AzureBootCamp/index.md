@@ -2,8 +2,8 @@
 
 <img src="./images/pax8.png" align="center"></img>
 <br></br>
-<font size="24pt"> + </font>
-<img src="./images/Microsoft.png" align=center height=100 width=200></img>
+<font size=60pt> + </font>
+<img src="./images/Microsoft.png" align=center height=200 width=500></img>
 
 
 # Azure Boot Camp
