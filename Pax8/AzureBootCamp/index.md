@@ -1,6 +1,5 @@
 [logo]: ./images/pax8.png
-[logo2]: ./images/microsoft.png
-
+[logo2]: ./images/Microsoft.png
 ![alt text][logo] + ![alt text][logo2]
 
 
