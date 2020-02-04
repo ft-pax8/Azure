@@ -13,6 +13,7 @@ After completing this lab, you should understand how to:
 1. Create an Azure Network LoadBalancer
 2. Add VMs to an Azure LB Pool
 3. Configure load balancing between multiple VMs
+4. Add a health probe to a LB to verify VM availability
 
 
 
@@ -36,7 +37,7 @@ In this section, you create a public standard load balancer by using the portal.
 
 ## Exercise 2 - Create back-end servers
 
-In this section you create a virtual network and you create two virtual machines for the back-end pool of your Basic load balancer. Then you install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
+In this section you create a virtual network and you create two virtual machines for the back-end pool of your Standard load balancer. Then you install Internet Information Services (IIS) on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
 
