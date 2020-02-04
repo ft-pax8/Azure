@@ -3,7 +3,7 @@
 
 <img src="./images/pax8.png" align="center"></img>
 <br></br>
-<font size="280pt"> + </font>
+<font size="60"> + </font>
 <img src="./images/Microsoft.png" align="center"></img>
 
 
