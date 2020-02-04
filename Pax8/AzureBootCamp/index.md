@@ -7,6 +7,8 @@ Hello, you've reached the **Microsoft OCP Azure Bootcamp** site.  Here you will 
 - [Identity - Lab 2 - Pass Thru Authentication and High Availability (optional)](Identity%20Lab%202%20-%20AD%20Connect%20High%20Availability%20(Optional).md)
 - [Identity - Lab 3 - Password single sign-on for an Azure AD gallery application (optional)](Identity%20Lab%203%20-%20AD%20Connect%20Publishing%20a%20SSO%20Application%20(Optional).md)
 
+- [Identity Presentation](1%20-%20Azure%20Bootcamp%20-%20Azure%20and%20the%20Microsoft%20Hybrid%20Strategy.pdf)
+
 ## 2. Networking
 - [Networking - Lab 1 - Virtual Networks](Networking%20Lab%201%20-%20Virtual%20Networks.md)
 - [Networking - Lab 2 - Load Balancer](Networking%20Lab%202%20-%20Load%20Balancer.md)
