@@ -34,7 +34,8 @@ Once your VM is created, you will add additional data disks.  Data disks allow y
 12. Add a 2nd data disk repeating steps 3-11, with values of LUN=**1**, disk name=**logs** and size=**P10**
 13. Add a 3rd data disk repeating steps 3-11, with values of LUN=**2**, disk name=**sqldisk1** and size=**P6**
 14. Add a 4th data disk repeating steps 3-11, with values of LUN=**3**, disk name=**sqldisk2** and size=**P6**
-15. Click **Save**
+15. Leave 'Host Caching' set to **Read-only** for all new disks
+16. Click **Save**
 
 
 
