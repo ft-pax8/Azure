@@ -1,9 +1,8 @@
-[logo]: ./images/pax8.png
-[logo2]: ./images/Microsoft.png
+
 
 <img src="./images/pax8.png" align="center"></img>
 <br></br>
-<font size="60"> + </font>
+<font size="24pt"> + </font>
 <img src="./images/Microsoft.png" align="center"></img>
 
 
