@@ -9,7 +9,7 @@
 
 Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the labs and presentations covered during the bootcamp.  The labs for the  bootcamp are linked below and are broken down into the following distinct areas:
 
-## 1. Azure and the Microosft Hybrid Strategy
+## 1. Azure and the Microsoft Hybrid Strategy
 - [Hybrid Strategy Presentation](1%20-%20Azure%20Bootcamp%20-%20Azure%20and%20the%20Microsoft%20Hybrid%20Strategy.pdf)
 
 
