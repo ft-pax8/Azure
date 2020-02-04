@@ -85,4 +85,4 @@ Before you VM can use the data disks you just attached, they must first be mount
 
 
 <br></br>
-[Back to Table of Contents](./index.md#5-storage)
+[Back to Table of Contents](./index.md#5-azure-storage)
