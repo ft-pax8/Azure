@@ -2,7 +2,8 @@
 [logo2]: ./images/Microsoft.png
 
 <img src="./images/pax8.png" align="center"></img>
-<font size="60pt"> + </font>
+<br></br>
+<font size="280pt"> + </font>
 <img src="./images/Microsoft.png" align="center"></img>
 
 
