@@ -1,6 +1,21 @@
 # Lab 2 - Load Balancer
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). You can use the Azure portal to create a load balancer that will load balance virtual machines. In this lab you will learn how to create network resources, back-end servers, and a load balancer.
+## Before you Begin
+
+Your Azure subscription is limited in the amount of cores that you can provision.  Ensure that you have deleted the VMs from the previous labs before completing this lab. 
+
+
+## Lab Concepts
+
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). You can use the Azure portal to create a load balancer that will load balance virtual machines. In this lab you will learn how to create network resources, back-end servers, and a load balancer to balance the incoming requests between multiple VMs
+
+After completing this lab, you should understand how to:
+1. Create an Azure Network LoadBalancer
+2. Add VMs to an Azure LB Pool
+3. Configure load balancing between multiple VMs
+
+
+
 
 ## Exercise 1 - Create a Standard load balancer
 
