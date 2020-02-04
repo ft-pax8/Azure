@@ -24,12 +24,14 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 
 
 ## 4. Azure Migrate
+[Migration Presentation](4%20-%20Azure%20Bootcamp%20-%20Migration.pdf)
+<br></br>
+> Labs
 - [Migration - Lab 1 - Database Migration Assistant (DMA)](Migration%20Lab%201%20-%20Database%20Migration%20Service%20(DMS).md)
 - [Migration - Lab 2 - Azure Site Recovery for Migration](Migration%20Lab%202%20-%20Azure%20Site%20Recovery%20(ASR).md)
 - [Migration - Lab 3 - Azure Policy](Migration%20Lab%203%20-%20Azure%20Policy.md)
 - [Migration - Lab 4 - Azure Migrate (optional)](Migration%20Lab%204%20-%20Azure%20Migrate%20(Optional).md)
-<br></br>
-[Migration Presentation](4%20-%20Azure%20Bootcamp%20-%20Migration.pdf)
+
 
 ## 5. Azure Storage
 - In Progress
