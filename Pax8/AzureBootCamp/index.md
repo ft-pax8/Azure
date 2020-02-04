@@ -3,9 +3,8 @@
 
 ![alt text][logo] + ![alt text][logo2]
 
-Present
 
-# Azure Boot Camp
+#Azure Boot Camp
 
 Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the labs and presentations covered during the bootcamp.  The labs for the  bootcamp are linked below and are broken down into the following distinct areas:
 
