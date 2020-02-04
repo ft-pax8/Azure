@@ -210,3 +210,7 @@ Close Internet Explorer.
 2. Under **Manage** select **Users**. Note that you should now see accounts sourced from Windows Server AD that have synchronized to Azure Active Directory (e.g. On Prem).
 
 ### Congratulations!  Your are now synchronizing Active Directory to Azure Active Directory
+
+
+<br></br>
+[Back to Table of Contents](./index.md)

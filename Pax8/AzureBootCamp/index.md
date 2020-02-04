@@ -27,8 +27,8 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 > **Labs**
 - [Networking - Lab 1 - Virtual Networks](Networking%20Lab%201%20-%20Virtual%20Networks.md)
 - [Networking - Lab 2 - Load Balancer](Networking%20Lab%202%20-%20Load%20Balancer.md)
-- [Networking - Lab 4 - Network Watcher](Networking%20Lab%203%20-%20Network%20Watcher.md)
-- [Networking - Lab 3 - Traffic Manager](Networking%20Lab%204%20-%20Traffic%20Manager.md)
+- [Networking - Lab 3 - Network Watcher](Networking%20Lab%203%20-%20Network%20Watcher.md)
+- [Networking - Lab 4 - Traffic Manager](Networking%20Lab%204%20-%20Traffic%20Manager.md)
 - [Networking - Lab 5 - Hub and Spoke (optional)](Networking%20Lab%205%20-%20Hub%20and%20Spoke%20Challenge%20(Optional).md)
 <br></br>
 

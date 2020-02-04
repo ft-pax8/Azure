@@ -1,5 +1,5 @@
 
-# Lab 4 - Network Watcher
+# Lab 3 - Network Watcher
 
 ## Before you Begin
 
