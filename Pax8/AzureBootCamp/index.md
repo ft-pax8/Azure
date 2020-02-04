@@ -49,7 +49,7 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 
 <br></br>
 
-<center>[<img src="./images/Wingman2020_2.png" align=center height=100 width=400></img>](http://wingman2020.com)</center>
+<P align="center">[<img src="./images/Wingman2020_2.png" align=center height=100 width=400></img>](http://wingman2020.com)</p>
 
 <br></br>
 
