@@ -19,9 +19,8 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 - [Networking - Lab 3 - Traffic Manager](Networking%20Lab%203%20-%20Traffic%20Manager.md)
 - [Networking - Lab 4 - Network Watcher](Networking%20Lab%204%20-%20Network%20Watcher.md)
 - [Networking - Lab 5 - Hub and Spoke (optional)](Networking%20Lab%205%20-%20Hub%20and%20Spoke%20Challenge%20(Optional).md)
-
-<br />
-- [Networking Presentation](3%20-%20Azure%20Bootcamp%20-%20Networking.pdf)
+<br></br>
+[Networking Presentation](3%20-%20Azure%20Bootcamp%20-%20Networking.pdf)
 
 
 ## 4. Azure Migrate
@@ -29,9 +28,8 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 - [Migration - Lab 2 - Azure Site Recovery for Migration](Migration%20Lab%202%20-%20Azure%20Site%20Recovery%20(ASR).md)
 - [Migration - Lab 3 - Azure Policy](Migration%20Lab%203%20-%20Azure%20Policy.md)
 - [Migration - Lab 4 - Azure Migrate (optional)](Migration%20Lab%204%20-%20Azure%20Migrate%20(Optional).md)
-
 <br></br>
-- [Migration Presentation](4%20-%20Azure%20Bootcamp%20-%20Migration.pdf)
+[Migration Presentation](4%20-%20Azure%20Bootcamp%20-%20Migration.pdf)
 
 ## 5. Azure Storage
 - In Progress
