@@ -150,3 +150,8 @@ Once evaluations are returned, you will notice that most of your resources are n
 7. On the left-hand side of the VM menu click **Policies** 
 8. Notice the VM is still not compliant as the policy has not run a new evaluation since the change. 
 9. The VM should be compliant upon next policy evaluation, which occurs once every 24 hours for already created resource.  New resources are validated against enfore policies at the time of their creation.
+
+
+
+<br></br>
+[Back to Table of Contents](./index.md#4-azure-migrate)

@@ -46,3 +46,6 @@ Attempt to configure this on your own, otherwise follow these instructions.  You
 * Configure all VNet peering connections to allow forwarded traffic.  
 
 Reference [Hub-spoke network topology in Azure](<https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke>) for guidance.
+
+<br></br>
+[Back to Table of Contents](./index.md#3-networking)

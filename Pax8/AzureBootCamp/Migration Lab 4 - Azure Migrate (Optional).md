@@ -4,4 +4,6 @@ Use the Azure Migrate project tool to assess and migrate Hyper-V VMs to Azure.  
 
 If you are using a free Azure subscription, you are limited to 4 cores per region.  You will be able to complete most of the lab, including the assessments, but will not be able to migrate over all VMs into Azure as you will run out of core quota before all VMs can be migrated.
 
-[Back](index.md)
+
+<br></br>
+[Back to Table of Contents](./index.md#4-azure-migrate)

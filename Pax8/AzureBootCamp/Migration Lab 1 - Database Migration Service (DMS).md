@@ -186,3 +186,6 @@ Let's make sure that your data got migrated and looks right.  We're going to con
 6. Click **Execute**.  This query will search the Azure SQL database and display the first 1000 zip codes.
 
 ### **Congratulations for completing the SQL Migration lab!**
+
+<br></br>
+[Back to Table of Contents](./index.md#4-azure-migrate)

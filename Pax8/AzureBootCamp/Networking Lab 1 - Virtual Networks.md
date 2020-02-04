@@ -157,4 +157,4 @@ If you are going to complete the hub and spoke challenge keep these resources.  
 
 
 <br></br>
-[Back to Table of Contents](./index.md#2-networking)
+[Back to Table of Contents](./index.md#3-networking)

@@ -88,3 +88,6 @@ Since we have enabled traffic management on a global versus regional perspective
 5. In the Azure portal swith to your Traffic Manager profile and notice that **MyPrimaryEndpoint** is now **Disabled**.
 6. Return to <https://www.whatsmydns.net> and click **Search**, noticing the changes on which endpoint(s) are now responding.
 7. Note that it may take several moments for DNS propagation to take place.
+
+<br></br>
+[Back to Table of Contents](./index.md#3-networking)

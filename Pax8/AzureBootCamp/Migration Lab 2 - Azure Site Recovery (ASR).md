@@ -135,3 +135,7 @@ If you don’t delete the failover VM, the VM will continue to run and increase 
 
 
 **Do not delete the VMs for this lab just yet.  You will need them for the next Azure Policy lab.**
+
+
+<br></br>
+[Back to Table of Contents](./index.md#4-azure-migrate)

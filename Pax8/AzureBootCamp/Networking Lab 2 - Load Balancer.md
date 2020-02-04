@@ -176,3 +176,6 @@ Create a load balancer rule named HTTPRule for listening to port 80 in the front
 4. Stop the other LBVM and refresh your browser until you receive a **Can't reach this page** error and then restart the first VM you stopped.
 5. Once the VM comes alive you should get responses.
 6. Alternately, you can always check the load balancer status by selecting **Load Balancers**, **Backend Pools**, then expand the **virtual machine pool**.
+
+<br></br>
+[Back to Table of Contents](./index.md#3-networking)
