@@ -1,7 +1,7 @@
 
 
 <img src="./images/pax8.png" align="center"></img>
-<font font-size:300%> &nbsp;&nbsp;&nbsp;&nbsp; + </font>
+<font font-size:300> &nbsp;&nbsp;&nbsp;&nbsp; + </font>
 <img src="./images/Microsoft.png" align=center height=200 width=520></img>
 
 
