@@ -1,9 +1,9 @@
 [logo]: ./images/pax8.png
 [logo2]: ./images/Microsoft.png
 
-<img src="./images/pax8.png" align="center">
+<img src="./images/pax8.png" align="center"></img>
 # + 
-![alt text][logo2]
+<img src="./images/Microsoft.png" align="center"></img>
 
 
 # Azure Boot Camp
