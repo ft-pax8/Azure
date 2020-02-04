@@ -3,7 +3,7 @@
 <img src="./images/pax8.png" align="center"></img>
 <br></br>
 <font size="24pt"> + </font>
-<img src="./images/Microsoft.png" align="center"></img>
+<img src="./images/Microsoft.png" align=center height=100 width=200></img>
 
 
 # Azure Boot Camp
