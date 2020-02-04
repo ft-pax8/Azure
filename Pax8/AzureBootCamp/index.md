@@ -47,8 +47,7 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 > **Labs**
 - In Progress
 
-
-If you see any changes that need to be made (typos, new steps, etc.) please submit a pull request!
+<br></br><br></br>
 
 
 <center><img src="./images/Wingman2020_2.png" align=center height=100 width=400></img></center>
