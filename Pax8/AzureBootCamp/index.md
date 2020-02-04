@@ -2,7 +2,7 @@
 
 <img src="./images/pax8.png" align="center"></img>
 <img src="./images/ampersand.png" align="center" height =50 width=50></img>
-<img src="./images/Microsoft.png" align=center height=180 width=500></img>
+<img src="./images/Microsoft2.png" align=center height=180 width=500></img>
 
 
 # Azure Boot Camp
