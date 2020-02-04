@@ -1,12 +1,12 @@
 [logo]: ./images/pax8.png
 [logo2]: ./images/Microsoft.png
 
-<align=center>![alt text][logo]</align>
+<img src="./images/pax8.png" align="center">
 # + 
 ![alt text][logo2]
 
 
-#Azure Boot Camp
+# Azure Boot Camp
 
 Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the labs and presentations covered during the bootcamp.  The labs for the  bootcamp are linked below and are broken down into the following distinct areas:
 
