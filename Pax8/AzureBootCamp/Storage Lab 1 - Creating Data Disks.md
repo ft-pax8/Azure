@@ -1,5 +1,4 @@
-# Lab 1 - Storage and VM Sizing
-
+# Lab 1 - Storage: Creating Data Disks
 
 
 
