@@ -45,11 +45,11 @@ Once your VM is created, you will add the data disks. Data disks can be created 
 7. Resource Group = **storagePerf**
 8. Source Type = **None**
 9. Click **Change Size**
-10. Select **P4** and then **OK**
+10. Select **P20** and then **OK**
 11. Click **Create**
-12. Add a 2nd data disk repeating steps 3-11, with values of LUN=**1**, disk name=**logs** and size=**P10**
-13. Add a 3rd data disk repeating steps 3-11, with values of LUN=**2**, disk name=**sqldisk1** and size=**P6**
-14. Add a 4th data disk repeating steps 3-11, with values of LUN=**3**, disk name=**sqldisk2** and size=**P6**
+12. Add a 2nd data disk repeating steps 3-11, with values of LUN=**1**, disk name=**logs** and size=**P40**
+13. Add a 3rd data disk repeating steps 3-11, with values of LUN=**2**, disk name=**sqldisk1** and size=**P30**
+14. Add a 4th data disk repeating steps 3-11, with values of LUN=**3**, disk name=**sqldisk2** and size=**P30**
 15. Leave 'Host Caching' set to **Read-only** for all new disks
 16. Click **Save**
 
@@ -62,17 +62,17 @@ Before you VM can use the data disks you just attached, they must first be mount
 3. Right-click on the start menu and select **Disk Management**
 4. If you are prompted to *Initialize Disk*, ensure that all disks are selected, select **MBR (Master Boot Record), click **OK**
 5. Once the disks are initialized, you need to format them and assign them a drive letter.
-6. Right-click **Disk 2** or the disk with *32 GB* of unallocated space, and select **New Simple Volume**
+6. Right-click **Disk 2** or the disk with *500GB* of unallocated space, and select **New Simple Volume**
 7. Click Next twice
 8. Assign Drive Letter **M** and click Next
 9. Select **NTFS** as the file system format and check **Perform a quick format**
 10. Enter **AppData** as the volume name and click Next
 11. Click Finish
-12. Repeat steps 6-11 for disk 3 or the disk with 128 GB of unallocated space and use drive letter=**L** and Volume Name=**Logs**
+12. Repeat steps 6-11 for disk 3 or the disk with 2TB of unallocated space and use drive letter=**L** and Volume Name=**Logs**
 13. Now you will create a new stiped volume
-14. Right-click Disk 4 or one of the disks with 64 GB of unallocated space and select **New Striped Volume**
+14. Right-click Disk 4 or one of the disks with 1TB of unallocated space and select **New Striped Volume**
 15. Click **Next**
-16. Under *Available* disks, select disk 5 or the other 64 GB disk and click **Add**.  Both 64GB drives should now be listed under the *Selected* area.
+16. Under *Available* disks, select disk 5 or the other 1TB disk and click **Add**.  Both 1TB drives should now be listed under the *Selected* area.
 17. Click **Next**
 18. Assign Drive Letter **S** and click **Next**
 19. Select **NTFS** as the file system format and check **Perform a quick format**
