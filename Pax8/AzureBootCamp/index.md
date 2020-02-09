@@ -46,6 +46,7 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 [Storage Presentation](5%20-%20Azure%20Bootcamp%20-%20Storage.pdf)
 > **Labs**
 - [Storage - Lab 1 - Creating Data Disks](Storage%20Lab%201%20-%20Creating%20Data%20Disks.md)
+- [Storage - Lab 2 - Storage: VM and Disk Sizing](Storage%20Lab%202%20-%20VM%20and%20Disk%20Sizing.md)
 
 <br></br>
 
