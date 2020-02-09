@@ -45,7 +45,7 @@ Once your VM is created, you will add the data disks. Data disks can be created 
 7. Resource Group = **storagePerf**
 8. Source Type = **None**
 9. Click **Change Size**
-10. Select **P6** and then **OK**
+10. Select **P10** and then **OK**
 11. Click **Create**
 12. Add a 2nd data disk repeating steps 3-11, with values of LUN=**1**, disk name=**logs** and size=**P40**
 13. Add a 3rd data disk repeating steps 3-11, with values of LUN=**2**, disk name=**sqldisk1** and size=**P30**
@@ -62,7 +62,7 @@ Before you VM can use the data disks you just attached, they must first be mount
 3. Right-click on the start menu and select **Disk Management**
 4. If you are prompted to *Initialize Disk*, ensure that all disks are selected, select **MBR (Master Boot Record), click **OK**
 5. Once the disks are initialized, you need to format them and assign them a drive letter.
-6. Right-click **Disk 2** or the disk with *64GB* of unallocated space, and select **New Simple Volume**
+6. Right-click **Disk 2** or the disk with *128GB* of unallocated space, and select **New Simple Volume**
 7. Click Next twice
 8. Assign Drive Letter **M** and click Next
 9. Select **NTFS** as the file system format and check **Perform a quick format**

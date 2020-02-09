@@ -20,7 +20,7 @@ Use this performance table to help you better understand the analysis questions 
 
 | Storage Type          |  Max IOPS (per disk)  | Max Throughput  |
 |-----------------------|-----------------------|-----------------|
-| P6 - Premium Storage  |  240                  | 50  MB/sec      |                       
+| P10 - Premium Storage |  500                  | 100  MB/sec     |                       
 | P20 - Premium Storage |  2,300                | 150 MB/sec      |
 | P40 - Premium Storage |  7,500                | 250 MB/sec      | 
 
