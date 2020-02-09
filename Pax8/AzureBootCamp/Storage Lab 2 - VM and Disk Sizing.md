@@ -48,7 +48,7 @@ Use this performance table to help you better understand the analysis questions 
 7. Click on the **M: AppData** drive, a red X should appear next to it
 8. Change the maximum disk sectors to **500000** (which is 500K or 5 zero's)
 9. Click on the **Access Specifications** tab
-10. Select **32K 100% Read, Random** and then click **add**
+10. Select `32K; 100% Read; 0% Random` and then click **add**
 11. Click the green flag at the top menu to *start tests*
 12. Save the results.csv file to the Documents folder
 13. IOMeter will warm up the drive by writing to the max sectors, then perform the IO Read using 32KB payloads.
