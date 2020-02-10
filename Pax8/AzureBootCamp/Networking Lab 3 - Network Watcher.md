@@ -5,7 +5,7 @@
 
 You will use the VMs from Lab 3.  Do not delete the load balancer lab VMs until after you have completed this lab.  
 
-**Prior to starting this lab, please make sure LBVM1 is started and LBVM is in a stopped (deallocated) state.  If their states differ, please start/stop the VMs to place them in the correct state before starting the lab.**
+**Prior to starting this lab, please make sure LBVM1 is started and LBVM2 is in a stopped (deallocated) state.  If their states differ, please start/stop the VMs to place them in the correct state before starting the lab.**
 
 
 ## Lab Concepts
