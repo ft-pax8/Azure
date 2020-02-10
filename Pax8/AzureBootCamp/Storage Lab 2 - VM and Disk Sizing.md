@@ -7,7 +7,7 @@ Please ensure you completed Lab 1 - Storage: Creating Data Disks, as you will us
 
 ## Lab Concepts
 
-Both Azure VMs and Disks have their own performance metrics, specifically IOPS and throughput.  As such, the VM you provision has an effect on disk performance and vice-versa.  To ensure your application is as performant as possible, both need to be sized appropriately.  In this lab you will see this dependency in action and how to identify a performance bottle-neck.  You will use IOMeter to generate load on your VM and disks and then analyze the results to see if you're getting the performance you should be getting.  Finally, you will learn how to uncover the bottle-neck and how to correct the issue.
+Both Azure VMs and Disks have their own performance metrics, specifically IOPS and throughput.  As such, the VM you provision has an effect on disk performance and vice-versa.  To ensure your application is as performant as possible, both need to be sized appropriately.  In this lab you will see this dependency in action and how to identify a performance bottle-neck.  You will use IOMeter to generate load on your VM and disks and then analyze the results to see if you're getting the performance you should be getting.  Finally, you will learn what additional settings may affect performance and how to detect and resolve them.
 
 After completing this lab, you should understand how to:
 1. Size a VM and Disks for best application performance
@@ -16,7 +16,8 @@ After completing this lab, you should understand how to:
 4. Identify the best disk configuration for your application. 
 
 
-Use this performance table to help you better understand the analysis questions below:
+<br></br>
+Use this performance tables below to help you with the analysis questions in the lab exercises:
 
 
 ### Azure Storage Performance
