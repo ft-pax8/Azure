@@ -45,9 +45,9 @@ Use this performance tables below to help you with the analysis questions in the
 1. RDP into **VMSTOR1**
 2. Open Server Maanger and turn off *IE Enhanced Security Configuration*
 3. Open a web browser and download the [IOMeter Tool](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download)
-4. Install the tool, accepted all defaults.
+4. Install the tool, accepting all defaults.
 5. Launch IOMeter and accept the EULA
-6. Click on VMSTOR1 then Worker1
+6. Within IOMeter, click on VMSTOR1 then Worker1
 7. Click on the **M: AppData** drive, a red X should appear next to it
 8. Change the **Maximum Disk Size** sectors to `1000000` (which is a 1 & 6 zero's) and the **# of Outstanding I/Os** to `100`
 9. Click on the **Access Specifications** tab
@@ -77,13 +77,13 @@ Use this performance tables below to help you with the analysis questions in the
 6. Click **Resize**
 7. Wait for the VM to resize and then restart.  Then remote back in to VMSTOR1.
 8. Open Resource Monitor on VMSTOR1 and then repeat steps 11-17 once again, for both the L: and M: drives.  This time, monitor the performance using Resource Monitor while you are performing the load tests.  Once again, make sure to wait 3-5 minutes for the disks to warm up before making the assessment.
-9. Did the performance improve?  Is there any variation between the L: (P40) and M: (P10) drive?  How many IOPs is the M: (P10) disk receiving?  Is this number greater than the stated Max IOPs for that size disk?  What could contribute to this?
+9. Did the performance improve?  Is there any variation between the L: (P40) and M: (P10) drive?  How many IOPs is the M: (P10) disk receiving?  Is this number greater or lower than the stated Max IOPs for that size disk?  What could contribute to this?
 
 
 ## Exercise 3 - Putting it all together
 Let's summerize what you should have been able to observe from the first 2 exercises.  From the first exercise, you should have noticed that the disks were experiencing performance issues, observed by the size of their queue length.  This indicates that the disks could not keep up with the I/O requests.  You should have also noticed that the max throughput or **Total MBs per Second** was capping around 31 MB, after the disks warmed up, even though both disks are capable of handling more.  This coincides with the max throughput of a DS1_v2 of 32 MB/sec.  
 
-After scaling-up the VM in exercise 2 for a VM size with greater IOPs and throughput, you should have noticed performance increased for both disks.  However, both still saw high queue lengths and max throughput was capped around 128 MB.  Once again coincides with the max throughput of the VM - a DS3_v2 in this case.  We now know that VM throughput was preventing us from maximizing disk performance in both exercises.  Moving to a VM with a max throughput >= to the max throughput of a disk would help us achieve more optimal performance.  
+After scaling-up the VM in exercise 2 for a VM size with greater IOPs and throughput, you should have noticed performance increased for both disks.  However, both still saw high queue lengths and max throughput was capped around 128 MB.  Once again, this coincides with the max throughput of the VM - a DS3_v2 in this case.  We now know that VM throughput was preventing us from maximizing disk performance in both exercises.  Moving to a VM with a max throughput >= to the max throughput of a disk would help us achieve more optimal performance.  
 
 Did you notice any other weird behavior?  In both exercises, both disks performed similar even through the P40 disk has greater IOPs and throughput than the P10.  Additionally, you should have noticed that the M: (P10) disk was able to handle IOPs of 4K+, which is several thousand greater than its quoted max of 500.  What could attribute to this?  Let's find out....
 
@@ -97,7 +97,9 @@ Did you notice any other weird behavior?  In both exercises, both disks performe
 8. Do the same within the Azure portal by turning on and off **Host Caching** to see how it impacts the performance
 9. Lastly, perform a final run on the S: drive.  You should see very similar results as you do when you run on the M: drive as long as all else is equal?  Why do the two P6 disks perform as well as the P10 disk?
 
-As you can see, not only does VM and disk sizing play an important role in optimizing disk - and ultimately app performance, but so does I/O size, host caching and networking (we didn't touch on networking in this lab).  These items are often overlooked and misunderstood, but hopefully you now have a good understanding of how to architect for optimal disk performance.
+You may have noticed that in exercise 1, the M: drive was limted to 300-500 IOPs for the first minute and then sped up to 3000+.  This is because IOMeter is reading the same data over and over again, and after a short time period, the VM put the data in cache.  IOMeter was then actually making reads against the cache, not the disks.  This, plus the ability to go over the disk's max IOPs were indicators that caching was taking place.  
+
+As you can see, not only does VM and disk sizing play an important role in optimizing disk - and ultimately app performance, but so does I/O size, host caching and networking (we didn't touch on accelerated networking in this lab).  These items are often overlooked and misunderstood, but hopefully you now have a good understanding of how to architect for optimal disk performance. 
 
 <br></br>
 To learn more about optimizing disk performance for Azure disks, visit the [Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance) page.
