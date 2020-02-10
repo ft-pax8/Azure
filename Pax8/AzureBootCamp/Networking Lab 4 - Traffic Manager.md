@@ -7,8 +7,9 @@ Your Azure subscription is limited in the amount of cores that you can provision
 
 
 ## Lab Concepts
+Azure Traffic Manager helps reduce downtime and improve responsiveness of important applications by routing incoming traffic across multiple deployments in different regions. Built-in health checks and automatic re-routing help ensure high availability if a service fails. Use Traffic Manager with Azure services including Web Apps, Cloud Services and Virtual Machines - or combine it with on-premises services for hybrid deployments and smooth cloud migration.  
 
-Traffic manager is used to route traffic globally, between regions.  In this lab you will create two Web Apps using Azure App Services.  You will then use Traffic Manager to route traffic to one instance or the other, based on where in the world the traffic originates from.  The idea is to ensure users are using the resource in the region closest to them, in order to reduce latency.
+In this lab you will create two Web Apps using Azure App Services.  You will then use Traffic Manager to route traffic to one instance or the other, based on where in the world the traffic originates from.  The idea is to ensure users are using the resource in the region closest to them, in order to reduce latency.  You will then simulate an outage and observe the redundant capabilities Traffic Manager offers.
 
 After completing this lab, you should understand how to:
 1. Deploy and configure Traffic Manager
@@ -41,8 +42,6 @@ After completing this lab, you should understand how to:
 3. Select **Review + create** and then **Create**  A default website is created when the Web App is successfully deployed.
 
 ## Create a Traffic Manager profile
-
-Azure Traffic Manager helps reduce downtime and improve responsiveness of important applications by routing incoming traffic across multiple deployments in different regions. Built-in health checks and automatic re-routing help ensure high availability if a service fails. Use Traffic Manager with Azure services including Web Apps, Cloud Services and Virtual Machines - or combine it with on-premises services for hybrid deployments and smooth cloud migration.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile**. You may have to type in Traffic Manager Profile.
 2. In the Create Traffic Manager profile, enter or select the following information and accept the defaults for the remaining settings:
