@@ -48,8 +48,8 @@ Once your VM is created, you will add the data disks. Data disks can be created 
 10. Select **P10** and then **OK**
 11. Click **Create**
 12. Add a 2nd data disk repeating steps 3-11, with values of LUN=**1**, disk name=**logs** and size=**P40**
-13. Add a 3rd data disk repeating steps 3-11, with values of LUN=**2**, disk name=**sqldisk1** and size=**P30**
-14. Add a 4th data disk repeating steps 3-11, with values of LUN=**3**, disk name=**sqldisk2** and size=**P30**
+13. Add a 3rd data disk repeating steps 3-11, with values of LUN=**2**, disk name=**sqldisk1** and size=**P6**
+14. Add a 4th data disk repeating steps 3-11, with values of LUN=**3**, disk name=**sqldisk2** and size=**P6**
 15. Leave 'Host Caching' set to **Read-only** for all new disks
 16. Click **Save**
 
@@ -70,9 +70,9 @@ Before you VM can use the data disks you just attached, they must first be mount
 11. Click Finish
 12. Repeat steps 6-11 for disk 3 or the disk with 2TB of unallocated space and use drive letter=**L** and Volume Name=**Logs**
 13. Now you will create a new stiped volume
-14. Right-click Disk 4 or one of the disks with 1TB of unallocated space and select **New Striped Volume**
+14. Right-click Disk 4 or one of the disks with 64GB of unallocated space and select **New Striped Volume**
 15. Click **Next**
-16. Under *Available* disks, select disk 5 or the other 1TB disk and click **Add**.  Both 1TB drives should now be listed under the *Selected* area.
+16. Under *Available* disks, select disk 5 or the other 64GB disk and click **Add**.  Both drives should now be listed under the *Selected* area.
 17. Click **Next**
 18. Assign Drive Letter **S** and click **Next**
 19. Select **NTFS** as the file system format and check **Perform a quick format**

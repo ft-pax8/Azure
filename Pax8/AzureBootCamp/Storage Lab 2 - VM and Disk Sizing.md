@@ -21,7 +21,7 @@ Use this performance table to help you better understand the analysis questions 
 
 ### Azure Storage Performance
 
-| Storage Type          |  Max IOPS (per disk)  | Max Throughput  |
+| Storage Type          |  Max IOPS (per disk)  | Max Throughput (per disk) |
 |-----------------------|-----------------------|-----------------|
 | P10 - Premium Storage |  500                  | 100  MB/sec     |                       
 | P20 - Premium Storage |  2,300                | 150 MB/sec      |
@@ -30,10 +30,10 @@ Use this performance table to help you better understand the analysis questions 
 
 ### Azure Compute Performance
 
-| Storage Type          |  Max IOPS (per disk)  | Max Throughput  |
-|-----------------------|-----------------------|-----------------|
-| DS1_v2                |  4,000                | 32  MB/sec     |                       
-| DS3_v2                |  16,000               | 128 MB/sec     |
+| Storage Type          |  Max IOPS (w/caching) | Max Throughput (w/caching)  |  Max IOPS (w/o caching) | Max Throughput (w/o caching)  |
+|-----------------------|-----------------------|-----------------------------|-------------------------|-------------------------------|
+| DS1_v2                |  4,000                | 32  MB/sec                  | 3,200                   | 48     			|
+| DS3_v2                |  16,000               | 128 MB/sec                  |	12,800			| 192				|
 
 
 
@@ -48,7 +48,7 @@ Use this performance table to help you better understand the analysis questions 
 5. Launch IOMeter and accept the EULA
 6. Click on VMSTOR1 then Worker1
 7. Click on the **M: AppData** drive, a red X should appear next to it
-8. Change the maximum disk sectors to **1000000** (which is a 1 & 6 zero's)
+8. Change the **Maximum Disk Size** sectors to `1000000` (which is a 1 & 6 zero's) and the **# of Outstanding I/Os** to `100`
 9. Click on the **Access Specifications** tab
 10. Select `32K; 100% Read; 0% Random` and then click **add**
 11. Click the green flag at the top menu to *start tests*
@@ -60,7 +60,7 @@ Use this performance table to help you better understand the analysis questions 
 17. After 3-5 mins, click **Stop** on the top menu
 18. Select the **Disk Targets** tab and uncheck **M: AppData** and check **L: Logs**
 19. Repeat steps 11-17
-20. How do the results compare between the test run on the M drive versus the L drive?  Are the pretty close?  Why is this if drive M is a P6 and L is a P40?
+20. How do the results compare between the test run on the M drive versus the L drive?  Are the pretty close?  Why is this if drive M is a P10 and L is a P40?
 21. From **VMSTOR1**, search for `Resource Manager` from the search bar and open the program.
 22. Click on the **Disk** tab and expand the **storage** blade 
 23. Re-run the step 11-17 again for either the M: or L: and watch the disk metrics in Reesource Monitor for pointers.  *Hint: pay close attention to the throughput of total disk and the queue length of the disk IOMeter is running the test on.*
@@ -86,16 +86,18 @@ After scaling-up the VM in exercise 2 for a VM size with greater IOPs and throug
 
 Did you notice any other weird behavior?  In both exercises, both disks performed similar even through the P40 disk has greater IOPs and throughput than the P10.  Additionally, you should have noticed that the M: (P10) disk was able to handle IOPs of 4K+, which is several thousand greater than its quoted max of 500.  What could attribute to this?  Let's find out....
 
-1. In the Azure portal, *stop and deallocate* VM **VMSTOR01**
-2. Once the VM is stopped, click ont he **Disks** menu item under *Settings*
+1. In the Azure portal, go to VM *VMSTOR01**
+2. Click on the **Disks** menu item under *Settings*
 3. Click *Edit*
-4. Click on the **Detach** icon next to the two SQL P30 disks `(sqldisk1 and sqldisk2)`and the Logs P40 disk `(logs)` to detach them from VMSTOR1
-5. Click **Save**
-6. Once the disks are successfully detached, start VMSTOR1 and remote back in to the VM
-7. 
+4. Change **Host Caching** to `None` for all 4 disks
+5. Remote into VMSTOR1 and repeat steps 11-17 once again, for both L: and M:
+6. Did you receive the same IOPs and throughput once you removed caching?  
+7. Play around with the **Global Access Specifications** under the *Access Specifications* tab using 512B, 4K, 16K, 32K or even a custom value to see how it impacts the results of the test.  You will have to stop and start IOMeter each time you would like to change the specification.
+8. Do the same within the Azure portal by turning on and off **Host Caching** to see how it impacts the performance
+9. Lastly, perform a final run on the S: drive.  You should see very similar results as you do when you run on the M: drive as long as all else is equal?  Why do the two P6 disks perform as well as the P10 disk?
 
-
-
+<br></br>
+To learn more about optimizing disk performance for Azure disks, visit the [Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance) page.
 
 <br></br>
 [Back to Table of Contents](./index.md#5-azure-storage)
