@@ -7,10 +7,13 @@ Please ensure you completed Lab 1 - Storage: Creating Data Disks, as you will us
 
 ## Lab Concepts
 
-Both Azure VMs and Disks have their own performance metrics, specifically IOPS and throughput.  As such, the VM you provision and have an effect on disk performance and vice-versa.  To ensure your application is as performant as possible, both need to be sized appropriately.  In this lab you will see this dependency in action and how to identify a performance bottle-neck.  You will use IOMeter to generate load on your VM and disks and then analyze the results to see if you're getting the performance you should be getting.  Finally, you will learn how to uncover the bottle-neck and how to correct the issue.
+Both Azure VMs and Disks have their own performance metrics, specifically IOPS and throughput.  As such, the VM you provision has an effect on disk performance and vice-versa.  To ensure your application is as performant as possible, both need to be sized appropriately.  In this lab you will see this dependency in action and how to identify a performance bottle-neck.  You will use IOMeter to generate load on your VM and disks and then analyze the results to see if you're getting the performance you should be getting.  Finally, you will learn how to uncover the bottle-neck and how to correct the issue.
 
 After completing this lab, you should understand how to:
-1. 
+1. Size a VM and Disks for best application performance
+2. Simulate load on VM Disks for testing purposes
+3. Analyze performance issues 
+4. Identify the best disk configuration for your application. 
 
 
 Use this performance table to help you better understand the analysis questions below:
@@ -59,7 +62,21 @@ Use this performance table to help you better understand the analysis questions 
 18. Select the **Disk Targets** tab and uncheck **M: AppData** and check **L: Logs**
 19. Repeat steps 11-17
 20. How do the results compare between the test run on the M drive versus the L drive?  Are the pretty close?  Why is this if drive M is a P6 and L is a P40?
+21. From **VMSTOR1**, search for `Resource Manager` from the search bar and open the program.
+22. Click on the **Disk** tab and expand the **storage** blade 
+23. Re-run the step 11-17 again for either the M: or L: and watch the disk metrics in Reesource Monitor for pointers.  *Hint: pay close attention to the queue length of total disk compared to the disk IOMeter is running the test on.*
+24. What conclusions can you draw from this data and using the tables above?  Why do both the P10 and P40 disks perform relatively the same, when the P40 disk has more than double the IOPs and throughput?
 
+
+## Exercise 2 - Maximize Storage Performance
+1. By now, you may have identified that the VM size is limiting the performance of read/write operations on the disk because a DS1_v2 only has 48 M/sec of throughput.
+2. You will now scale-up the VM to see if we can improve the performance of the existing attached disks.
+3. Browse to **VMSTOR1** within the Azure Portal
+4. Click on **Size** under the *Settings* section
+5. Change the size of VMSTOR1 to a **DS3_v2**  *Note: If you are using a free subscription, you must have deleted the VMs from all other labs to have enough core quota available.  If a DS3_v2 size is not available, ensure you have deleted all other VMs in your free subscription.*
+6. Click **Resize**
+7. Wait for the VM to resize and then restart.  Then remote back in to VMSTOR1 and repeat steps 11-17 once again, for both the L: and M: drives.
+8. 
 
 <br></br>
 [Back to Table of Contents](./index.md#5-azure-storage)
