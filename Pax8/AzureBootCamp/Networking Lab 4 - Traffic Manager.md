@@ -1,6 +1,20 @@
 # Lab 4 - Traffic Manager
 
-This lab requires that you have deploy two instances of a web application running in different Azure regions supported by your subscription (e.g. East US and West US2). The two web application instances serve as primary and backup endpoints for Traffic Manager.
+
+## Before you Begin
+
+Your Azure subscription is limited in the amount of cores that you can provision.  Ensure that you have deleted the VMs from the previous labs before completing this lab. 
+
+
+## Lab Concepts
+
+Traffic manager is used to route traffic globally, between regions.  In this lab you will create two Web Apps using Azure App Services.  You will then use Traffic Manager to route traffic to one instance or the other, based on where in the world the traffic originates from.  The idea is to ensure users are using the resource in the region closest to them, in order to reduce latency.
+
+After completing this lab, you should understand how to:
+1. Deploy and configure Traffic Manager
+2. Route traffic to specific Azure resources based on the request origin
+
+
 
 ## Create East US Web App
 
