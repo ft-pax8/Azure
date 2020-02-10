@@ -80,14 +80,16 @@ Use this performance table to help you better understand the analysis questions 
 
 
 ## Exercise 3 - Putting it all together
-Let's summerize what you should have been able to observe from the first 2 exercises.  From the first exercise, you should have noticed that the disks were experiencing performance issues, observed by the size of their queue length.  This indicates that the disks could not keep up with the I/O requests.  You should have also noticed that the max throughput or **Total MBs per Second** was capping around 31 MB after the disks warmed up.  This coincides with the max throughput for a DS1_v2 of 32 MB/sec.  After scaling-up the VM in exercise 2 for a VM size with greater IOPs and throughput, you should have noticed performance increased for both disks.  However, both still saw high queue lengths and max throughput was capped around 128 MB, which again coincides with the max throughput for a DS3_v2.  We know now that VM throughput was preventing us from maximizing disk performance in both exercises.  Moving to a VM with a max throughput >= to the max throughput of a disk is optimal.  
+Let's summerize what you should have been able to observe from the first 2 exercises.  From the first exercise, you should have noticed that the disks were experiencing performance issues, observed by the size of their queue length.  This indicates that the disks could not keep up with the I/O requests.  You should have also noticed that the max throughput or **Total MBs per Second** was capping around 31 MB after the disks warmed up.  This coincides with the max throughput for a DS1_v2 of 32 MB/sec.  
+
+After scaling-up the VM in exercise 2 for a VM size with greater IOPs and throughput, you should have noticed performance increased for both disks.  However, both still saw high queue lengths and max throughput was capped around 128 MB, which again coincides with the max throughput for a DS3_v2.  We know now that VM throughput was preventing us from maximizing disk performance in both exercises.  Moving to a VM with a max throughput >= to the max throughput of a disk is optimal.  
 
 Did you notice any other weird behavior?  Maybe that in both exercises, both disks performed similar even through the P40 disk has greater IOPs and throughput.  Additionally, you should have noticed that the M: (P10) disk was able to handle IOPs 4K+, which is several thousand greater than its quoted max of 500.  What could attribute to this?  Let's find out.
 
 1. In the Azure portal, *stop and deallocate* VM **VMSTOR01**
 2. Once the VM is stopped, click ont he **Disks** menu item under *Settings*
 3. Click *Edit*
-4. Click on the **Detach** icon next to the two SQL P30 disks `(sqldisk1 and sqldisk2)` to detach them from VMSTOR1
+4. Click on the **Detach** icon next to the two SQL P30 disks `(sqldisk1 and sqldisk2)`and the Logs P40 disk `(logs)` to detach them from VMSTOR1
 5. Click **Save**
 6. Once the disks are successfully detached, start VMSTOR1 and remote back in to the VM
 7. 
