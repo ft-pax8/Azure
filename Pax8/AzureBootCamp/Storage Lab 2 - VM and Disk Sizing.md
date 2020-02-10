@@ -32,9 +32,8 @@ Use this performance table to help you better understand the analysis questions 
 
 | Storage Type          |  Max IOPS (per disk)  | Max Throughput  |
 |-----------------------|-----------------------|-----------------|
-| DS1_v2                |  3200                 | 48  MB/sec      |                       
-| DS3_v2                |  12,800               | 192 MB/sec      |
-
+| DS1_v2                |  4,000                | 32  MB/sec     |                       
+| DS3_v2                |  16,000               | 128 MB/sec     |
 
 
 
@@ -49,13 +48,13 @@ Use this performance table to help you better understand the analysis questions 
 5. Launch IOMeter and accept the EULA
 6. Click on VMSTOR1 then Worker1
 7. Click on the **M: AppData** drive, a red X should appear next to it
-8. Change the maximum disk sectors to **500000** (which is 500K or 5 zero's)
+8. Change the maximum disk sectors to **1000000** (which is a 1 & 6 zero's)
 9. Click on the **Access Specifications** tab
 10. Select `32K; 100% Read; 0% Random` and then click **add**
 11. Click the green flag at the top menu to *start tests*
 12. Save the results.csv file to the Documents folder
 13. IOMeter will warm up the drive by writing to the max sectors, then perform the IO Read using 32KB payloads.
-14. Click on the **Results Display** tab and then change the *Update Frequency* to **5** to have it refresh the results every 5 seconds
+14. Click on the **Results Display** tab and then change the *Update Frequency* to **5** to have it refresh the results every 5 seconds, and change the **Results Since** to `Last Update` so we can remove the outliers during the warming up period
 15. Note the **Total I/Os per Second**, **Total MBs per Second** and **Maximum I/O Response Time (ms)**.  Write the values down (they will fluctuate, but just write down the last seen numbers).
 16. Let this run for at least 3-5 mins to ensure you get good sample data
 17. After 3-5 mins, click **Stop** on the top menu
@@ -64,19 +63,37 @@ Use this performance table to help you better understand the analysis questions 
 20. How do the results compare between the test run on the M drive versus the L drive?  Are the pretty close?  Why is this if drive M is a P6 and L is a P40?
 21. From **VMSTOR1**, search for `Resource Manager` from the search bar and open the program.
 22. Click on the **Disk** tab and expand the **storage** blade 
-23. Re-run the step 11-17 again for either the M: or L: and watch the disk metrics in Reesource Monitor for pointers.  *Hint: pay close attention to the queue length of total disk compared to the disk IOMeter is running the test on.*
+23. Re-run the step 11-17 again for either the M: or L: and watch the disk metrics in Reesource Monitor for pointers.  *Hint: pay close attention to the throughput of total disk and the queue length of the disk IOMeter is running the test on.*
 24. What conclusions can you draw from this data and using the tables above?  Why do both the P10 and P40 disks perform relatively the same, when the P40 disk has more than double the IOPs and throughput?
 
 
 ## Exercise 2 - Maximize Storage Performance
-1. By now, you may have identified that the VM size is limiting the performance of read/write operations on the disk because a DS1_v2 only has 48 M/sec of throughput.
+1. By now, you may have identified that the VM size is limiting the performance of read/write operations on the disk because a DS1_v2 only has 32 MB/sec of throughput.
 2. You will now scale-up the VM to see if we can improve the performance of the existing attached disks.
 3. Browse to **VMSTOR1** within the Azure Portal
 4. Click on **Size** under the *Settings* section
 5. Change the size of VMSTOR1 to a **DS3_v2**  *Note: If you are using a free subscription, you must have deleted the VMs from all other labs to have enough core quota available.  If a DS3_v2 size is not available, ensure you have deleted all other VMs in your free subscription.*
 6. Click **Resize**
-7. Wait for the VM to resize and then restart.  Then remote back in to VMSTOR1 and repeat steps 11-17 once again, for both the L: and M: drives.
-8. 
+7. Wait for the VM to resize and then restart.  Then remote back in to VMSTOR1.
+8. Open Resource Monitor on VMSTOR1 and then repeat steps 11-17 once again, for both the L: and M: drives.  This time, monitor the performance using Resource Monitor while you are performing the load tests.  Once again, make sure to wait 3-5 minutes for the disks to warm up before making the assessment.
+9. Did the performance improve?  Is there any variation between the L: (P40) and M: (P10) drive?  How many IOPs is the M: (P10) disk receiving?  Is this number greater than the stated Max IOPs for that size disk?  What could contribute to this?
+
+
+## Exercise 3 - Putting it all together
+Let's summerize what you should have been able to observe from the first 2 exercises.  From the first exercise, you should have noticed that the disks were experiencing performance issues, observed by the size of their queue length.  This indicates that the disks could not keep up with the I/O requests.  You should have also noticed that the max throughput or **Total MBs per Second** was capping around 31 MB after the disks warmed up.  This coincides with the max throughput for a DS1_v2 of 32 MB/sec.  After scaling-up the VM in exercise 2 for a VM size with greater IOPs and throughput, you should have noticed performance increased for both disks.  However, both still saw high queue lengths and max throughput was capped around 128 MB, which again coincides with the max throughput for a DS3_v2.  We know now that VM throughput was preventing us from maximizing disk performance in both exercises.  Moving to a VM with a max throughput >= to the max throughput of a disk is optimal.  
+
+Did you notice any other weird behavior?  Maybe that in both exercises, both disks performed similar even through the P40 disk has greater IOPs and throughput.  Additionally, you should have noticed that the M: (P10) disk was able to handle IOPs 4K+, which is several thousand greater than its quoted max of 500.  What could attribute to this?  Let's find out.
+
+1. In the Azure portal, *stop and deallocate* VM **VMSTOR01**
+2. Once the VM is stopped, click ont he **Disks** menu item under *Settings*
+3. Click *Edit*
+4. Click on the **Detach** icon next to the two SQL P30 disks `(sqldisk1 and sqldisk2)` to detach them from VMSTOR1
+5. Click **Save**
+6. Once the disks are successfully detached, start VMSTOR1 and remote back in to the VM
+7. 
+
+
+
 
 <br></br>
 [Back to Table of Contents](./index.md#5-azure-storage)
