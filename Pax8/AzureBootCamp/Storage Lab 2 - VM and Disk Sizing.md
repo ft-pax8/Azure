@@ -36,7 +36,7 @@ Use this performance table to help you better understand the analysis questions 
 | DS3_v2                |  16,000               | 128 MB/sec                  |	12,800			| 192				|
 
 
-
+<br></br>
 
 ## Exercise 1 - Test Azure Disk Performance
 
@@ -95,6 +95,8 @@ Did you notice any other weird behavior?  In both exercises, both disks performe
 7. Play around with the **Global Access Specifications** under the *Access Specifications* tab using 512B, 4K, 16K, 32K or even a custom value to see how it impacts the results of the test.  You will have to stop and start IOMeter each time you would like to change the specification.
 8. Do the same within the Azure portal by turning on and off **Host Caching** to see how it impacts the performance
 9. Lastly, perform a final run on the S: drive.  You should see very similar results as you do when you run on the M: drive as long as all else is equal?  Why do the two P6 disks perform as well as the P10 disk?
+
+As you can see, not only does VM and disk sizing play an important role in optimizing disk - and ultimately app performance, but so does I/O size, host caching and networking (we didn't touch on networking in this lab).  These items are often overlooked and misunderstood, but hopefully you now have a good understanding of how to architect for optimal disk performance.
 
 <br></br>
 To learn more about optimizing disk performance for Azure disks, visit the [Azure premium storage: design for high performance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance) page.
