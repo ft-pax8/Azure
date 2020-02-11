@@ -94,7 +94,7 @@ Azure File Explorer is client that you can install on your machine to read/write
 
 You can download the free utility at [https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)
 
-1. 
+15. 
 
 
 <br></br>
