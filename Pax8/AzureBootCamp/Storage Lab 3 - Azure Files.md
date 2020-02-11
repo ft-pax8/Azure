@@ -5,10 +5,14 @@
 There are no prerequisites for this lab.
 
 ## Lab Concepts
+If users need to preseve a file structure where they can browse and modify files, Azure Files provides this capability. In this lab you will learn how to create Azure file shares that users can connect to.  You will map a drive to the new share and also create snapshots of files to protect them from accidentaly modification.  Lastly, you will use Azure Storage Explorer to see how easy it is to interact with Azure storage.
 
 
 After completing this lab, you should understand how to:
-1. 
+1. Create an Azure File Share
+1. Map a drive to an Azure File Share
+1. Create a File Share Snapshot
+1. Use Azure Storage Explorer to work with Azure Storage Accounts
 
 
 
@@ -94,7 +98,12 @@ Azure File Explorer is client that you can install on your machine to read/write
 
 You can download the free utility at [https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)
 
-15. 
+15. Lastly, in Azure Storage Explorer, click on **Disks** and then **storagePerf** resource group.
+16. You should see the disks you created in Storage Lab 1. 
+17. Select one and notice that you can download it as a VHD or even create a new snapshot of the disk.
+
+The takeaway here is that Azure Storage  is a standalone app that makes it easy to work with Azure Storage data on Windows, macOS, and Linux platforms.
+
 
 
 <br></br>
