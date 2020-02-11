@@ -48,11 +48,51 @@ There are multiple ways to connect to a file share - SMB, FTPS, NFS, API.  In th
 1. Switch back to the Z: and verify the new directory appears
 
 
-## Exercise 2 - Maximize Storage Performance
-1. By now, you may have identified that the VM size is limiting the performance of read/write operations on the disk because a DS1_v2 only has 32 MB/sec of throughput.
+## Exercise 3 - File Versioning
+Azure Files provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time.  This helps prevent against data corruption, accidental deletes/changes and also provides general backup.  Let's see how easy it is to implement.
+
+1. On your local machine, create two txt files named File1.txt and File2.txt
+1. Add some text to each file (at least 5 words)
+1. Save the text files and upload them to the Z:
+1. In the Azure portal, open **myfiles** and browse to the **Snapshots** menu item
+1. Generate a new snapshot by clicking **+ Add Snapshot**
+1. Wait for the snapshot to complete then go back to your Z:
+1. Delete File1.txt
+1. Open File2.txt and overwrite the text in the file with new text.  Save File2.txt
+1. Go back to the Azure portal and click **Overview** and then **Refresh**
+1. Verify File1.txt is deleted.  Open File2.txt and verify your text was overwritten succesfully and then close File2.txt
+1. Now that we know the delete and modify have been applied, let's restore them using the snapshot
+1. In the Azure Portal, click **Snapshots** and click on the snapshot you created
+1. Click File1.txt and then **Restore** in the new window
+1. Select **Overwrite original file** and click **ok**
+1. Now click on File2.txt and click **Restore**
+1. Select **Restore as a copy and rename** and rename the file to File2-restore.txt and click **OK**
+1. Go back to the Z: and verify File1.txt was restored and that you see the original File2.txt (now called File2-restore.txt).  Open File2-restore.txt to ensure the text matches the text you previously entered.
+
+You can create snapshots manually, or automatically using Azure Functions or Azure Automation.  The maximum number of share snapshots that Azure Files allows today is 200. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. Share snapshots are incremental in nature. Only the data that has changed after your most recent share snapshot is saved. This minimizes the time required to create the share snapshot and saves on storage costs. 
 
 
+## Exercise 4 - Explore the File Share using Azure File Explorer
+Azure File Explorer is client that you can install on your machine to read/write data to Azure Blob accounts.  It allows you to access the storage accounts using your Microsoft Account or your Storage's SAS Key or Access Token.
 
+1. If you don't have Azure Storage Explorer installed, browse to [https://azure.microsoft.com/en-us/features/storage-explorer/](https://azure.microsoft.com/en-us/features/storage-explorer/) to download and install it now.
+1. Once installed, open Azure Storage Explorer
+1. Click on the person icon on the left menu, **Manage Accounts**
+1. Login with your Microsoft account
+1. Once authenticated, browse to the storage account you created in exercise 1
+1. Expand the storage account and notice that you can see blob, queue, table and file shares
+1. Click on **File Shares** and then **MyFiles**
+1. You should see the files and directory you created in Exercise 3. 
+1. Browse the toolbar and the options available to you using Azure Storage Explorer, including the ability to browse snapshots.  However, note that you cannot upload to the file share as it does not support SMB
+1. Now right-click on **Blob Containers** and select **Create Blob Container** and name it `myblob`
+1. Select **myblob**
+1. Notice that now you have the ability to upload files directly to blob storge.  Click **upload** and **upload files** to upload a new file to the blob container
+1. Once uploaded, look in the bottom window.  You should see a message indicating the transfer is complete and then a `Copy AzCopy Command to Clipboard' click on this link.
+1. On your own machine, open a document editor and paste the AzCopy command you just copied.  
+
+```AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. You can download the free utility at https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10.  AZCopy is the recommended tool to upload/migrate on-premises data to Azure.  It is optimized to make this data transfer and often the fastest possible option.```
+
+1. 
 
 
 <br></br>
