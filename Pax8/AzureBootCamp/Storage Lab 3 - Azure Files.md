@@ -92,7 +92,7 @@ Azure File Explorer is client that you can install on your machine to read/write
 1. Select **myblob**
 1. Notice that now you have the ability to upload files directly to blob storge.  Click **upload** and **upload files** to upload a new file to the blob container
 1. Once uploaded, look in the bottom window.  You should see a message indicating the transfer is complete and then a `Copy AzCopy Command to Clipboard' click on this link.
-1. On your own machine, open a document editor and paste the AzCopy command you just copied.  
+1. On your own machine, open a document editor and paste the AzCopy command you just copied. This is an easy way to have the AZCopy syntax created automatically for you.  You can then modify select portions to suit your specific use case.
 
 >AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. AZCopy is the recommended tool to upload/migrate on-premises data to Azure.  It is optimized to make this data transfer and often the fastest possible option.
 
