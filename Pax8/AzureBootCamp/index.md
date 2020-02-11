@@ -14,7 +14,7 @@ Hello, you've reached the **Pax8 Azure Bootcamp** site.  Here you will find the 
 
 
 ## 2. Identity
-- [Identity Presentation](1%20-%20Azure%20Bootcamp%20-%20Azure%20and%20the%20Microsoft%20Hybrid%20Strategy.pdf)
+- [Identity Presentation](2%20-%20Azure%20Bootcamp%20-%20Hybrid%20Identity.pdf)
 > **Labs**
 - [Identity - Lab 1 - AD Connect Infrastructure Setup](Identity%20Lab%201%20-%20AD%20Connect%20Infrastructure%20Setup.md)
 - [Identity - Lab 2 - Pass Thru Authentication and High Availability (optional)](Identity%20Lab%202%20-%20AD%20Connect%20High%20Availability%20(Optional).md)
