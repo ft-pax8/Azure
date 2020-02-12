@@ -41,7 +41,7 @@ In this task you use the Azure CLI to create an Azure Virtual Machine running Wi
 7. Once the VM is created, let's open port 80 so we can access the VM's website from the internet. Run the follwing command:
 
     `az vm open-port --port 80 --resource-group Migration --name IIS`
-8. Now let's install IIS using a Custom Script Extension. **Please make sure you are running the CLI in Bash.  The script will error if you are using the PowerShell.** Run the following command:
+8. Now let's install IIS using a Custom Script Extension. **Please make sure you are running the CLI in Bash.  The script will error if you use PowerShell.** Run the following command:
 
     `az vm extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --vm-name IIS --resource-group Migration
  --settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'`
